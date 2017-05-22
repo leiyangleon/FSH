@@ -372,7 +372,10 @@ Input:
   
 Output: Script produces iteration files (.json format; e.g. “SC_#_iter.json” for “#”th iteration) that store the increment steps of S and C parameters and the residual; no values are returned by the function
 
-To run alone at the command line type: python directory_of_scripts/auto_mosaicking_new.py scenes edges start_scene N linkfile directory
+To run alone at the command line type: 
+
+python directory_of_scripts/auto_mosaicking_new.py scenes edges start_scene N linkfile directory
+
 In this case linkfile is the file name of the file that lists all the edge scene pairs, and all other parameters are as described above.
 
 -------------------------------------------------------------
@@ -400,7 +403,10 @@ Output:
 	scenename_geo.txt - text file that stores the geodata (width, lines, corner lat and lon, and lat and lon step values)
   
 	
-To run alone at the command line type: python directory_of_scripts/auto_tree_height_many.py scenes flagfile directory
+To run alone at the command line type: 
+
+python directory_of_scripts/auto_tree_height_many.py scenes flagfile directory
+
 All three parameters are as described above.
 
 -------------------------------------------------------------
