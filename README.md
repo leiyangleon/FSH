@@ -1075,7 +1075,7 @@ Input:
 	  directory (string) - directory path of where the input and output files are located
 
 	  filetype (string) - file extension for the desired output file type (.gif, .json, .kml, .mat, and .tif accepted -> input without the "." (e.g. "kml" instead of ".kml")
-
+	coords (numpy array) - array of max lat and lon values in the format [north, south, west, east]
 	  reffile (string) - reference filename containing ground truth data (optional - only needed for differential height map)
 
 Output:
