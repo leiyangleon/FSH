@@ -27,7 +27,7 @@ References:
 
 License:
 
-Forest Stand Height (FSH) Python Scripts. This software performs the automated forest height inversion and mosaicking from spaceborne repeat-pass InSAR correlation magnitude data (e.g. JAXA’s ALOS-1/2, and the future NASA-ISRO’s NISAR) that have been pre-processed by JPL’s ROI_PAC and/or ISCE programs.
+Forest Stand Height (FSH) Python Scripts. This software performs the automated forest height inversion and mosaicking from spaceborne repeat-pass L-band HV-pol InSAR correlation magnitude data (e.g. JAXA’s ALOS-1/2, and the future NASA-ISRO’s NISAR) that have been pre-processed by JPL’s ROI_PAC and/or ISCE programs.
 
 Copyright (C) 2017  Yang Lei, Paul Siqueira, Tracy Whelen.
 
