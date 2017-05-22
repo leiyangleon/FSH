@@ -47,12 +47,12 @@ II. Instructions and runtime estimates
 
 III. List of python files and corresponding descriptions
     
-    a. List of files
+   a. List of files
     
-    b. File Descriptions
+   b. File Descriptions
 	
 
-=====================================================================================
+====================================================================================
 
 I. Needed software packages and installation
 
