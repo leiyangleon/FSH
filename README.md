@@ -39,22 +39,22 @@ You should have received a copy of the GNU General Public License along with thi
 
 =====================================================================================
 
-Table of Contents:
+# Table of Contents:
 
-I. Needed software packages and installation
+## I. Needed software packages and installation
 
-II. Instructions and runtime estimates
+## II. Instructions and runtime estimates
 
-III. List of python files and corresponding descriptions
+## III. List of python files and corresponding descriptions
     
-   a. List of files
+   ### a. List of files
     
-   b. File Descriptions
+   ### b. File Descriptions
 	
 
 ====================================================================================
 
-I. Needed software packages and installation
+## I. Needed software packages and installation
 
 To run these python scripts the following software packages are needed:
 
@@ -85,7 +85,7 @@ Note: This software was originally developed and tested on a Windows machine. Py
 
 =====================================================================================
 
-II. Instructions and runtime estimates:
+## II. Instructions and runtime estimates:
 
 The overall workflow for the forest stand height model is as follows:
 1. Run ROI_PAC or ISCE (see parameter notes below)
@@ -265,7 +265,11 @@ Detailed information on each of the substeps can be found in the file descriptio
 
 =====================================================================================
 
-IIIa. List of Files:
+
+## III. List of python files and corresponding descriptions
+
+
+### IIIa. List of Files:
 
 
 arc_sinc.py
@@ -329,7 +333,7 @@ write_mapfile_new.py
 
 ---------------------------------------------------------------------------------------------------
 
-IIIb. File Descriptions:
+### IIIb. File Descriptions:
 
 arc_sinc.py - Calculates the inverse sinc function
 
