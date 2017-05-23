@@ -30,11 +30,18 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     strg=commands.getoutput('fgrep "master.instrument.radar_wavelength" '+logfile)
     llambda = float(string.split(strg)[-1])
 
-    strg=commands.getoutput('fgrep "SLC Starting Range" '+logfile)
-    first_range = float(string.split(strg)[string.split(strg).__len__()/2-1])
-    strg=commands.getoutput('fgrep "SLC width" '+logfile)
-    num_range_bin = float(string.split(strg)[string.split(strg).__len__()/2-1])
-    center_range = first_range + (num_range_bin/2-1)*range_pixel_res
+    strg=commands.getoutput('fgrep "runTopo.inputs.range_first_sample" '+logfile)
+    first_range = float(string.split(strg)[-1])
+    strg=commands.getoutput('fgrep "runTopo.inputs.width" '+logfile)
+    num_range_bin = float(string.split(strg)[-1])
+    strg=commands.getoutput('fgrep "runTopo.inputs.number_range_looks" '+logfile)
+    num_range_looks = float(string.split(strg)[-1])
+    center_range = first_range + (num_range_bin/2-1)*range_pixel_res*num_range_looks
+##    strg=commands.getoutput('fgrep "SLC Starting Range" '+logfile)
+##    first_range = float(string.split(strg)[string.split(strg).__len__()/2-1])
+##    strg=commands.getoutput('fgrep "SLC width" '+logfile)
+##    num_range_bin = float(string.split(strg)[string.split(strg).__len__()/2-1])
+##    center_range = first_range + (num_range_bin/2-1)*range_pixel_res
 
     strg=commands.getoutput('fgrep "master.instrument.incidence_angle" '+logfile)
     incid_angle = float(string.split(strg)[-1])
