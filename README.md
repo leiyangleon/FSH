@@ -23,8 +23,7 @@ References:
 
 1. Lei, Y. and Siqueira, P., 2014. Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine. Remote Sensing, 6(11), pp.10252-10285.
 2. Lei, Y. and Siqueira, P., 2015. An automatic mosaicking algorithm for the generation of a large-scale forest height map using spaceborne repeat-pass InSAR correlation magnitude. Remote Sensing, 7(5), pp.5639-5659.
-3. (**MOST RECENT**) Y. Lei, P. Siqueira, N. Torbick, M. Ducey, D. Chowdhury and W. Salas, "Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar," in IEEE Transactions on Geoscience and Remote Sensing, DOI: 10.1109/TGRS.2018.2860590
-URL: http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8439086&isnumber=4358825
+3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
 
 
 License:
