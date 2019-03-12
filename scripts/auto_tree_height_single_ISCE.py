@@ -33,9 +33,9 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     strg=commands.getoutput('fgrep "runTopo.inputs.range_first_sample" '+logfile)
     first_range = float(string.split(strg)[-1])
     strg=commands.getoutput('fgrep "runTopo.inputs.width" '+logfile)
-    num_range_bin = float(string.split(strg)[-1])
+    num_range_bin = int(string.split(strg)[-1])
     strg=commands.getoutput('fgrep "runTopo.inputs.number_range_looks" '+logfile)
-    num_range_looks = float(string.split(strg)[-1])
+    num_range_looks = int(string.split(strg)[-1])
     center_range = first_range + (num_range_bin/2-1)*range_pixel_res*num_range_looks
 ##    strg=commands.getoutput('fgrep "SLC Starting Range" '+logfile)
 ##    first_range = float(string.split(strg)[string.split(strg).__len__()/2-1])
@@ -57,7 +57,7 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     size_array = np.array([])
     for size in root.iter('property'):
         if size.items()[0][1] == 'size':
-            size_array = np.append(size_array, float(size.find('value').text))
+            size_array = np.append(size_array, int(size.find('value').text))
     for delta_val in root.iter('property'):
         if delta_val.items()[0][1] == 'delta':
             delta_array = np.append(delta_array, float(delta_val.find('value').text))
@@ -85,7 +85,7 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     size_array = np.array([])
     for size in root.iter('property'):
         if size.items()[0][1] == 'size':
-            size_array = np.append(size_array, float(size.find('value').text))
+            size_array = np.append(size_array, int(size.find('value').text))
     if (size_array[0]<geo_width)|(size_array[1]<geo_nlines):
         for delta_val in root.iter('property'):
             if delta_val.items()[0][1] == 'delta':

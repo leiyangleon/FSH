@@ -25,8 +25,8 @@ def auto_tree_height_single_ROIPAC(directory, date1, date2, numLooks, noiselevel
 #    pixel_area = range_pixel_res * azimuth_pixel_res
 
     geo_cor_rsc_file = "int_"+date1+"_"+date2+"/"+"geo_"+date1+"-"+date2+"_2rlks.cor.rsc"
-    geo_width = rrd.read_rsc_data(geo_cor_rsc_file, directory, "WIDTH")
-    geo_nlines = rrd.read_rsc_data(geo_cor_rsc_file, directory, "FILE_LENGTH")
+    geo_width = int(rrd.read_rsc_data(geo_cor_rsc_file, directory, "WIDTH"))
+    geo_nlines = int(rrd.read_rsc_data(geo_cor_rsc_file, directory, "FILE_LENGTH"))
     corner_lat = rrd.read_rsc_data(geo_cor_rsc_file, directory, "Y_FIRST")
     corner_lon = rrd.read_rsc_data(geo_cor_rsc_file, directory, "X_FIRST")
     step_lat = rrd.read_rsc_data(geo_cor_rsc_file, directory, "Y_STEP")

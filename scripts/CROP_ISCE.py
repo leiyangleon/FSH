@@ -18,7 +18,7 @@ root = tree.getroot()
 size_array = np.array([])
 for size in root.iter('property'):
     if size.items()[0][1] == 'size':
-        size_array = np.append(size_array, float(size.find('value').text))
+        size_array = np.append(size_array, int(size.find('value').text))
 width = size_array[0]
 length = size_array[1]
 
