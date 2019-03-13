@@ -12,9 +12,7 @@ Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
 Contact Information:
 
 Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen (twhelen@engin.umass.edu)
-Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu)
 
-Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen (twhelen@engin.umass.edu)
 Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu) 
 
 ***NOTE:*** Besides contacting the authors via email, it is also recommended to ask any technical questions through creating an issue on GitHub (clicking on the "Issues" tab and creating a new issue).
@@ -116,7 +114,7 @@ while for ISCE-processed results, run the following command within the execution
 
 python directory_of_scripts/CROP_ISCE.py
 
-***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.  ***
+***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.***
 
 ---------------------------------------------------------------------------------------------------
 
@@ -155,26 +153,26 @@ The input files that need to be in file_directory are:
 	
   - link_file - a text file that lists all the edge scene pairs. Each line consists of the two numbers that correspond to the flag numbers for those two scenes. (e.g. "2 1" would be the line for the edge of the above scenes 001 and 002). If using a single ALOS scene this file is unneeded, and input "-" instead of the file name for the command line arguments.	
 	
-  - file_directory - the root directory that consists of the individual scenes-directories. Each scene should have a directory named f#1_o#2 where #1 is the frame number and #2 is the orbit number (e.g. “f890_o120” for the above scene 001). This directory will both contain the input ROI_PAC/ISCE files, as well be the output location for all files that are associated with only that scene.
+  - file_directory - the root directory that consists of the individual scenes-directories. Each scene should have a directory named "f$frame_o$orbit" (e.g. “f890_o120” for the above scene 001). This directory will both contain the input ROI_PAC/ISCE files, as well be the output location for all files that are associated with only that scene.
 
 ---------------------------------------------------------------------------------------------------
 
 
-For each ROI_PAC-processed scene, the following files should be located in a directory with the format “f#1_o#2/int_date1_date2":
+For each ROI_PAC-processed scene, the following files should be located in a directory with the format “f$frame_o$orbit/int_$date1_$date2":
 		
-    date1_date2_baseline.rsc
+    $date1_$date2_baseline.rsc
 		
-    date1-date2.amp.rsc
+    $date1-$date2.amp.rsc
 		
-    date1-date2_2rlks.amp.rsc
+    $date1-$date2_2rlks.amp.rsc
 		
-    date1-date2-sim_SIM_2rlks.int.rsc
+    $date1-$date2-sim_SIM_2rlks.int.rsc
 		
-    geo_date1-date2_2rlks.amp
+    geo_$date1-$date2_2rlks.amp
 		
-    geo_date1-date2_2rlks.cor	
+    geo_$date1-$date2_2rlks.cor	
 		
-    geo_date1-date2_2rlks.cor.rsc
+    geo_$date1-$date2_2rlks.cor.rsc
 		
 *** Note: ROI_PAC’s process_2pass.pl should be run with 2 range looks and 10 azimuth looks in both coherence estimation and multi-looking  (equivalent to a 30m-by-30m area for JAXA’s ALOS), with the following lines added to the process file:
 		
