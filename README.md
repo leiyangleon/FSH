@@ -3,36 +3,37 @@
 Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 
 113 Knowles Engineering Building, University of Massachusetts at Amherst, Amherst, MA, USA 01003
-
-
-
+  
+  
+  
 Scripts written Summer 2015 by Tracy Whelen, based on Matlab code written by Yang Lei. Then modified by Yang Lei in 2015 through 2017.
 Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
-
-
-
+  
+  
+  
 **Contact Information:**
 
 Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen (twhelen@engin.umass.edu)  
 Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu)  
+  
 ***NOTE: Besides contacting the authors via email, it is also recommended to ask any technical questions through creating an issue on GitHub (clicking on the "Issues" tab and then "New issue" or using the link below https://github.com/leiyangleon/FSH/issues).***
-
-
-
+  
+  
+  
 **Citation:** 
 
 https://github.com/leiyangleon/FSH/
-
-
-
+  
+  
+  
 **References:** 
 
 1. Lei, Y. and Siqueira, P., 2014. Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine. Remote Sensing, 6(11), pp.10252-10285.
 2. Lei, Y. and Siqueira, P., 2015. An automatic mosaicking algorithm for the generation of a large-scale forest height map using spaceborne repeat-pass InSAR correlation magnitude. Remote Sensing, 7(5), pp.5639-5659.
 3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
-
-
-
+  
+  
+  
 **License:**
 
 Forest Stand Height (FSH) Python Scripts. This software performs the automated forest height inversion and mosaicking from spaceborne repeat-pass L-band HV-pol InSAR correlation magnitude data (e.g. JAXA’s ALOS-1/2, and the future NASA-ISRO’s NISAR) that have been pre-processed by JPL’s ROI_PAC and/or ISCE programs.
