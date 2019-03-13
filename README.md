@@ -5,8 +5,10 @@ Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 113 Knowles Engineering Building, University of Massachusetts at Amherst, Amherst, MA, USA 01003
 
 
+
 Scripts written Summer 2015 by Tracy Whelen, based on Matlab code written by Yang Lei. Then modified by Yang Lei in 2015 through 2017.
 Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
+
 
 
 Contact Information:
@@ -15,7 +17,8 @@ Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whel
 
 Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu) 
 
-***NOTE:*** Besides contacting the authors via email, it is also recommended to ask any technical questions through creating an issue on GitHub (clicking on the "Issues" tab and creating a new issue).
+***NOTE: Besides contacting the authors via email, it is also recommended to ask any technical questions through creating an issue on GitHub (clicking on the "Issues" tab and creating a new issue).***
+
 
 
 Citation: 
@@ -23,11 +26,13 @@ Citation:
 https://github.com/leiyangleon/FSH/
 
 
+
 References: 
 
 1. Lei, Y. and Siqueira, P., 2014. Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine. Remote Sensing, 6(11), pp.10252-10285.
 2. Lei, Y. and Siqueira, P., 2015. An automatic mosaicking algorithm for the generation of a large-scale forest height map using spaceborne repeat-pass InSAR correlation magnitude. Remote Sensing, 7(5), pp.5639-5659.
 3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
+
 
 
 License:
@@ -41,6 +46,8 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
 
 =====================================================================================
 
@@ -187,7 +194,7 @@ For each ROI_PAC-processed scene, the following files should be located in a dir
 A 5-point triangle window is hardcoded in ROI_PAC, which is equivalent to a 2-point rectangle window. For further details on running ROI_PAC see the ROI_PAC manual. ***
 
 
-For each ISCE-processed scene, the following files should be located in a directory with the format “f#1_o#2/int_date1_date2":
+For each ISCE-processed scene, the following files should be located in a directory with the format “f$frame_o$orbit/int_$date1_$date2":
 		
     isce.log
 		
