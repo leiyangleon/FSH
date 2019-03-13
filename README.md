@@ -13,7 +13,7 @@ Contact Information:
 Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen (twhelen@engin.umass.edu) 
 Forest Stand Height Model -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@ecs.umass.edu)
 
-**NOTE** Besides contacting the authors via email, it is also recommended to ask any technical questions through creating an issue on GitHub (clicking on the "Issues" tab and creating a new issue).
+***NOTE:*** Besides contacting the authors via email, it is also recommended to ask any technical questions through creating an issue on GitHub (clicking on the "Issues" tab and creating a new issue).
 
 Citation: 
 
