@@ -60,7 +60,7 @@ You should have received a copy of the GNU General Public License along with thi
 To run these python scripts the following software packages are needed:
 
 Python (This code was developed and tested using Version 2.7)
-Additional Python packages: NumPy, SciPy, SimPy, json, pillow, OsGeo/GDAL, simplekml
+Additional Python packages: NumPy, SciPy, SimPy, json, pillow, OsGeo/GDAL, simplekml, mpmath
 
 Note: This software was originally developed and tested on a Windows machine. Python code should be runnable from a Linux operating system. However, it was indeed tested on Macintosh computers running various OS X (e.g. 10.9, 10.10, 10.11). If help with setting up on Linux is needed please contact the developers and it can be put on the list of future improvements.
 
