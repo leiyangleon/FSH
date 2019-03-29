@@ -6,7 +6,7 @@ Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
   
   
   
-Scripts written Summer 2015 by Tracy Whelen, based on Matlab code written by Yang Lei. Then modified by Yang Lei in 2015 through 2017.
+Scripts written Summer 2015 by Tracy Whelen, based on Matlab code written by Yang Lei. Then modified by Yang Lei thus far.
 Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
   
   
