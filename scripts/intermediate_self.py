@@ -92,10 +92,10 @@ def intermediate_self(start_scene, flagfile, ref_file, maskfile, directory):
     overlap_west = max(west1, west2)
 
     # Calculate overlap boundaries in coordinates of image2 (ex image1[1000-1200] vs image2[0-200])
-    xw2 = round(((overlap_west - west2) / D) + 1)
-    xe2 = round(((overlap_east - west2) / D) + 1)
-    xn2 = round((-(overlap_north - north2) / D) + 1)
-    xs2 = round((-(overlap_south - north2) / D) + 1) 
+    xw2 = int(round(((overlap_west - west2) / D) + 1))
+    xe2 = int(round(((overlap_east - west2) / D) + 1))
+    xn2 = int(round((-(overlap_north - north2) / D) + 1))
+    xs2 = int(round((-(overlap_south - north2) / D) + 1))
   
     # Set overlap sections for the LiDAR and SAR images
     I1 = corr1.copy()

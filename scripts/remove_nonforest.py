@@ -42,10 +42,10 @@ def remove_nonforest(I, func_coords, maskfile, directory):
     file_coords = array([corner_lat, (corner_lat + (nlinesT - 1.0) * post_lat), corner_lon, (corner_lon + (widthT - 1.0) * post_lon)])
     
     # Calculate overlap boundaries in new coordinate system
-    xw = round(((func_coords[2] - file_coords[2]) / post_lon) + 1)
-    xe = round(((func_coords[3] - file_coords[2]) / post_lon) + 1)
-    xn = round(((func_coords[0] - file_coords[0]) / post_lat) + 1)
-    xs = round(((func_coords[1] - file_coords[0]) / post_lat) + 1)
+    xw = int(round(((func_coords[2] - file_coords[2]) / post_lon) + 1))
+    xe = int(round(((func_coords[3] - file_coords[2]) / post_lon) + 1))
+    xn = int(round(((func_coords[0] - file_coords[0]) / post_lat) + 1))
+    xs = int(round(((func_coords[1] - file_coords[0]) / post_lat) + 1))
 
     # Trim mask
     mask = logical_not(mask[xw-1:xe][:, xn-1:xs])

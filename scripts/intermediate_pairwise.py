@@ -108,14 +108,14 @@ def intermediate_pairwise(flag1, flag2, flagfile, maskfile, directory):
     overlap_west = max(west1, west2)
 
     # Calculate overlap boundaries in coordinates of each image (ex image1[1000-1200] vs image2[0-200])
-    xw1 = round(((overlap_west - west1) / D) + 1)
-    xe1 = round(((overlap_east - west1) / D) + 1)
-    xn1 = round((-(overlap_north - north1) / D) + 1)
-    xs1 = round((-(overlap_south - north1) / D) + 1)
-    xw2 = round(((overlap_west - west2) / D) + 1)
-    xe2 = round(((overlap_east - west2) / D) + 1)
-    xn2 = round((-(overlap_north - north2) / D) + 1)
-    xs2 = round((-(overlap_south - north2) / D) + 1) 
+    xw1 = int(round(((overlap_west - west1) / D) + 1))
+    xe1 = int(round(((overlap_east - west1) / D) + 1))
+    xn1 = int(round((-(overlap_north - north1) / D) + 1))
+    xs1 = int(round((-(overlap_south - north1) / D) + 1))
+    xw2 = int(round(((overlap_west - west2) / D) + 1))
+    xe2 = int(round(((overlap_east - west2) / D) + 1))
+    xn2 = int(round((-(overlap_north - north2) / D) + 1))
+    xs2 = int(round((-(overlap_south - north2) / D) + 1))
 
     # Set overlap sections from each image
     I1 = corr1[xw1-1:xe1][:, xn1-1:xs1]

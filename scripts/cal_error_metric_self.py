@@ -53,8 +53,8 @@ def cal_error_metric_self(deltaS2, deltaC2, directory, N_self):
     # NX and NY are the subsection dimensions
     NX = N_self
     NY = N_self
-    M = fix(lines / NY)
-    N = fix(samples / NX)
+    M = int(fix(lines / NY))
+    N = int(fix(samples / NX))
 
     # Create JM and JN, which is the remainder after dividing into subsections
     JM = lines % NY

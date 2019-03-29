@@ -68,8 +68,8 @@ def cal_KB_pairwise_new(scene1, scene2, deltaS1, deltaC1, deltaS2, deltaC2, dire
     # NX and NY are the subsection dimensions
     NX = Nd_pairwise
     NY = Nd_pairwise
-    M = fix(lines / NY)
-    N = fix(samples / NX)
+    M = int(fix(lines / NY))
+    N = int(fix(samples / NX))
 
     # Create JM and JN, which is the remainder after dividing into subsections
     JM = lines % NY

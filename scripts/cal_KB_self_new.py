@@ -55,8 +55,8 @@ def cal_KB_self_new(deltaS2, deltaC2, directory, Nd_self, bin_size, sparse_lidar
     # NX and NY are the subsection dimensions
     NX = Nd_self
     NY = Nd_self
-    M = fix(lines / NY)
-    N = fix(samples / NX)
+    M = int(fix(lines / NY))
+    N = int(fix(samples / NX))
 
     # Create JM and JN, which is the remainder after dividing into subsections
     JM = lines % NY
