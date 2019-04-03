@@ -530,7 +530,7 @@ Output:
 -------------------------------------------------------------
 
 
-cal_error_metric_pairwise_new.py - Calculates the R and RMSE error metrics for a pair of overlapping images
+cal_error_metric_pairwise.py - Calculates the R and RMSE error metrics for a pair of overlapping images
 
 Input:
 	
@@ -564,7 +564,7 @@ Output:
 -------------------------------------------------------------
 
 
-cal_error_metric_self_new.py - Calculates the R and RMSE error metrics for the central scene and overlapping ground truth data
+cal_error_metric_self.py - Calculates the R and RMSE error metrics for the central scene and overlapping ground truth data
 
 Input:
 	
