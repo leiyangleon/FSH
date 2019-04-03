@@ -22,12 +22,12 @@ def cal_error_metric(dp, edges, start_scene, link, directory, N_pairwise, N_self
 
         # for each edge run cal_error_metric_pairwise and put the output into YY
         for i in range(edges):
-            R_temp, RMSE_temp = emp.cal_error_metric_pairwise(int(link[i, 0]), int(link[i, 1]), dp[(2*link[i, 0])-2], dp[(2*link[i, 0])-1], dp[(2*link[i, 1])-2], dp[(2*link[i, 1])-1], directory, N_pairwise)
+            R_temp, RMSE_temp = emp.cal_error_metric_pairwise(int(link[i, 0]), int(link[i, 1]), dp[int((2*link[i, 0])-2)], dp[int((2*link[i, 0])-1)], dp[int((2*link[i, 1])-2)], dp[int((2*link[i, 1])-1)], directory, N_pairwise)
             YY[2 * i] = R_temp
             YY[(2 * i) + 1] = RMSE_temp
     
     # run cal_error_metric_self and put output into YY
-    R_temp, RMSE_temp = ems.cal_error_metric_self(dp[(2 * start_scene) - 2], dp[(2 * start_scene) - 1], directory, N_self)
+    R_temp, RMSE_temp = ems.cal_error_metric_self(dp[int((2 * start_scene) - 2)], dp[int((2 * start_scene) - 1)], directory, N_self)
     YY[(2 * (edges + 1)) - 2] = R_temp
     YY[(2 * (edges + 1)) - 1] = RMSE_temp
     

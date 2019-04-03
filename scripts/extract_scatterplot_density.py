@@ -3,8 +3,8 @@
 # November 3, 2015
 
 # This script calculates the 2D histogram of the scatter plot between pairs of forest height, 
-# and returns the forest height pairs with relatively large density. This script is incorporated
-# to replace the previous remove_outlier.py since through the use of this function, the current 
+# and returns the forest height pairs with relatively large density. This script was incorporated
+# to replace the previous remove_outlier.py for sparse lidar samples since through the use of this function, the current 
 # version of code is capable of distinguishing forest disturbance and forest height estimation. 
 
 #!/usr/bin/python

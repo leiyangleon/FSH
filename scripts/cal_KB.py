@@ -24,14 +24,14 @@ def cal_KB(dp, edges, start_scene, link, directory, Nd_pairwise, Nd_self, bin_si
         # for each edge run cal_KB_pairwise_new and put the output into YY
         for i in range(edges):
 #            print (time.strftime("%H:%M:%S"))
-            k_temp, b_temp = kbp.cal_KB_pairwise_new(int(link[i, 0]), int(link[i, 1]), dp[(2*link[i, 0])-2], dp[(2*link[i, 0])-1], dp[(2*link[i, 1])-2], dp[(2*link[i, 1])-1], directory, Nd_pairwise, bin_size)
+            k_temp, b_temp = kbp.cal_KB_pairwise_new(int(link[i, 0]), int(link[i, 1]), dp[int((2*link[i, 0])-2)], dp[int((2*link[i, 0])-1)], dp[int((2*link[i, 1])-2)], dp[int((2*link[i, 1])-1)], directory, Nd_pairwise, bin_size)
 #            print (time.strftime("%H:%M:%S"))
             YY[2 * i] = k_temp
             YY[(2 * i) + 1] = b_temp
 
     # run cal_KB_self_new and put output into YY
 
-    k_temp, b_temp = kbs.cal_KB_self_new(dp[(2 * start_scene) - 2], dp[(2 * start_scene) - 1], directory, Nd_self, bin_size, flag_sparse)
+    k_temp, b_temp = kbs.cal_KB_self_new(dp[int((2 * start_scene) - 2)], dp[int((2 * start_scene) - 1)], directory, Nd_self, bin_size, flag_sparse)
     YY[(2 * (edges + 1)) - 2] = k_temp
     YY[(2 * (edges + 1)) - 1] = b_temp
     
