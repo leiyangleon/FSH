@@ -54,7 +54,7 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     root = tree.getroot()
     delta_array = np.array([])
     start_array = np.array([])
-    size_array = np.array([])
+    size_array = np.array([], dtype=np.int32)
     for size in root.iter('property'):
         if size.items()[0][1] == 'size':
             size_array = np.append(size_array, int(size.find('value').text))
@@ -82,7 +82,7 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     root = tree.getroot()
     delta_array = np.array([])
     start_array = np.array([])
-    size_array = np.array([])
+    size_array = np.array([], dtype=np.int32)
     for size in root.iter('property'):
         if size.items()[0][1] == 'size':
             size_array = np.append(size_array, int(size.find('value').text))
