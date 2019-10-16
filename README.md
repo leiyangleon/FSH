@@ -15,24 +15,30 @@ Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
   
 **Contact Information:**
 
-Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen (twhelen@engin.umass.edu)  
+Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen  
 Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu)  
   
 ***NOTE: Besides contacting the authors via email for technical questions, it is also recommended to refer to the closed issues or open a new issue on GitHub (https://github.com/leiyangleon/FSH/issues), where one has to first sign up for a GitHub account.***
   
   
   
-**Citation:** 
+**Link:** 
 
 https://github.com/leiyangleon/FSH/
+
+**Citation:**
+Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
   
   
   
 **References:** 
 
 1. Lei, Y. and Siqueira, P., 2014. Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine. Remote Sensing, 6(11), pp.10252-10285.
+https://www.mdpi.com/2072-4292/6/11/10252
 2. Lei, Y. and Siqueira, P., 2015. An automatic mosaicking algorithm for the generation of a large-scale forest height map using spaceborne repeat-pass InSAR correlation magnitude. Remote Sensing, 7(5), pp.5639-5659.
+https://www.mdpi.com/2072-4292/7/5/5639
 3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
+https://ieeexplore.ieee.org/document/8439086
   
   
   
