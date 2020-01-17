@@ -34,12 +34,12 @@ Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019
   
 ## References:
 
-1. Lei, Y. and Siqueira, P., 2014. Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine. Remote Sensing, 6(11), pp.10252-10285.
-https://www.mdpi.com/2072-4292/6/11/10252
-2. Lei, Y. and Siqueira, P., 2015. An automatic mosaicking algorithm for the generation of a large-scale forest height map using spaceborne repeat-pass InSAR correlation magnitude. Remote Sensing, 7(5), pp.5639-5659.
-https://www.mdpi.com/2072-4292/7/5/5639
-3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
-https://ieeexplore.ieee.org/document/8439086
+1. Lei, Y. and Siqueira, P., 2014. [Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine](https://www.mdpi.com/2072-4292/6/11/10252). Remote Sensing, 6(11), pp.10252-10285.
+
+2. Lei, Y. and Siqueira, P., 2015. [An automatic mosaicking algorithm for the generation of a large-scale forest height map using spaceborne repeat-pass InSAR correlation magnitude](https://www.mdpi.com/2072-4292/7/5/5639). Remote Sensing, 7(5), pp.5639-5659.
+
+3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. [Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar](https://ieeexplore.ieee.org/document/8439086). IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
+
   
 ## Additional Reference:
 
