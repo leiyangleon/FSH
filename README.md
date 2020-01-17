@@ -46,6 +46,12 @@ Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019
 The scripts have been updated to Python 3 as part of a workshop supporting [Chapter 4](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4.pdf) (with [tutorial](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4_appendixC.pdf)) of the [SAR Handbook](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation).
 
 Citation: Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.
+
+## Updates:
+
+* This Python 2 version of the scripts have been updated to Python 3, which will be ready to use soon.
+* This software has been tested with [ISCE v2.0.0 (released on 20160908)](https://winsar.unavco.org/software/isce). This version can process all the ALOS-1 and ALOS-2 stripmap InSAR pairs.
+* It has been tested and failed to work with newer versions of ISCE due to ISCE file format change. We will work on the updated release of FSH (v2.0) for working with all the ISCE versions, including ISCE v3.0 for processing NISAR data. 
   
 ## License:
 
