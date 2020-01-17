@@ -46,7 +46,11 @@ https://www.mdpi.com/2072-4292/7/5/5639
 3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
 https://ieeexplore.ieee.org/document/8439086
   
-  
+**Additional Reference:**
+
+The scripts have been updated to Python 3 as part of a workshop supporting chapter 4 of the SAR Handbook
+(https://github.com/leiyangleon/FSH/blob/master/LICENSE)
+Citation: Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.
   
 **License:**
 
