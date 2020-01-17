@@ -21,7 +21,7 @@ Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
 Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen  
 Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu)  
   
-***NOTE: Besides contacting the authors via email for technical questions, it is also recommended to refer to the closed issues or open a [new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
+***NOTE: Besides contacting the authors via email for technical questions, it is also recommended to [refer to the closed issues or open a new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
   
   
 
