@@ -17,7 +17,7 @@ Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
 
 ## Notes:
 
-***1.This Python 2 version of the scripts have been updated to Python 3, which will be ready to use soon.***
+***1. This Python 2 version of the scripts have been updated to Python 3, which will be ready to use soon.***
 
 ***2. This software has been tested with [ISCE v2.0.0 (released on 20160908)](https://winsar.unavco.org/software/isce). This version of ISCE can process all the ALOS-1 and ALOS-2 stripmap InSAR pairs.***
 
