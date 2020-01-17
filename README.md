@@ -48,8 +48,9 @@ https://ieeexplore.ieee.org/document/8439086
   
 **Additional Reference:**
 
-The scripts have been updated to Python 3 as part of a workshop supporting chapter 4 of the SAR Handbook
+The scripts have been updated to Python 3 as part of a workshop supporting chapter 4 of the [SAR Handbook]
 (https://github.com/leiyangleon/FSH/blob/master/LICENSE)
+
 Citation: Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.
   
 **License:**
