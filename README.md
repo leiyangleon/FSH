@@ -10,15 +10,13 @@
 Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 
 113 Knowles Engineering Building, University of Massachusetts at Amherst, Amherst, MA, USA 01003
-  
-  
-  
+
 Scripts written Summer 2015 by Tracy Whelen, based on Matlab code written by Yang Lei. Then modified by Yang Lei thus far.
 Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
   
   
   
-##Contact Information:
+## Contact Information:
 
 Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen  
 Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu)  
@@ -28,13 +26,13 @@ Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu)
   
 
 
-##Citation:
+## Citation:
 
 Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
   
   
   
-##References:
+## References:
 
 1. Lei, Y. and Siqueira, P., 2014. Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine. Remote Sensing, 6(11), pp.10252-10285.
 https://www.mdpi.com/2072-4292/6/11/10252
@@ -43,13 +41,13 @@ https://www.mdpi.com/2072-4292/7/5/5639
 3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
 https://ieeexplore.ieee.org/document/8439086
   
-##Additional Reference:
+## Additional Reference:
 
 The scripts have been updated to Python 3 as part of a workshop supporting chapter 4 of the [SAR Handbook](https://github.com/leiyangleon/FSH/blob/master/LICENSE)
 
 Citation: Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.
   
-##License:
+## License:
 
 Forest Stand Height (FSH) Python Scripts. This software performs the automated forest height inversion and mosaicking from spaceborne repeat-pass L-band HV-pol InSAR correlation magnitude data (e.g. JAXA’s ALOS-1/2, and the future NASA-ISRO’s NISAR) that have been pre-processed by JPL’s ROI_PAC and/or ISCE programs.
 
