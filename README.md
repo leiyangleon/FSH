@@ -16,13 +16,13 @@ Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
   
 
 ## Notes:
-```diff
-- This Python 2 version of the scripts have been updated to Python 3, which will be ready to use soon.
 
-- This software has been tested with [ISCE v2.0.0 (released on 20160908)](https://winsar.unavco.org/software/isce). This version of ISCE can process all the ALOS-1 and ALOS-2 stripmap InSAR pairs.
+***1. This Python 2 version of the scripts have been updated to Python 3, which will be ready to use soon.***
 
-- It has been tested and failed to work with newer versions of ISCE due to ISCE file format change. We will work on the updated release of FSH (v2.0) for working with all the ISCE versions, including ISCE v3.0 for processing the future NISAR data.
-```
+***2. This software has been tested with [ISCE v2.0.0 (released on 20160908)](https://winsar.unavco.org/software/isce). This version of ISCE can process all the ALOS-1 and ALOS-2 stripmap InSAR pairs.***
+
+***3. It has been tested and failed to work with newer versions of ISCE due to ISCE file format change. We will work on the updated release of FSH (v2.0) for working with all the ISCE versions, including ISCE v3.0 for processing the future NISAR data.***
+
   
 ## Contact Information:
 
