@@ -1,7 +1,7 @@
-1. Download the directory “test_example_ISCE” from the link:
-https://drive.google.com/file/d/0B6s-Z6YH5T12Q2g0cWprSUtiMDA/view?usp=sharing
+1. Download the directory “test_example_ISCE” from the link and move to the sub-directory "Inputs_to_FSH":
+https://drive.google.com/drive/folders/1n2kbQUlbzX98qHj1DUJqThTJJc5-RVNd
 
-2. Under test_example_ISCE/, you will find the flag_file (“flagfile.txt”), link_file (“linkfile.txt”), ref_file (“Howland_LVIS_NaN.tif”), mask_file (“Maine_NLCD2011_nonwildland.tif”). All of the associated files for three ALOS PALSAR HV-pol InSAR coherence scenes are grouped by their ALOS (“f$frame_o$orbit”) and their acquisition dates (under the subfolder “int_$date1_$date2”). For each scene, there are five associated files outputted by ISCE: “isce.log”, “resampOnlyImage.amp.geo”, “resampOnlyImage.amp.geo.xml”, “topophase.cor.geo”, “topophase.cor.geo.xml”. This "NOTES_ISCE.txt" serves as the instructions for running the FSH software over this test example directory. Finally, a image “ISCE.jpeg” shows the final output of 3-scene mosaic map (GeoTiff format) overlaid on Google Earth in a QGIS window. 
+2. Under test_example_ISCE/Inputs_to_FSH, you will find the flag_file (“flagfile.txt”), link_file (“linkfile.txt”), ref_file (“Howland_LVIS_NaN.tif”), mask_file (“Maine_NLCD2011_nonwildland.tif”). All of the associated files for three ALOS PALSAR HV-pol InSAR coherence scenes are grouped by their ALOS (“f$frame_o$orbit”) and their acquisition dates (under the subfolder “int_$date1_$date2”). For each scene, there are five associated files outputted by ISCE: “isce.log”, “resampOnlyImage.amp.geo”, “resampOnlyImage.amp.geo.xml”, “topophase.cor.geo”, “topophase.cor.geo.xml”. This "NOTES_ISCE.txt" serves as the instructions for running the FSH software over this test example directory. Finally, a image “ISCE.jpeg” shows the final output of 3-scene mosaic map (GeoTiff format) overlaid on Google Earth in a QGIS window. 
 
 ***All of the ALOS images files have already been margin-cropped and geocoded in the pre-processing by ISCE (Step 2 & 3 of the general workflow in Section II on the GitHub webpage, i.e. "README.md" file).***
 
