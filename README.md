@@ -12,13 +12,19 @@ Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 
 113 Knowles Engineering Building, University of Massachusetts at Amherst, Amherst, MA, USA 01003
 
-Scripts written Summer 2015 by Tracy Whelen, based on Matlab code written by Yang Lei. Then modified by Yang Lei thus far.
-Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
+Scripts written Summer 2015 by Tracy Whelen, based on Matlab code originally developed by Yang Lei. Then modified by Yang Lei thus far. Some scripts contain code written by Diya Chowdhury, and Gerard Ruiz Carregal
+
+The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlamai (SERVIR-Mekong, Asian Disaster Preparedness Center) and Tim Mayer (NASA SERVIR).
+
+
+
+
+
   
 
 ## Notes:
 
-***1. This Python 2 version of the scripts have been updated to Python 3, which will be ready to use soon.***
+***1. This Python 2 version of the scripts have been updated to Python 3. Please use the folder "scripts_Py3" instead. This Python 3 version of the scripts can be run the same as the Python 2 version, or can be run in Google Colaboratory (with unix operating system) using [Exercise_1_FSH on the SERVIR Global GitHub](https://github.com/SERVIR/ForestStandHeight). ***
 
 ***2. This software has been tested with [ISCE v2.0.0 (released on 20160908)](https://winsar.unavco.org/software/isce). This version of ISCE can process all the ALOS-1 and ALOS-2 stripmap InSAR pairs.***
 
