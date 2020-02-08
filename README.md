@@ -24,7 +24,7 @@ The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlam
 
 ## Notes:
 
-***1. This Python 2 version of the scripts have been updated to Python 3. Please use the folder "scripts_Py3" instead. This Python 3 version of the scripts can be run the same as the Python 2 version, or can be run in Google Colaboratory (with unix operating system) using [Exercise_1_FSH on the SERVIR Global GitHub](https://github.com/SERVIR/ForestStandHeight). ***
+***1. This Python 2 version of the scripts have been updated to Python 3. Please use the folder "scripts_Py3" instead. This Python 3 version of the scripts can be run the same as the Python 2 version, or can be run in Google Colaboratory (with unix operating system) using [Exercise_1_FSH on the SERVIR Global GitHub](https://github.com/SERVIR/ForestStandHeight).***
 
 ***2. This software has been tested with [ISCE v2.0.0 (released on 20160908)](https://winsar.unavco.org/software/isce). This version of ISCE can process all the ALOS-1 and ALOS-2 stripmap InSAR pairs.***
 
