@@ -1,6 +1,7 @@
 # Forest Stand Height (FSH) Python Scripts
 
-[![Language](https://img.shields.io/badge/python-2.7%2B-blue.svg)](https://www.python.org/)
+[![Language](https://img.shields.io/badge/python-2.7%2-blue.svg)](https://www.python.org/)
+[![Language](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/)
 ![Latest version](https://img.shields.io/badge/latest%20version-v1.0-yellowgreen.svg)
 [![License](https://img.shields.io/badge/License-GNU%203.0-blue.svg)](https://github.com/leiyangleon/FSH/blob/master/LICENSE)
 [![Citation](https://img.shields.io/badge/DOI-10.1109/TGRS.2018.2860590-blue)](https://doi.org/10.1109/TGRS.2018.2860590)
