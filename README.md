@@ -1,7 +1,6 @@
 # Forest Stand Height (FSH) Python Scripts
 
 [![Language](https://img.shields.io/badge/python-2.7/3.6%2B-blue.svg)](https://www.python.org/)
-[![Language](https://img.shields.io/badge/python-3.6%2B-blue.svg)](https://www.python.org/)
 ![Latest version](https://img.shields.io/badge/latest%20version-v1.0-yellowgreen.svg)
 [![License](https://img.shields.io/badge/License-GNU%203.0-blue.svg)](https://github.com/leiyangleon/FSH/blob/master/LICENSE)
 [![Citation](https://img.shields.io/badge/DOI-10.1109/TGRS.2018.2860590-blue)](https://doi.org/10.1109/TGRS.2018.2860590)
@@ -30,8 +29,9 @@ The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlam
   
 ## Contact Information:
 
-Python code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen  
+Python 2 code -- Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Tracy Whelen  
 Forest Stand Height Model -- Yang Lei, Paul Siqueira (siqueira@ecs.umass.edu)  
+Python 3 update -- Helen Baldwin (helen.b.baldwin@nasa.gov, hbb0009@uah.edu), Tim Mayer (timothy.j.mayer@nasa.gov, tjm0042@uah.edu)
   
 ***Besides contacting the authors via email for technical questions, it is also recommended to [refer to the closed issues or open a new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
   
