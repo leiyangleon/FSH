@@ -22,32 +22,32 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
 
 
     # Extract ISCE parameters
-    xmlfile = commands.getoutput('find '+directory+'int_'+date1+'_'+date2+'/ -name *Proc.xml')
-    tree = ET.parse(xmlfile)
-    root = tree.getroot()
-    root_tag = root.tag
-    
-    range_pixel_res = float(root.findall("./master/instrument/range_pixel_size")[0].text)
-    llambda = float(root.findall("./master/instrument/radar_wavelength")[0].text)
-    try:
-        first_range = float(root.findall("./runTopo/inputs/range_first_sample")[0].text)
-    except:
-        first_range = float(root.findall("./runTopo/inputs/RANGE_FIRST_SAMPLE")[0].text)
-    try:
-        num_range_bin = int(root.findall("./runTopo/inputs/width")[0].text)
-    except:
-        num_range_bin = int(root.findall("./runTopo/inputs/WIDTH")[0].text)
-    try:
-        num_range_looks = int(root.findall("./runTopo/inputs/number_range_looks")[0].text)
-    except:
-        num_range_looks = int(root.findall("./runTopo/inputs/NUMBER_RANGE_LOOKS")[0].text)
+    logfile = directory+"int_"+date1+"_"+date2+"/isce.log"
+
+    strg=commands.getoutput('fgrep "master.instrument.range_pixel_size" '+logfile)
+    range_pixel_res = float(string.split(strg)[-1])
+
+    strg=commands.getoutput('fgrep "master.instrument.radar_wavelength" '+logfile)
+    llambda = float(string.split(strg)[-1])
+
+    strg=commands.getoutput('fgrep "runTopo.inputs.range_first_sample" '+logfile)
+    first_range = float(string.split(strg)[-1])
+    strg=commands.getoutput('fgrep "runTopo.inputs.width" '+logfile)
+    num_range_bin = int(string.split(strg)[-1])
+    strg=commands.getoutput('fgrep "runTopo.inputs.number_range_looks" '+logfile)
+    num_range_looks = int(string.split(strg)[-1])
     center_range = first_range + (num_range_bin/2-1)*range_pixel_res*num_range_looks
-    incid_angle = float(root.findall("./master/instrument/incidence_angle")[0].text)
-    baseline_top = float(root.findall("./baseline/perp_baseline_top")[0].text)
-    baseline_bottom = float(root.findall("./baseline/perp_baseline_bottom")[0].text)
-    baseline = (baseline_bottom+baseline_top)/2
+##    strg=commands.getoutput('fgrep "SLC Starting Range" '+logfile)
+##    first_range = float(string.split(strg)[string.split(strg).__len__()/2-1])
+##    strg=commands.getoutput('fgrep "SLC width" '+logfile)
+##    num_range_bin = float(string.split(strg)[string.split(strg).__len__()/2-1])
+##    center_range = first_range + (num_range_bin/2-1)*range_pixel_res
 
+    strg=commands.getoutput('fgrep "master.instrument.incidence_angle" '+logfile)
+    incid_angle = float(string.split(strg)[-1])
 
+    strg=commands.getoutput('fgrep "baseline.perp_baseline" '+logfile)
+    baseline = (float(string.split(strg)[string.split(strg).__len__()/2-1])+float(string.split(strg)[string.split(strg).__len__()-1]))/2
 
     xmlfile = directory+"int_"+date1+"_"+date2+"/topophase.cor.geo.xml"
     tree = ET.parse(xmlfile)
@@ -134,16 +134,9 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
 
 ################### Noise level for ISCE-processed SAR backscatter power output
     if noiselevel == 0.0:
-        if root_tag[0] == 'i':
-            ####### ALOS thermal noise level (insarApp)
-            N1 = 55.5**2
-            N2 = 55.5**2
-        elif root_tag[0] == 's':
-            ####### ALOS thermal noise level (stripmapApp)
-            N1 = (55.5/81)**2
-            N2 = (55.5/81)**2
-        else:
-            raise Exception("invalid *Proc.xml file!!!")
+        ####### ALOS thermal noise level
+        N1 = 55.5**2
+        N2 = 55.5**2
     else:
         N1 = noiselevel
         N2 = noiselevel
