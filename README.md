@@ -135,7 +135,48 @@ The overall workflow for the forest stand height model is as follows:
 
 ---------------------------------------------------------------------------------------------------
 
-In step 2, for ROI_PAC-processed results, run the following command line:
+In step 1, users may find online support and guidance running ROI_PAC. Since it only supports ALOS-1 data and has been deprecated, we will cover the details for running it. Instead, we provide the details along with the scripts for running ISCE, with the precursor being ROI_PAC. ISCE supports JAXA's ALOS-1 and ALOS-2 data and also NASA's future NISAR mission. ISCE's application "insarApp.py" is valid for ISCE v2.0, v2.1 and v2.2, while deprecated for v2.3. "insarApp.py" uses the amplitude cross-correlation (ampcor) to coregister the two radar images. In contrast, starting from v2.2, ISCE started to replace the role of "insarApp.py" with "stripmapApp.py", which uses the radar observing geometry along with dense ampcor + rubbersheeting (to apply the ampcor-determined offsets) for image coregistration. As each method has its own merit, and so far neither is absolutely better than the other, we include both options and leave the quality assessment to the users. Since the ISCE v2.2 is the only version of ISCE that supports both "insarApp.py" and "stripmapApp.py", we tested the following scripts with this version only. However, the scripts are meant to work all version of ISCE v2+.
+
+Below are the preparation for using the ISCE applications "insarApp" and "stripmapApp" to process radar data for FSH.
+
+	# 0: Copy the 7 scripts (CROP_ISCE_insarApp.py, CROP_ISCE_stripmapApp.py, format_insarApp_xml.py, format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, single_scene_stripmapApp.py) under "ISCE_processing_scripts" to any local folder that is on the environmental variables PATH and PYTHONPATH
+
+For using ISCE's insarApp, 
+
+	# 1: Replace ISCE/isce/components/isceobj/InsarProc/runCoherence.py with ISCE_processing_scripts/insarApp_substitute/runCoherence.py
+	
+For using ISCE's stripmapApp,
+
+	# 2: Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with root/stripmapApp_substitute/runCoherence.py
+
+	# 3: Replace ISCE/isce/components/isceobj/StripmapProc/runGeocode.py with ISCE_processing_scripts/stripmapApp_substitute/runGeocode.py
+
+	# 4: Replace ISCE/isce/components/isceobj/StripmapProc/runPreprocessor.py with ISCE_processing_scripts/stripmapApp_substitute/runPreprocessor.py
+
+	# 5: Replace ISCE/isce/applications/stripmapApp.py with ISCE_processing_scripts/stripmapApp_substitute/stripmapApp.py
+
+To run the scripts for actual processing (with ALOS-1 data as an example), we need to put two unzipped ALOS-1 data folders (with the folder name formatted as "ALPSRP*-L1.0") in the same directory, e.g. test_data. For running insarApp, one only needs to type the following command line:
+	
+	single_scene_insarApp.py -f test_data
+
+and for running stripmapApp, one can type:
+
+	single_scene_stripmapApp.py -f test_data
+
+***Note: in this tutorial, there is only 1 command line involved for the actual processing using ISCE's insarApp or stripmapApp after the above # (0-5) preparation, which is done once and for all.*** 
+
+***Note: some of the parameters in the 7 scripts of # 0 are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
+
+***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in # (1-5) but to directly add the newly added lines into the original files. Those newly added lines start and end with the pattern shown below:***
+	
+    	# NEW COMMANDS added by YL --start
+	...
+	# NEW COMMANDS added by YL --end
+
+
+---------------------------------------------------------------------------------------------------
+
+In step 2 and step 3, for ROI_PAC-processed results, run the following command line:
 
 python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
 
@@ -143,9 +184,9 @@ python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
 	date1	-	date for 1st SAR acquisition
 	date2	-	date for 2nd SAR acquisition
 
-while for ISCE-processed results, run the following command within the execution of insarApp.py
+for cropping the image margin and refer to online ROI_PAC guidance for the geocoding command (not included here). 
 
-python directory_of_scripts/CROP_ISCE.py
+For ISCE-processed results, the cropping and geocoding have been included in the above ISCE processing (# 1 for insarApp and # 2 for stripmapApp). 
 
 ***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.***
 
@@ -222,7 +263,7 @@ A 5-point triangle window is hardcoded in ROI_PAC, which is equivalent to a 2-po
 
 For each ISCE-processed scene, the following files should be located in a directory with the format “f$frame_o$orbit/int_$date1_$date2":
 		
-    isce.log
+    *Proc.xml (insarProc.xml for insarApp and stripmapProc.xml for stripmapApp)
 		
     resampOnlyImage.amp.geo
 		
@@ -232,13 +273,13 @@ For each ISCE-processed scene, the following files should be located in a direct
 		
     topophase.cor.geo.xml
 		
-*** Note: ISCE’s insarApp.py should be run with 2 range looks and 10 azimuth looks in both coherence estimation and multi-looking (equivalent to a 30m-by-30m area for JAXA’s ALOS), with the following lines added to the process file:
+*** Note: ISCE’s insarApp.py or stripmapApp should be run with 2 range looks and 10 azimuth looks in both coherence estimation and multi-looking (equivalent to a 30m-by-30m area for JAXA’s ALOS), with the following lines added to the process file:
 		
     <property name="range looks">1</property>
 		
     <property name="azimuth looks">5</property>
 
-A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. For further details on running ISCE see the ISCE manual. ***
+A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding are included in ISCE_processing_scripts of Step 1. For further details on running ISCE see the ISCE manual. ***
 
 
 The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (file_directory). The scene specific outputs will be stored with the other scene data as described earlier.
