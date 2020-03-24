@@ -178,7 +178,7 @@ and for running stripmapApp, one can type:
 
 In step 2 and step 3, for ROI_PAC-processed results, run the following command line:
 
-python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
+	python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
 
 	dirname	-	the directory where the ROI_PAC amp/cor files are located
 	date1	-	date for 1st SAR acquisition
@@ -194,7 +194,7 @@ For ISCE-processed results, the cropping and geocoding have been included in the
 
 In step 5, run the following command to create the final mosaic map of FSH as a single GeoTiff file
 
-python directory_of_scripts/create_mosaic.py directory mosaicfile listoffiles
+	python directory_of_scripts/create_mosaic.py directory mosaicfile listoffiles
 	
 	directory	-	the same root directory as forest_stand_height.py executes
 	mosaicfile	-	file name of the final mosaic file
@@ -205,7 +205,7 @@ python directory_of_scripts/create_mosaic.py directory mosaicfile listoffiles
 
 The scripts used in Step 4 are organized so that they can be run at the command line by a single command, shown here:
 
-python forest_stand_height.py scenes edges start_scene iterations link_file flag_file ref_file mask_file file_directory output_file_types [--Nd_pairwise] [--Nd_self] [--N_pairwise] [--N_self] [--bin_size] [--flag_sparse] [--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad]
+	python forest_stand_height.py scenes edges start_scene iterations link_file flag_file ref_file mask_file file_directory output_file_types [--Nd_pairwise] [--Nd_self] [--N_pairwise] [--N_self] [--bin_size] [--flag_sparse] [--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad]
 
 The parameters listed in brackets are optional. All other paramters require input.
 
@@ -279,7 +279,7 @@ For each ISCE-processed scene, the following files should be located in a direct
 		
     <property name="azimuth looks">5</property>
 
-***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder of ISCE_processing_scripts (Step 1). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
+***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder ISCE_processing_scripts (Step 1). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
 
 
 The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (file_directory). The scene specific outputs will be stored with the other scene data as described earlier.
@@ -295,12 +295,12 @@ A sample run is given below by referring to the directory containing all the pyt
 
 - For ROI_PAC-processed files on a Windows machine:
 
-		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=0
+		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\Users\\...directory_of_files...\\” “gif json kml mat tif” --flag_proc=0
 
 
 - For ISCE-processed files on a Windows machine:
 
-		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=1
+		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\Users\\...directory_of_files...\\” “gif json kml mat tif” --flag_proc=1
 
 
 - For ROI_PAC-processed files on a Mac machine:
