@@ -22,9 +22,9 @@ The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlam
 
 ***1. The Python 3 scripts are ready to use. Please use the folder "scripts_Py3" instead of the one using Python 2 ("scripts"). This Python 3 version of the scripts can be run the same as the Python 2 version, or can be run in Google Colaboratory (with unix operating system) using [Exercise_1_FSH on the SERVIR Global GitHub](https://github.com/SERVIR/ForestStandHeight).***
 
-***2. This software has been tested with [ISCE v2.0.0 (released on 20160908)](https://winsar.unavco.org/software/isce). This version of ISCE can process all the ALOS-1 and ALOS-2 stripmap InSAR pairs.***
+***2. Preprocessing scripts have been added for using ISCE's insarApp (ISCE v2.0, v2.1 and v2.2) and stripmapApp (ISCE v2.2, v2.3) with only 1-command line for actual data processing after appropriate setup. All the [historial ISCE versions](https://winsar.unavco.org/software/isce) and the [current ISCE version](https://github.com/isce-framework/isce2) can be used to process ALOS-1 and ALOS-2 stripmap InSAR data.***
 
-***3. It has been tested and failed to work with newer versions of ISCE due to ISCE file format change. We will work on the updated release of FSH (v2.0) for working with all the ISCE versions, including ISCE v3.0 for processing the future NISAR data.***
+***3. In a future release of the software, backscatter mosaic map will also be incorporated to this InSAR coherence-based mosaic map to generate a final mosaic of FSH.***
 
   
 ## Contact Information:
@@ -279,7 +279,7 @@ For each ISCE-processed scene, the following files should be located in a direct
 		
     <property name="azimuth looks">5</property>
 
-***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in ISCE_processing_scripts of Step 1. For further details on running ISCE see the ISCE manual.***
+***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in ISCE_processing_scripts of Step 1. For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
 
 
 The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (file_directory). The scene specific outputs will be stored with the other scene data as described earlier.
