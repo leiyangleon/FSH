@@ -169,9 +169,9 @@ and for running stripmapApp, one can type:
 
 ***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in # (1-5) but to directly add the newly added lines into the original files. Those newly added lines start and end with the pattern shown below:***
 	
-    	# NEW COMMANDS added by YL --start
-	...
-	# NEW COMMANDS added by YL --end
+    # NEW COMMANDS added by YL --start
+    ...
+    # NEW COMMANDS added by YL --end
 
 
 ---------------------------------------------------------------------------------------------------
