@@ -24,7 +24,7 @@ The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlam
 
 ***2. Preprocessing scripts (in the folder "ISCE_processing_scripts") have been added for using ISCE's insarApp (ISCE v2.0, v2.1 and v2.2) and stripmapApp (ISCE v2.2, v2.3) with only 1-command line for actual data processing after appropriate setup. All the [historial ISCE versions](https://winsar.unavco.org/software/isce) and the [current ISCE version](https://github.com/isce-framework/isce2) can be used to process ALOS-1 and ALOS-2 stripmap InSAR data.***
 
-***3. In a future release of the software, backscatter mosaic map will also be incorporated to this InSAR coherence-based mosaic map to generate a final mosaic of FSH.***
+***3. In a future release of the software, backscatter-inverted mosaic map will also be incorporated to this InSAR coherence-based mosaic map to generate a final mosaic of FSH (see the [citation](https://ieeexplore.ieee.org/document/8439086)).***
 
   
 ## Contact Information:
