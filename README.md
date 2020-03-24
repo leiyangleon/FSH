@@ -295,12 +295,12 @@ A sample run is given below by referring to the directory containing all the pyt
 
 - For ROI_PAC-processed files on a Windows machine:
 
-python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\Users\\...directory_of_files...\\” “gif json kml mat tif” --flag_proc=0
+python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=0
 
 
 - For ISCE-processed files on a Windows machine:
 
-python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\Users\\...directory_of_files...\\” “gif json kml mat tif” --flag_proc=1
+python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=1
 
 
 - For ROI_PAC-processed files on a Mac machine:
@@ -316,7 +316,7 @@ python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” �
 The scripts are also able to be run with a single radar scene. To do this use “-“ instead of a link_file name, and in the input have 0 edges. 
 	- Example: python forest_stand_height.py 1 0 1 5 - “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “/Users/...directory_of_files.../” “gif json kml mat tif” --flag_proc=1
 
-***Note: make sure you use '\\\\' or '/' instead of '\\' for directory name***
+***Note: make sure you use '\\\\' or '/' instead of '\\' for directory path***
 
 ---------------------------------------------------------------------------------------------------
 
