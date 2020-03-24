@@ -139,21 +139,21 @@ In step 1, users may find online support and guidance running ROI_PAC (the comma
 
 Below are the preparation for using the ISCE applications "insarApp" and "stripmapApp" to process radar data for FSH.
 
-	# 0: Copy the 7 scripts (CROP_ISCE_insarApp.py, CROP_ISCE_stripmapApp.py, format_insarApp_xml.py, format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, single_scene_stripmapApp.py) under "ISCE_processing_scripts" to any local folder that is on the environmental variables PATH and PYTHONPATH
+	#0: Copy the 7 scripts (CROP_ISCE_insarApp.py, CROP_ISCE_stripmapApp.py, format_insarApp_xml.py, format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, single_scene_stripmapApp.py) under "ISCE_processing_scripts" to any local folder that is on the environmental variables PATH and PYTHONPATH
 
 For using ISCE's insarApp, 
 
-	# 1: Replace ISCE/isce/components/isceobj/InsarProc/runCoherence.py with ISCE_processing_scripts/insarApp_substitute/runCoherence.py
+	#1: Replace ISCE/isce/components/isceobj/InsarProc/runCoherence.py with ISCE_processing_scripts/insarApp_substitute/runCoherence.py
 	
 For using ISCE's stripmapApp,
 
-	# 2: Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with root/stripmapApp_substitute/runCoherence.py
+	#2: Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with root/stripmapApp_substitute/runCoherence.py
 
-	# 3: Replace ISCE/isce/components/isceobj/StripmapProc/runGeocode.py with ISCE_processing_scripts/stripmapApp_substitute/runGeocode.py
+	#3: Replace ISCE/isce/components/isceobj/StripmapProc/runGeocode.py with ISCE_processing_scripts/stripmapApp_substitute/runGeocode.py
 
-	# 4: Replace ISCE/isce/components/isceobj/StripmapProc/runPreprocessor.py with ISCE_processing_scripts/stripmapApp_substitute/runPreprocessor.py
+	#4: Replace ISCE/isce/components/isceobj/StripmapProc/runPreprocessor.py with ISCE_processing_scripts/stripmapApp_substitute/runPreprocessor.py
 
-	# 5: Replace ISCE/isce/applications/stripmapApp.py with ISCE_processing_scripts/stripmapApp_substitute/stripmapApp.py
+	#5: Replace ISCE/isce/applications/stripmapApp.py with ISCE_processing_scripts/stripmapApp_substitute/stripmapApp.py
 
 To run the scripts for actual processing (with ALOS-1 data as an example), we need to put two unzipped ALOS-1 data folders (with the folder name formatted as "ALPSRP*-L1.0") in the same directory, e.g. test_data. For running insarApp, one only needs to type the following command line:
 	
@@ -163,11 +163,11 @@ and for running stripmapApp, one can type:
 
 	single_scene_stripmapApp.py -f test_data
 
-***Note: in this tutorial, there is only 1 command line involved for the actual processing using ISCE's insarApp or stripmapApp after the above # (0-5) preparation, which is done once and for all.*** 
+***Note: in this tutorial, there is only 1 command line involved for the actual processing using ISCE's insarApp or stripmapApp after the above #(0-5) preparation, which is done once and for all.*** 
 
-***Note: some of the parameters in the 7 scripts of # 0 are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
+***Note: some of the parameters in the 7 scripts of #0 are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
 
-***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in # (1-5) but to directly add the newly added lines into the original files. Those newly added lines start and end with the pattern shown below:***
+***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in #(1-5) but to directly add the newly added lines into the original files. Those newly added lines start and end with the pattern shown below:***
 	
     # NEW COMMANDS added by YL --start
     ...
@@ -186,7 +186,7 @@ python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
 
 for cropping the image margin and refer to online ROI_PAC guidance for the geocoding command "geocode.pl" (not included here). 
 
-For ISCE-processed results, the cropping and geocoding have been included in the above ISCE processing (# 1 for insarApp and # 2 for stripmapApp). 
+For ISCE-processed results, the cropping and geocoding have been included in the above ISCE processing (#1 for insarApp and #2 for stripmapApp). 
 
 ***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.***
 
