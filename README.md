@@ -135,7 +135,7 @@ The overall workflow for the forest stand height model is as follows:
 
 ---------------------------------------------------------------------------------------------------
 
-In step 1, users may find online support and guidance running ROI_PAC (the command "process_2pass.pl"). Since it only supports ALOS-1 data and has been deprecated, we do not cover the details for running it. Instead, we provide the details along with the scripts for running ISCE, with the precursor being ROI_PAC. ISCE supports JAXA's ALOS-1 and ALOS-2 data and also NASA's future NISAR mission. ISCE's application "insarApp.py" is valid for ISCE v2.0, v2.1 and v2.2, while deprecated for v2.3. "insarApp.py" uses the amplitude cross-correlation (ampcor) to coregister the two radar images. In contrast, starting from v2.2, ISCE started to replace the role of "insarApp.py" with "stripmapApp.py", which uses the radar observing geometry along with dense ampcor + rubbersheeting (to apply the ampcor-determined offsets) for image coregistration. As each method has its own merit, and so far neither is absolutely better than the other, we include both options and leave the quality assessment to the users. Since the ISCE v2.2 is the only version of ISCE that supports both "insarApp.py" and "stripmapApp.py", we tested the following scripts with this version only. However, the scripts are meant to work all version of ISCE v2+.
+In step 1, users may find online support and guidance running ROI_PAC (the command "process_2pass.pl"). Since it only supports ALOS-1 data and has been deprecated, we do not cover the details for running it. Instead, we provide the details along with the scripts for running ISCE, with the precursor being ROI_PAC. ISCE supports JAXA's ALOS-1 and ALOS-2 data and also NASA's future NISAR mission. ISCE's application "insarApp.py" is valid for ISCE v2.0, v2.1 and v2.2, while deprecated for v2.3. "insarApp.py" uses the amplitude cross-correlation (ampcor) to coregister the two radar images. In contrast, starting from v2.2, ISCE started to replace the role of "insarApp.py" with "stripmapApp.py", which uses the radar observing geometry along with dense ampcor + rubbersheeting (to apply the ampcor-determined offsets) for image coregistration. As each method has its own merit, and so far neither is absolutely better than the other, we include both options and leave the quality assessment to the users. Since ISCE v2.2 is the only version of ISCE that supports both "insarApp.py" and "stripmapApp.py", we tested the following scripts with this version only. However, the scripts are meant to work all version of ISCE v2+.
 
 Below are the preparation for using the ISCE applications "insarApp" and "stripmapApp" to process radar data for FSH.
 
@@ -147,7 +147,7 @@ For using ISCE's insarApp,
 	
 For using ISCE's stripmapApp,
 
-	#2: Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with root/stripmapApp_substitute/runCoherence.py
+	#2: Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with ISCE_processing_scripts/stripmapApp_substitute/runCoherence.py
 
 	#3: Replace ISCE/isce/components/isceobj/StripmapProc/runGeocode.py with ISCE_processing_scripts/stripmapApp_substitute/runGeocode.py
 
@@ -167,10 +167,10 @@ and for running stripmapApp, one can type:
 
 ***Note: some of the parameters in the 7 scripts of #0 are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
 
-***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in #(1-5) but to directly add the newly added lines into the original files. Those newly added lines start and end with the pattern shown below:***
+***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in #(1-5) but to directly add the newly added lines into the ISCE original files. Those newly added lines start and end with the pattern shown below:***
 	
     # NEW COMMANDS added by YL --start
-    ...
+    	...
     # NEW COMMANDS added by YL --end
 
 
@@ -273,13 +273,13 @@ For each ISCE-processed scene, the following files should be located in a direct
 		
     topophase.cor.geo.xml
 		
-***Note: ISCE’s insarApp.py or stripmapApp should be run with 2 range looks and 10 azimuth looks in both coherence estimation and multi-looking (equivalent to a 30m-by-30m area for JAXA’s ALOS), with the following lines added to the process file:***
+***Note: ISCE’s insarApp.py or stripmapApp.py should be run with 2 range looks and 10 azimuth looks in both coherence estimation and multi-looking (equivalent to a 30m-by-30m area for JAXA’s ALOS), with the following lines added to the process file:***
 		
     <property name="range looks">1</property>
 		
     <property name="azimuth looks">5</property>
 
-***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in ISCE_processing_scripts of Step 1. For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
+***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder of ISCE_processing_scripts (Step 1). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
 
 
 The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (file_directory). The scene specific outputs will be stored with the other scene data as described earlier.
@@ -295,26 +295,29 @@ A sample run is given below by referring to the directory containing all the pyt
 
 - For ROI_PAC-processed files on a Windows machine:
 
-python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=0
+		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=0
 
 
 - For ISCE-processed files on a Windows machine:
 
-python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=1
+		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “C:\\\\Users\\\\...directory_of_files...\\\\” “gif json kml mat tif” --flag_proc=1
 
 
 - For ROI_PAC-processed files on a Mac machine:
 
-python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “/Users/...directory_of_files.../” “gif json kml mat tif” --flag_proc=0
+		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “/Users/...directory_of_files.../” “gif json kml mat tif” --flag_proc=0
 
 
 - For ISCE-processed files on a Mac machine:
 
-python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “/Users/...directory_of_files.../” “gif json kml mat tif” --flag_proc=1
+		python directory_of_scripts/forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “/Users/...directory_of_files.../” “gif json kml mat tif” --flag_proc=1
 
 
 The scripts are also able to be run with a single radar scene. To do this use “-“ instead of a link_file name, and in the input have 0 edges. 
-	- Example: python forest_stand_height.py 1 0 1 5 - “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “/Users/...directory_of_files.../” “gif json kml mat tif” --flag_proc=1
+
+- Example: 
+
+		python forest_stand_height.py 1 0 1 5 - “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “/Users/...directory_of_files.../” “gif json kml mat tif” --flag_proc=1
 
 ***Note: make sure you use '\\\\' or '/' instead of '\\' for directory path***
 
