@@ -188,7 +188,7 @@ In step 2 and step 3, for ROI_PAC-processed results, run the following command l
 
 for cropping the image margin and refer to online ROI_PAC guidance for the geocoding command "geocode.pl" (not included here). 
 
-For ISCE-processed results, the cropping and geocoding have been included in the above ISCE processing (Step 1), i.e. 1) for insarApp and 2) for stripmapApp. 
+For ISCE-processed results, the cropping and geocoding have been included in the above ISCE processing (Step 1), i.e. 1) for insarApp and 2) for stripmapApp in Step 1. 
 
 ***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.***
 
