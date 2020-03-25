@@ -26,6 +26,8 @@ The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlam
 
 ***3. In a future release of the software, backscatter-inverted mosaic map will also be incorporated to this InSAR coherence-based mosaic map to generate a final mosaic of FSH (see the [citation](https://ieeexplore.ieee.org/document/8439086)).***
 
+***4. Only two command lines are involved to automatically perform the forest height inversion and mosaicking task (one command for FSH inversion and the other one for FSH mosaicking).***
+
   
 ## Contact Information:
 
