@@ -20,13 +20,15 @@ The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlam
 
 ## Notes:
 
-***1. The Python 3 scripts are ready to use. Please use the folder "scripts_Py3" instead of the one using Python 2 ("scripts"). This Python 3 version of the scripts can be run the same as the Python 2 version (replacing "python" in all the following commands with "python3"), or can run in Google Colaboratory (with unix operating system) using [Exercise_1_FSH on the SERVIR Global GitHub](https://github.com/SERVIR/ForestStandHeight).***
+***1. Preprocessing scripts (in the folder "ISCE_processing_scripts") have been added for using ISCE's insarApp (ISCE v2.0, v2.1 and v2.2) and stripmapApp (ISCE v2.2, v2.3) with only 1 command line for actual data processing after appropriate setup. All the [historial ISCE versions](https://winsar.unavco.org/software/isce) and the [current ISCE version](https://github.com/isce-framework/isce2) can be used to process ALOS-1 and ALOS-2 stripmap InSAR data.***
 
-***2. Preprocessing scripts (in the folder "ISCE_processing_scripts") have been added for using ISCE's insarApp (ISCE v2.0, v2.1 and v2.2) and stripmapApp (ISCE v2.2, v2.3) with only 1-command line for actual data processing after appropriate setup. All the [historial ISCE versions](https://winsar.unavco.org/software/isce) and the [current ISCE version](https://github.com/isce-framework/isce2) can be used to process ALOS-1 and ALOS-2 stripmap InSAR data.***
+***2. The Python 3 scripts are ready to use. Please use the folder "scripts_Py3" instead of the one using Python 2 ("scripts"). This Python 3 version of the scripts can be run the same as the Python 2 version (replacing "python" in all the following commands with "python3"), or can run in Google Colaboratory (with unix operating system) using [Exercise_1_FSH on the SERVIR Global GitHub](https://github.com/SERVIR/ForestStandHeight).***
 
-***3. In a future release of the software, backscatter-inverted mosaic map will also be incorporated to this InSAR coherence-based mosaic map to generate a final mosaic of FSH (see the [citation](https://ieeexplore.ieee.org/document/8439086)).***
+***3. Only 2 command lines are involved to automatically perform the forest height inversion and mosaicking task (1 command for FSH inversion and 1 for FSH mosaicking).***
 
-***4. Only two command lines are involved to automatically perform the forest height inversion and mosaicking task (one command for FSH inversion and the other one for FSH mosaicking).***
+***4. In a future release of the software, backscatter-inverted mosaic map will also be incorporated to this InSAR coherence-based mosaic map to generate a final mosaic of FSH (see the [citation](https://ieeexplore.ieee.org/document/8439086)).***
+
+
 
   
 ## Contact Information:
