@@ -99,7 +99,7 @@ Python (This code was developed and tested using Version 2.7 and has been update
 
 Additional Python packages: NumPy, SciPy, SimPy, json, pillow, OsGeo/GDAL, simplekml, mpmath
 
-Note: This software was originally developed and tested on a Windows machine. Python code should be runnable from a Linux operating system. However, it was indeed tested on Macintosh computers running various OS X (e.g. 10.9, 10.10, 10.11). If help with setting up on Linux is needed please contact the developers and it can be put on the list of future improvements.
+***Note: This software was originally developed and tested on a Windows machine. Python code was tested on Macintosh computers running various OS X (e.g. 10.9-10.14) as well as Linux operating system.***
 
 - For Mac users: it is strongly recommended to use MacPorts (https://www.macports.org/) to install Python along with the above Python modules, since it is very easy (no more then 3 command lines for each module) and organized.
 
