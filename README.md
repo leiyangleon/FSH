@@ -18,10 +18,6 @@ Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 ## II. How to run the software
 
 ## III. List of python files and corresponding descriptions (https://github.com/sgk0/FSH/blob/master/reference.md)
-    
-   ### a. List of files
-    
-   ### b. File Descriptions
 
 =====================================================================================
 
