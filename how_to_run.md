@@ -13,9 +13,9 @@
 
 # Table of Contents:
 
-## I. Needed software packages and installation
+## I. Needed software packages and installation (https://github.com/sgk0/FSH/blob/master/installation.md)
 
-## II. Instructions and runtime estimates
+## II. How to run the software
 
 ## III. List of python files and corresponding descriptions (https://github.com/sgk0/FSH/blob/master/reference.md)
     
