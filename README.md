@@ -17,6 +17,8 @@ The Python 2 version of the scripts were updated to Python 3:
 - Tim Mayer (timothy.j.mayer@nasa.gov, tjm0042@uah.edu)
 - Helen Baldwin (helen.b.baldwin@nasa.gov, hbb0009@uah.edu)
 
+***Besides contacting the authors via email for technical questions, it is also recommended to [refer to the closed issues or open a new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
+
 ===================================================================================
 
 ## Table of Contents:
@@ -28,8 +30,6 @@ The Python 2 version of the scripts were updated to Python 3:
 ### III. List of python files and corresponding descriptions (https://github.com/sgk0/FSH/blob/master/reference.md)
 
 ===================================================================================
-
-***Besides contacting the authors via email for technical questions, it is also recommended to [refer to the closed issues or open a new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
 
 ## Citation:
 [Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar. IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.](https://ieeexplore.ieee.org/document/8439086)
