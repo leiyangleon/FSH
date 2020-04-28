@@ -13,7 +13,7 @@ Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 
 ## Table of Contents:
 
-### I. Needed software packages and installation (https://github.com/sgk0/FSH/blob/master/installation.md)
+### I. Required software packages and installation (https://github.com/sgk0/FSH/blob/master/installation.md)
 
 ### II. How to run the software
 
