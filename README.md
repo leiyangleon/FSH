@@ -13,8 +13,11 @@ Produced by the University of Massachusetts Microwave Remote Sensing Laboratory.
 Yang Lei, (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@ecs.umass.edu).
 
 The Python 2 version of the scripts were updated to Python 3:
+
 Thannarot Kunlamai (SERVIR-Mekong, Asian Disaster Preparedness Center)
+
 Tim Mayer (timothy.j.mayer@nasa.gov, tjm0042@uah.edu)
+
 Helen Baldwin (helen.b.baldwin@nasa.gov, hbb0009@uah.edu)
 
 ===================================================================================
