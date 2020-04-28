@@ -11,20 +11,6 @@
   
 =====================================================================================
 
-# Table of Contents:
-
-## I. Needed software packages and installation (https://github.com/sgk0/FSH/blob/master/installation.md)
-
-## II. How to run the software
-
-## III. List of python files and corresponding descriptions (https://github.com/sgk0/FSH/blob/master/reference.md)
-    
-   ### a. List of files
-    
-   ### b. File Descriptions
-		
-=====================================================================================
-
 ## II. Instructions and runtime estimates:
 
 The overall workflow for the forest stand height model is as follows:
