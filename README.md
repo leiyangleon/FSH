@@ -25,7 +25,7 @@ The Python 2 version of the scripts were updated to Python 3:
 
 ### I. Required software packages and installation (https://github.com/sgk0/FSH/blob/master/installation.md)
 
-### II. How to run the software
+### II. How to run the software (https://github.com/sgk0/FSH/blob/master/how_to_run.md)
 
 ### III. List of python files and corresponding descriptions (https://github.com/sgk0/FSH/blob/master/reference.md)
 
