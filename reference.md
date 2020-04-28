@@ -67,7 +67,7 @@ write_mapfile_new.py
 
 ## IIIb. File Descriptions:
 
-arc_sinc.py - Calculates the inverse sinc function
+### arc_sinc.py - Calculates the inverse sinc function
 
 Input: 
 
@@ -82,7 +82,7 @@ Output:
 
 -------------------------------------------------------------
 
-auto_mosaicking_new.py - calculates the S and C parameters automatically through iterations for all the scenes in preparation for forest height estimation
+### auto_mosaicking_new.py - calculates the S and C parameters automatically through iterations for all the scenes in preparation for forest height estimation
 
 Input:
 
@@ -116,7 +116,7 @@ In this case linkfile is the file name of the file that lists all the edge scene
 
 -------------------------------------------------------------
 
-auto_tree_height_many.py - For each scene runs auto_tree_height_single, and then saves the output correlation magnitudes, kz, and coordinates in a .mat file, and geo data (lines, samples, corner latitude and longitude, and latitude and longitude step size) in a text file
+### auto_tree_height_many.py - For each scene runs auto_tree_height_single, and then saves the output correlation magnitudes, kz, and coordinates in a .mat file, and geo data (lines, samples, corner latitude and longitude, and latitude and longitude step size) in a text file
 
 Input:
 
@@ -147,7 +147,7 @@ All three parameters are as described above.
 
 -------------------------------------------------------------
 
-auto_tree_height_single_ROIPAC.py - Extracts the correlation magnitude, kz parameter, corner coordinates, and geo location data from the ROI_PAC output files
+### auto_tree_height_single_ROIPAC.py - Extracts the correlation magnitude, kz parameter, corner coordinates, and geo location data from the ROI_PAC output files
 
 Input:
 
@@ -185,7 +185,7 @@ Output:
   
 
 -------------------------------------------------------------
-auto_tree_height_single_ISCE.py - Extracts the correlation magnitude, kz parameter, corner coordinates, and geo location data from the ISCE output files
+### auto_tree_height_single_ISCE.py - Extracts the correlation magnitude, kz parameter, corner coordinates, and geo location data from the ISCE output files
 
 Input:
 
@@ -251,7 +251,7 @@ Output:
 -------------------------------------------------------------
 
 
-cal_error_metric_pairwise.py - Calculates the R and RMSE error metrics for a pair of overlapping images
+### cal_error_metric_pairwise.py - Calculates the R and RMSE error metrics for a pair of overlapping images
 
 Input:
 	
@@ -285,7 +285,7 @@ Output:
 -------------------------------------------------------------
 
 
-cal_error_metric_self.py - Calculates the R and RMSE error metrics for the central scene and overlapping ground truth data
+### cal_error_metric_self.py - Calculates the R and RMSE error metrics for the central scene and overlapping ground truth data
 
 Input:
 	
@@ -311,7 +311,7 @@ Output:
 -------------------------------------------------------------
 
 
-cal_KB.py - Calculates the k and b values for the Forest Stand Height model
+### cal_KB.py - Calculates the k and b values for the Forest Stand Height model
 
 Input:
 	
@@ -341,7 +341,7 @@ Output:
 -------------------------------------------------------------
 
 
-cal_KB_pairwise_new.py - Calculates the k and b values for a pair of overlapping images
+### cal_KB_pairwise_new.py - Calculates the k and b values for a pair of overlapping images
 
 Input:
 	
@@ -375,7 +375,7 @@ Output:
 -------------------------------------------------------------
 
 
-cal_KB_self_new.py - Calculates the k and b values for the central scene and overlapping LiDAR
+### cal_KB_self_new.py - Calculates the k and b values for the central scene and overlapping LiDAR
 
 Input:
 	
@@ -402,7 +402,7 @@ Output:
 
 -------------------------------------------------------------
 
-extract_scatterplot_density.py - calculates the 2D histogram of the scatter plot between pairs of forest height, and returns the forest height pairs with relatively large density
+### extract_scatterplot_density.py - calculates the 2D histogram of the scatter plot between pairs of forest height, and returns the forest height pairs with relatively large density
 
 Input:
 	
@@ -424,7 +424,7 @@ Output:
 -------------------------------------------------------------
 
 
-flag_scene_file.py - reads and extracts data from the file that associates flag numbers with other interferogram file data. Each line in the input textfile should be formatted as 'flag flagfilename date1 date2 frame orbit polarization'.
+### flag_scene_file.py - reads and extracts data from the file that associates flag numbers with other interferogram file data. Each line in the input textfile should be formatted as 'flag flagfilename date1 date2 frame orbit polarization'.
 
 Input:
 	
@@ -442,7 +442,7 @@ Output:
 -------------------------------------------------------------
 
 
-forest_stand_height.py - Main program, runs the processing steps between ROI_PAC/ISCE output and Forest Stand Height (FSH) map after inversion and mosaicking
+### forest_stand_height.py - Main program, runs the processing steps between ROI_PAC/ISCE output and Forest Stand Height (FSH) map after inversion and mosaicking
 
 Input:
 	
@@ -498,7 +498,7 @@ Output: no direct output (all file output created in subprocesses)
 -------------------------------------------------------------
 
 
-intermediate.py - Creates the overlap areas between scenes
+### intermediate.py - Creates the overlap areas between scenes
 
 Input:
 	
@@ -528,7 +528,7 @@ In this case linkfile is the file name of the file that lists all the edge scene
 -------------------------------------------------------------
 
 
-intermediate_pairwise.py - Calculates the overlap between a pair of scenes
+### intermediate_pairwise.py - Calculates the overlap between a pair of scenes
 
 Input:
 	
@@ -554,7 +554,7 @@ Output:
 -------------------------------------------------------------
 
 
-intermediate_self.py - Calculates the overlap between the central scene and the ground truth data
+### intermediate_self.py - Calculates the overlap between the central scene and the ground truth data
 
 Input:
 	
@@ -576,7 +576,7 @@ Output:
 -------------------------------------------------------------
 
 
-ls_deltaSC.py - Obtains the current S and C parameters by running nonlinear least squares on the previous iteration
+### ls_deltaSC.py - Obtains the current S and C parameters by running nonlinear least squares on the previous iteration
 
 Input:
 	
@@ -610,7 +610,7 @@ Output:
 -------------------------------------------------------------
 
 
-mean_wo_nan.py - Calculates the mean of the values in an array excluding NaN values
+### mean_wo_nan.py - Calculates the mean of the values in an array excluding NaN values
 
 Input:
 	
@@ -624,7 +624,7 @@ Output:
 -------------------------------------------------------------
 
 
-read_geo_data.py - Reads the lat/long, step size, and the image width and lines from either a geotiff or a text file based on ROI_PAC output
+### read_geo_data.py - Reads the lat/long, step size, and the image width and lines from either a geotiff or a text file based on ROI_PAC output
 
 Input:
 	
@@ -650,7 +650,7 @@ Output:
 -------------------------------------------------------------
 
 
-read_linkfile.py - Reads the edge scene pairs from a text file and into a numpy array
+### read_linkfile.py - Reads the edge scene pairs from a text file and into a numpy array
 
 Input:
 	
@@ -674,7 +674,7 @@ All three parameters are as described above.
 -------------------------------------------------------------
 
 
-read_rsc_data.py - reads a parameter from the inputted ROI_PAC .rsc text output file
+### read_rsc_data.py - reads a parameter from the inputted ROI_PAC .rsc text output file
 
 Input:
 	
@@ -692,7 +692,7 @@ Output:
 -------------------------------------------------------------
 
 
-remove_corr_bias.py - Remove the ROI_PAC/ISCE associated correlation bias
+### remove_corr_bias.py - Remove the ROI_PAC/ISCE associated correlation bias
 
 Input:
 	
@@ -708,7 +708,7 @@ Output:
 -------------------------------------------------------------
 
 
-remove_nonforest.py - Mask out non-forest portions of the scenes
+### remove_nonforest.py - Mask out non-forest portions of the scenes
 
 Input:
 	
@@ -728,7 +728,7 @@ Output:
 -------------------------------------------------------------
 
 
-remove_outlier.py - Remove values that have too few neighbors within a certain radius
+### remove_outlier.py - Remove values that have too few neighbors within a certain radius
 
 Input:
 	
@@ -750,7 +750,7 @@ Output:
 -------------------------------------------------------------
 
 
-write_deltaSC.py - Calculates and writes the relative S and C values (as referenced to the average values: S=0.6, C=13) based on the final iteration output
+### write_deltaSC.py - Calculates and writes the relative S and C values (as referenced to the average values: S=0.6, C=13) based on the final iteration output
 
 Input:
 	
@@ -778,7 +778,7 @@ All four parameters are as described above.
 -------------------------------------------------------------
 
 
-write_diff_height_map.py - Makes the differential height map (value is ground truth - InSAR height) and writes it to a file
+### write_diff_height_map.py - Makes the differential height map (value is ground truth - InSAR height) and writes it to a file
 	
 	  start_scene (int) - flag value of the central scene that overlaps the ground truth data
 
@@ -798,7 +798,7 @@ Output: no direct output (all file output created in write_file_type.py)
 -------------------------------------------------------------
 
 
-write_file_type.py - Writes the input array (the tree height map or the differential height map) to one of five file types based on the input parameters
+### write_file_type.py - Writes the input array (the tree height map or the differential height map) to one of five file types based on the input parameters
 
 Input:
 	
@@ -824,7 +824,7 @@ Output:
 -------------------------------------------------------------
 
 
-write_mapfile_new.py - Makes the tree height map and writes it to an file
+### write_mapfile_new.py - Makes the tree height map and writes it to an file
 
 Input:
 	
