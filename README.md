@@ -22,7 +22,7 @@ Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 ===================================================================================
 
 ## Contact:
-Yang Lei, (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@ecs.umass.edu)
+Yang Lei, (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@ecs.umass.edu).
 The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlamai (SERVIR-Mekong, Asian Disaster Preparedness Center), Tim Mayer (timothy.j.mayer@nasa.gov, tjm0042@uah.edu) and Helen Baldwin (helen.b.baldwin@nasa.gov, hbb0009@uah.edu). 
 
 ***Besides contacting the authors via email for technical questions, it is also recommended to [refer to the closed issues or open a new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
