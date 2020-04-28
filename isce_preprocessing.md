@@ -31,7 +31,7 @@ In step 1, users may find online support and guidance running ROI_PAC (the comma
 
 	5) Replace ISCE/isce/applications/stripmapApp.py with ISCE_processing_scripts/stripmapApp_substitute/stripmapApp.py
 
-## Running ISCE
+## Step 1: Run ROI_PAC or ISCE
 
 To run the scripts for actual processing (with ALOS-1 data as an example), we need to put two unzipped ALOS-1 data folders (with the folder name formatted as "ALPSRP*-L1.0") in the same directory, e.g. test_data. For running insarApp, one only needs to type the following command line:
 	
@@ -44,3 +44,25 @@ and for running stripmapApp, one can type:
 ***Note: some of the parameters in the 7 scripts of 0) are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
 
 ***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in 1-5) but to directly add the newly added lines into the ISCE original files. Those newly added lines start and end with the pattern shown below:***
+
+    # NEW COMMANDS added by YL --start
+    	...
+    # NEW COMMANDS added by YL --end
+
+---------------------------------------------------------------------------------------------------
+
+## Steps 2 and 3, if using ROI_PAC:
+
+In step 2 and step 3, for ROI_PAC-processed results, run the following command line:
+
+	python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
+
+	dirname	-	the directory where the ROI_PAC amp/cor files are located
+	date1	-	date for 1st SAR acquisition
+	date2	-	date for 2nd SAR acquisition
+
+for cropping the image margin and refer to online ROI_PAC guidance for the geocoding command "geocode.pl" (not included here). 
+
+## Steps 2 and 3, if using ISCE: these steps had already been incorporated in the workflow.
+
+***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.***
