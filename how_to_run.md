@@ -1,7 +1,7 @@
 # II. How to run FSH:
 
 ## Step 1: Generate the interferograms, see https://github.com/sgk0/FSH/edit/master/isce_preprocessing.md for help. 
-### - If wanting to test the software on the example interferograms we provide (https://github.com/sgk0/FSH/blob/master/test_example_ISCE_stripmapApp/NOTES_ISCE_stripmapApp.txt), please skip ahead to Step 2a.
+### - To run the software using the example interferograms we provide (see https://github.com/sgk0/FSH/blob/master/test_example_ISCE_stripmapApp/NOTES_ISCE_stripmapApp.txt), please skip ahead to Step 2a.
 
 ## Step 2a: Run the Forest Stand Height model.
 
