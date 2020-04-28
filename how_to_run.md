@@ -17,45 +17,12 @@
 
 ## II. Instructions and runtime estimates
 
-## III. List of python files and corresponding descriptions
+## III. List of python files and corresponding descriptions (https://github.com/sgk0/FSH/blob/master/reference.md)
     
    ### a. List of files
     
    ### b. File Descriptions
-	
-
-====================================================================================
-
-## I. Needed software packages and installation
-
-To run these python scripts the following software packages are needed:
-
-Python (This code was developed and tested using Version 2.7 and has been updated to Version 3.6+)
-
-Additional Python packages: NumPy, SciPy, SimPy, json, pillow, OsGeo/GDAL, simplekml, mpmath
-
-***Note: This software was originally developed and tested on a Windows machine. Python code was tested on Macintosh computers running various OS X (e.g. 10.9-10.14) as well as Linux operating system.***
-
-- For Mac users: it is strongly recommended to use MacPorts (https://www.macports.org/) to install Python along with the above Python modules, since it is very easy (no more then 3 command lines for each module) and organized.
-
-- For Windows users: it is recommend to use the Anaconda distribution of python, as it is designed for scientific computing, and comes with Numpy, SciPy, json, and pillow.
-
-  The simplekml package can be found at www.simplekml.com (follow the download links to https://pypi.python.org/pypi/simplekml). Alternatively you can use pip install simplekml from the Anaconda command line.
-
-  OsGeo/GDAL can be installed on Windows using the following steps
-	
-      1) Download and install Microsoft Visual C++ for the Windows version you have.
-      2) Go to http://www.gisinternals.com/release.php and click on the link corresponding to your MSVC version and Windows 32/64 bit version
-      3) From the link above Download and install the 'gdal-111-1400-core.msi' and 'GDAL-1.11.1.win32-py2.7.msi' (or whatever verion of python you have, eg py3.3)
-      4) From the link above Download and extract the dir 'release-1600-gdal-1-11-1-mapserver-6-4-1'
-      5) Once the dir is unzipped, copy all files in dir bin/gdal/python/* to C:\Users\keb\Anaconda\Lib\site-packages\ (or the site-packages directory of whatever python distribution you are using)
-      6) Add 'Program Files/GDAL' to the system PATH variable (NOT the user PATH variable) in system settings (thru control panel > advanced settings)
-      7) To test if everything is installed correctly:
-        at the cmd prompt (cmd.exe) type 'gdalinfo -h' and you should get some options such as -stats etc 
-        in python type 'from osgeo import gdal' and you shouldn't get an error.
 		
-
-
 =====================================================================================
 
 ## II. Instructions and runtime estimates:
