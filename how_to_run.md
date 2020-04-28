@@ -1,99 +1,15 @@
-
-## Notes:
-
-***1. Preprocessing scripts (in the folder "ISCE_processing_scripts") have been added for using ISCE's insarApp (ISCE v2.0, v2.1 and v2.2) and stripmapApp (ISCE v2.2, v2.3) with only 1 command line for actual data processing after appropriate setup. Test examples of using insarApp and stripmapApp are provided as well. All the [historial ISCE versions](https://winsar.unavco.org/software/isce) and the [current ISCE version](https://github.com/isce-framework/isce2) can be used to process ALOS-1 and ALOS-2 stripmap InSAR data.***
-
-***2. The Python 3 scripts are ready to use. Please use the folder "scripts_Py3" instead of the one using Python 2 ("scripts"). This Python 3 version of the scripts can be run the same as the Python 2 version (replacing "python" in all the following commands with "python3"), or can run in Google Colaboratory (with unix operating system) using [Exercise_1_FSH on the SERVIR Global GitHub](https://github.com/SERVIR/ForestStandHeight).***
-
-***3. Only 2 command lines are involved to automatically perform the forest height inversion and mosaicking task (1 command for FSH inversion and 1 for FSH mosaicking).***
-
-***4. In a future release of the software, backscatter-inverted mosaic map will also be incorporated to this InSAR coherence-based mosaic map to generate a final mosaic of FSH (see the [citation](https://ieeexplore.ieee.org/document/8439086)).***
-  
-=====================================================================================
-
-## II. Instructions and runtime estimates:
+# II. How to run FSH:
 
 The overall workflow for the forest stand height model is as follows:
-1. Run ROI_PAC or ISCE (see parameter notes below)
-2. Crop the ROI_PAC/ISCE output to eliminate the image margins (run standalone CROP_ROIPAC.py or CROP_ISCE.py)
-3. Geocode the ROI_PAC/ISCE output
-4. Run the Forest Stand Height python documents that are described in this document
-5. Create the mosaic of the generated forest height maps for all of the scenes
+1. Generate the interferograms, see https://github.com/sgk0/FSH/edit/master/isce_preprocessing.md for help.
+2a. Run the Forest Stand Height model.
+2b. Henerate the mosaicked forest height maps as described in this document.
 
+## Step 2a.
 
----------------------------------------------------------------------------------------------------
+### For the examples, we provide an exact command is provided in the text file ("NOTES_") placed in the respective example folder (i.e. "test_example_ISCE_stripmapApp")
 
-In step 1, users may find online support and guidance running ROI_PAC (the command "process_2pass.pl"). Since it only supports ALOS-1 data and has been deprecated, we do not cover the details for running it. Instead, we provide the details along with the scripts for running ISCE, with the precursor being ROI_PAC. ISCE supports JAXA's ALOS-1 and ALOS-2 data and also NASA's future NISAR mission. ISCE's application "insarApp.py" is valid for ISCE v2.0, v2.1 and v2.2, while deprecated for v2.3. "insarApp.py" uses the amplitude cross-correlation (ampcor) to coregister the two radar images. In contrast, starting from v2.2, ISCE started to replace the role of "insarApp.py" with "stripmapApp.py", which uses the radar observing geometry along with dense ampcor + rubbersheeting (to apply the ampcor-determined offsets) for image coregistration. As each method has its own merit, and so far neither is absolutely better than the other, we include both options and leave the quality assessment to the users. Since ISCE v2.2 is the only version of ISCE that supports both "insarApp.py" and "stripmapApp.py", we tested the following scripts with this version only. However, the scripts are meant to work with all versions of ISCE v2+.
-
-All the ISCE preprocessing scripts can be found under the folder "ISCE_processing_scripts/".
-
-Below are the preparation for using the ISCE applications "insarApp" and "stripmapApp" to process radar data for FSH.
-
-	0) Copy the 7 scripts (CROP_ISCE_insarApp.py, CROP_ISCE_stripmapApp.py, format_insarApp_xml.py, format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, single_scene_stripmapApp.py) under "ISCE_processing_scripts" to any local folder that is on the environmental variables PATH and PYTHONPATH
-
-For using ISCE's insarApp, 
-
-	1) Replace ISCE/isce/components/isceobj/InsarProc/runCoherence.py with ISCE_processing_scripts/insarApp_substitute/runCoherence.py
-	
-For using ISCE's stripmapApp,
-
-	2) Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with ISCE_processing_scripts/stripmapApp_substitute/runCoherence.py
-
-	3) Replace ISCE/isce/components/isceobj/StripmapProc/runGeocode.py with ISCE_processing_scripts/stripmapApp_substitute/runGeocode.py
-
-	4) Replace ISCE/isce/components/isceobj/StripmapProc/runPreprocessor.py with ISCE_processing_scripts/stripmapApp_substitute/runPreprocessor.py
-
-	5) Replace ISCE/isce/applications/stripmapApp.py with ISCE_processing_scripts/stripmapApp_substitute/stripmapApp.py
-
-To run the scripts for actual processing (with ALOS-1 data as an example), we need to put two unzipped ALOS-1 data folders (with the folder name formatted as "ALPSRP*-L1.0") in the same directory, e.g. test_data. For running insarApp, one only needs to type the following command line:
-	
-	single_scene_insarApp.py -f test_data
-
-and for running stripmapApp, one can type:
-
-	single_scene_stripmapApp.py -f test_data
-
-***Note: in this tutorial, there is only 1 command line involved for the actual processing using ISCE's insarApp or stripmapApp after the above 0-5) preparation, which is done once and for all.*** 
-
-***Note: some of the parameters in the 7 scripts of 0) are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
-
-***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in 1-5) but to directly add the newly added lines into the ISCE original files. Those newly added lines start and end with the pattern shown below:***
-	
-    # NEW COMMANDS added by YL --start
-    	...
-    # NEW COMMANDS added by YL --end
-
-
----------------------------------------------------------------------------------------------------
-
-In step 2 and step 3, for ROI_PAC-processed results, run the following command line:
-
-	python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
-
-	dirname	-	the directory where the ROI_PAC amp/cor files are located
-	date1	-	date for 1st SAR acquisition
-	date2	-	date for 2nd SAR acquisition
-
-for cropping the image margin and refer to online ROI_PAC guidance for the geocoding command "geocode.pl" (not included here). 
-
-For ISCE-processed results, the cropping and geocoding have been included in the above ISCE processing (Step 1), i.e. 1) for insarApp and 2) for stripmapApp in Step 1. 
-
-***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.***
-
----------------------------------------------------------------------------------------------------
-
-In step 5, run the following command to create the final mosaic map of FSH as a single GeoTiff file
-
-	python directory_of_scripts/create_mosaic.py directory mosaicfile listoffiles
-	
-	directory	-	the same root directory as forest_stand_height.py executes
-	mosaicfile	-	file name of the final mosaic file
-	listoffiles	-	paths to all the forest height maps that are to be combined, e.g. in the format of “file1 file2 file3 …”
-
-
----------------------------------------------------------------------------------------------------
-
-The scripts used in Step 4 are organized so that they can be run at the command line by a single command, shown here:
+The scripts are organized so that they can be run at the command line by a single command, shown here:
 
 	python forest_stand_height.py scenes edges start_scene iterations link_file flag_file ref_file mask_file file_directory output_file_types [--Nd_pairwise] [--Nd_self] [--N_pairwise] [--N_self] [--bin_size] [--flag_sparse] [--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad]
 
@@ -120,7 +36,6 @@ The input files that need to be in file_directory are:
   - file_directory - the root directory that consists of the individual scenes-directories. Each scene should have a directory named "f$frame_o$orbit" (e.g. “f890_o120” for the above scene 001). This directory will both contain the input ROI_PAC/ISCE files, as well be the output location for all files that are associated with only that scene.
 
 ---------------------------------------------------------------------------------------------------
-
 
 For each ROI_PAC-processed scene, the following files should be located in a directory with the format “f$frame_o$orbit/int_$date1_$date2":
 		
@@ -176,7 +91,6 @@ The location of the output files depends on whether they are related to the over
 
 ---------------------------------------------------------------------------------------------------
 
-
 Here is an an example run of the model using a three scene dataset (in the test example folders), consisting of a central scene with overlapping NASA’s LVIS LiDAR data and two adjacent scenes. All five possible final output data types are produced. Runtimes are based off of running the model on a Macintosh 64-bit machine with 16GB RAM, and an Intel Core i7 @ 2.8 GHz processor.
 
 ***Note: Runtime does not increase linearly with each additional scene. Runtime for most of the steps are linear in the number of scenes, however, the core part of the inversion & mosaicking depends on the number of edges, which increases a bit faster as the number of scenes increases.***
@@ -214,7 +128,6 @@ The scripts are also able to be run with a single radar scene. To do this use �
 
 ---------------------------------------------------------------------------------------------------
 
-
 This main script in turn calls seven other scripts with the total runtime around 23 minutes 22 secs for the test example of mosaicking three ALOS InSAR scenes:
 
 - auto_tree_height_many() - extracts data from ROI_PAC/ISCE output files and formats them for use in the rest of the scripts (15 secs)
@@ -231,4 +144,14 @@ This main script in turn calls seven other scripts with the total runtime around
 
 - Use of --flag_error calls cal_error_metric() to produce the error metric file that can be used for plotting figures (5 secs).
 
-Detailed information on each of the substeps can be found in the file descriptions below.
+## Step 2b.
+
+### For the examples, we provide an exact command is provided in the text file ("NOTES_") placed in the respective example folder (i.e. "test_example_ISCE_stripmapApp")
+
+Run the following command to create the final mosaic map of FSH as a single GeoTiff file
+
+	python directory_of_scripts/create_mosaic.py directory mosaicfile listoffiles
+	
+	directory	-	the same root directory as forest_stand_height.py executes
+	mosaicfile	-	file name of the final mosaic file
+	listoffiles	-	paths to all the forest height maps that are to be combined, e.g. in the format of “file1 file2 file3 …”
