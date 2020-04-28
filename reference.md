@@ -1,6 +1,3 @@
-=====================================================================================
-
-
 ## III. List of python files and corresponding descriptions
 
 
