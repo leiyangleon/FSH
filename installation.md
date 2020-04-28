@@ -1,4 +1,4 @@
-#I. Needed software packages and installation
+#I. Required software packages and installation
 
 To run these python scripts the following software packages are needed:
 
