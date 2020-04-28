@@ -16,7 +16,7 @@ The Python 2 version of the scripts were updated to Python 3:
 - Thannarot Kunlamai (SERVIR-Mekong, Asian Disaster Preparedness Center)
 - Tim Mayer (timothy.j.mayer@nasa.gov, tjm0042@uah.edu)
 - Helen Baldwin (helen.b.baldwin@nasa.gov, hbb0009@uah.edu)
-- Simon Kraatz updated the python 3 scripts to be OS agnostic (skraatz@umass.edu)
+- Simon Kraatz (skraatz@umass.edu)
 
 ***Besides contacting the authors via email for technical questions, it is also recommended to [refer to the closed issues or open a new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
 
