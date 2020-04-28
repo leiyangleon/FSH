@@ -9,6 +9,22 @@
 Produced by the University of Massachusetts Microwave Remote Sensing Laboratory
 113 Knowles Engineering Building, University of Massachusetts at Amherst, Amherst, MA, USA 01003
 
+=====================================================================================
+
+# Table of Contents:
+
+## I. Needed software packages and installation (https://github.com/sgk0/FSH/blob/master/installation.md)
+
+## II. How to run the software
+
+## III. List of python files and corresponding descriptions (https://github.com/sgk0/FSH/blob/master/reference.md)
+    
+   ### a. List of files
+    
+   ### b. File Descriptions
+
+=====================================================================================
+
 ## Contact:
 Yang Lei, (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@ecs.umass.edu)
 The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlamai (SERVIR-Mekong, Asian Disaster Preparedness Center), Tim Mayer (timothy.j.mayer@nasa.gov, tjm0042@uah.edu) and Helen Baldwin (helen.b.baldwin@nasa.gov, hbb0009@uah.edu). 
