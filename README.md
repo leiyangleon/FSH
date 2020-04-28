@@ -25,9 +25,7 @@ The Python 2 version of the scripts were updated to Python 3 by Thannarot Kunlam
 
 3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. [Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar](https://ieeexplore.ieee.org/document/8439086). IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
 
-4. The scripts have been updated to Python 3 as part of a workshop supporting [Chapter 4](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4.pdf) (with [tutorial](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4_appendixC.pdf)) of the [SAR Handbook](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation).
-
-Citation: [Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation)
+4. The scripts have been updated to Python 3 as part of a workshop supporting [Chapter 4](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4.pdf) (with [tutorial](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4_appendixC.pdf)) of the [SAR Handbook](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation). Citation: [Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation)
 
   
 ## License:
