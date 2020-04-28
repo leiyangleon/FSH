@@ -1,7 +1,7 @@
-## III. List of python files and corresponding descriptions
+# III. List of python files and corresponding descriptions
 
 
-### IIIa. List of Files:
+## IIIa. List of Files:
 
 
 arc_sinc.py
@@ -65,7 +65,7 @@ write_mapfile_new.py
 
 ---------------------------------------------------------------------------------------------------
 
-### IIIb. File Descriptions:
+## IIIb. File Descriptions:
 
 arc_sinc.py - Calculates the inverse sinc function
 
