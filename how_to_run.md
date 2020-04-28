@@ -1,11 +1,8 @@
 # II. How to run FSH:
 
-The overall workflow for the forest stand height model is as follows:
-1. Generate the interferograms, see https://github.com/sgk0/FSH/edit/master/isce_preprocessing.md for help.
-2a. Run the Forest Stand Height model.
-2b. Henerate the mosaicked forest height maps as described in this document.
+## Step 1: Generate the interferograms, see https://github.com/sgk0/FSH/edit/master/isce_preprocessing.md for help. If wanting to test the software on the example interferograms we provide (https://github.com/sgk0/FSH/blob/master/test_example_ISCE_stripmapApp/NOTES_ISCE_stripmapApp.txt), please skip ahead to Step 2a.
 
-## Step 2a.
+## Step 2a: Run the Forest Stand Height model.
 
 ### For the examples, we provide an exact command is provided in the text file ("NOTES_") placed in the respective example folder (i.e. "test_example_ISCE_stripmapApp")
 
@@ -144,7 +141,7 @@ This main script in turn calls seven other scripts with the total runtime around
 
 - Use of --flag_error calls cal_error_metric() to produce the error metric file that can be used for plotting figures (5 secs).
 
-## Step 2b.
+## Step 2b: Generate the mosaicked forest height maps as described in this document.
 
 ### For the examples, we provide an exact command is provided in the text file ("NOTES_") placed in the respective example folder (i.e. "test_example_ISCE_stripmapApp")
 
