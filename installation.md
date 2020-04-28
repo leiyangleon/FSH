@@ -1,11 +1,11 @@
-#I. Required software packages and installation
+# I. Required software packages and installation
 
 To run these python scripts the following software packages are needed:
 
 Python (This code was developed and tested using Version 2.7 and has been updated to Version 3.6+)
 These python libraries: NumPy, SciPy, SimPy, json, pillow, OsGeo/GDAL, simplekml, mpmath
 
-##I. Recommendations for installing on OSX, Linux, Windows systems
+## Recommendations for installing on OSX, Linux, Windows systems
 
 - For Mac/Linux users: libraries can be installed with pip. Alternatively one may use MacPorts (https://www.macports.org/) to install Python along with the above libraries.
 
