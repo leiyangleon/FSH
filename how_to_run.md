@@ -10,7 +10,7 @@
 The scripts are organized so that they can be run at the command line by a single command, shown here:
 
 	python forest_stand_height.py scenes edges start_scene iterations link_file flag_file ref_file mask_file file_directory output_file_types [--Nd_pairwise] [--Nd_self] [--N_pairwise] [--N_self] [--bin_size] [--flag_sparse] [--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad]
-
+	
 The parameters listed in square brackets are optional. All other paramters require input.
 
 Exact parameter definitions and full descriptions can be found in the File Description section below.
@@ -106,8 +106,8 @@ This main script in turn calls seven other scripts with the total runtime around
 
 Run the following command to create the final mosaic map of FSH as a single GeoTiff file
 
-	python directory_of_scripts/create_mosaic.py directory mosaicfile listoffiles
+	python directory_of_scripts/create_mosaic.py directory mosaicfile 
 	
 	directory	-	the same root directory as forest_stand_height.py executes
 	mosaicfile	-	file name of the final mosaic file
-	listoffiles	-	paths to all the forest height maps that are to be combined, e.g. in the format of “file1 file2 file3 …”
+***please note that create_mosaic.py was edited to make data processing more convenient using the example data. It will (1) search the working directory for folders starting with 'f' (i.e. as thosed used in the example). It will then iterate through those folders and pick out any files ending in 'fsh.tif' and mosaick them together. Adjust as needed.***
