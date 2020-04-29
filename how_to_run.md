@@ -74,9 +74,9 @@ The scripts are also able to be run with a single radar scene. To do this use �
 
 		python <full_path_to_directory_of_scripts>forest_stand_height.py 1 0 1 5 - “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “<full_path_to_directory_of_test_example>” “gif json kml mat tif” --flag_proc=1
 
-***Note: If the interferograms were produced using ROI_PAC, change the below to use --flag_proc=0 instead***
-
 ***Note: We use <> symbol as representation of a directory, don't type it as input***
+
+***Note: If the interferograms were produced using ROI_PAC, change the below to use --flag_proc=0 instead. Also see details on ROI_PAC processing here https://github.com/sgk0/FSH/blob/master/roi_pac_note.md***
 
 ---------------------------------------------------------------------------------------------------
 
