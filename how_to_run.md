@@ -3,7 +3,7 @@
 ## Step 1: Generate the interferograms, see https://github.com/sgk0/FSH/edit/master/isce_preprocessing.md for help. 
 ### - To run the software using the example interferograms we provide (see https://github.com/sgk0/FSH/blob/master/test_example_ISCE_stripmapApp/NOTES_ISCE_stripmapApp.txt), please skip ahead to Step 2a.
 
-## Step 2a: Run the Forest Stand Height model. It is strongly recommended to use the Python 3 scripts (scripts_Py3).
+## Step 2a: Run the Forest Stand Height model. It is strongly recommended to use the Python 3 scripts located in the scripts_Py3 directory
 
 ### For the examples, we provide an exact command is provided in the text file ("NOTES_") placed in the respective example folder (i.e. "test_example_ISCE_stripmapApp")
 
