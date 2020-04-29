@@ -2,6 +2,8 @@
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # Diya Chowdhury, Applied GeoSolutions
 # October 26, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script is the python version of remove_water.m, however it removes all
 # non-forest instead of just water
@@ -12,13 +14,14 @@ from numpy import *
 from osgeo import gdal
 import scipy.interpolate as sciint
 import pdb
+import os
 
 # Define remove_nonforest function
 # Input parameters are the image, its coordinates, the non-forest maskfile, and input/output file directory
 def remove_nonforest(I, func_coords, maskfile, directory):
     
     # Load mask file as a GeoTIFF
-    maskfile = gdal.Open(directory + maskfile)    
+    maskfile = gdal.Open(os.path.join(directory,maskfile))    
     mask = array(maskfile.ReadAsArray())
     
     # Set any NaN values to 1 (aka not a forest)

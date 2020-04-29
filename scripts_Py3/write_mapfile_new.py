@@ -3,7 +3,8 @@
 # December 8, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
-
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script is the python version of write_mapfile_new.m, which calculates and writes the tree height map to a file.
 #!/usr/bin/python
@@ -18,7 +19,7 @@ import remove_nonforest as rnf
 import write_file_type as wft
 import scipy.io as sio
 import pdb
-
+import os
 
 # Define write_mapfile_new function
 # Input parameters are the number of scenes, flag-scene name list, non-forest maskfile, file directory, and list of output file types
@@ -30,11 +31,11 @@ def write_mapfile_new(scenes, flagfile, maskfile, directory, output_files):
         # Set the filename
         scene_data = fsf.flag_scene_file(flagfile, i + 1, directory) # 0 vs 1 indexing
         filename = scene_data[1]
-        image_folder = "f" + scene_data[4] + "_o" + scene_data[5] + "/"
+        image_folder = "f" + scene_data[4] + "_o" + scene_data[5] 
 
         # Load first image file and associated parameters
 
-        file1 = sio.loadmat(directory + image_folder + filename + "_orig.mat")
+        file1 = sio.loadmat(os.path.join(directory, image_folder, filename + "_orig.mat"))
         corr_vs = file1['corr_vs']
         coords = file1['coords'][0]
 
@@ -47,7 +48,7 @@ def write_mapfile_new(scenes, flagfile, maskfile, directory, output_files):
 #        coords = array(file1_data[2])
 
         # Load and read data from temp .json files
-        file_tempD = open(directory + image_folder + filename + "_tempD.json")
+        file_tempD = open(os.path.join(directory, image_folder, filename + "_tempD.json"))
         B = json.load(file_tempD)
 
         # Set S and C paramters based on the default and data from B
@@ -77,7 +78,7 @@ def write_mapfile_new(scenes, flagfile, maskfile, directory, output_files):
 
         # Write all the desired output file types for the forest height map
         for filetype in output_files:
-            wft.write_file_type(forest_only_height, "stand_height", filename, directory + image_folder, filetype, coords)
+            wft.write_file_type(forest_only_height, "stand_height", filename, os.path.join(directory, image_folder), filetype, coords)
 
     print ("all tree height map files written at "+ (time.strftime("%H:%M:%S")))
 

@@ -2,6 +2,8 @@
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # Yang Lei, Microwave Remote Sensing Lab, University of Massachusetts
 # December 8, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This is the python version of auto_mosaicking_new.m, which automatically calculates all the S and C paramters
 # in preparation for forest height estimation.
@@ -17,6 +19,7 @@ import read_linkfile as rlf
 import argparse
 import time
 import pdb
+import os
 
 # Define auto_mosaicking_new function
 # Input parameters are the numbers of scenes, edges, start scene, iterations, the input/output file directory, 
@@ -52,7 +55,7 @@ def auto_mosaicking_new(scenes, edges, start_scene, N, linkarray, directory, Nd_
 
 
     # Save dp and the residual as the first iteration output file (using JSON)
-    iter_file = open(directory + "output/" + "SC_0_iter.json", 'w')
+    iter_file = open(os.path.join(directory, "output", "SC_0_iter.json"), 'w')
     json.dump([dp.tolist(), res], iter_file)
     iter_file.close()
     
@@ -68,7 +71,7 @@ def auto_mosaicking_new(scenes, edges, start_scene, N, linkarray, directory, Nd_
         print (time.strftime("%H:%M:%S"))
         filename = "SC_%d_iter.json" % i
 ##        filename = "SC_%d_iter.json" % (i+5)
-        iter_file = open(directory + "output/" + filename, 'w')
+        iter_file = open(os.path.join(directory, "output", filename), 'w')
         json.dump([dp.tolist(), res], iter_file)
         iter_file.close()
 

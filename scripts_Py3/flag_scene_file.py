@@ -1,6 +1,8 @@
 # flag_scene_file.py
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # December 8, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script associates flag numbers with the name, dates, ALOS location (frame and orbit), and polarization of each scene
 # Each line in the input textfile should be formatted as 'flag filename date1 date2 frame orbit polarization'
@@ -9,10 +11,11 @@
 
 # Define flag_scene_file function
 # Input parameters are the textfile of all flag-file pairs and the flag associated with the desired image file
+import os
 def flag_scene_file(flagfilename, flag, directory):
     
     # Open the file
-    flagfile = open(directory + flagfilename)
+    flagfile = open(os.path.join(directory,flagfilename))
     
     # Set default value for scene_file
     data_array = ["", "", "", "", "", ""]

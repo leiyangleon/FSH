@@ -1,19 +1,23 @@
 # read_linkfile.py
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # September 30, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script reads in a text file containing a list of all the scene pairs and returns a 2-D array with all the pairs
 
 #!/usr/bin/python
 from numpy import *
 import argparse
+import os
 
 # Define read_linkfile function
 # Input parameters are the numbers of edges and the name of the file with the edge scene pairs (aka the linkfile)
 def read_linkfile(edges, filename, directory):
     if edges > 0:
         # Open the file
-        linkfile = open(directory + filename)
+
+        linkfile = open(os.path.join(directory, filename))
     
         # Create output array
         linkarray = zeros(edges * 2).reshape(edges, 2)

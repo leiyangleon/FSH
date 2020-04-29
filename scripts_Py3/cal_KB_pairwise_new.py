@@ -2,6 +2,8 @@
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # Yang Lei, Microwave Remote Sensing Lab, University of Massachusetts
 # November 16, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This is the python version of cal_KB_pairwise_new.m, which calculates k and b between image pairs.
 
@@ -14,9 +16,7 @@ import arc_sinc as arc
 import mean_wo_nan as mwn
 import extract_scatterplot_density as espd
 import remove_outlier as rout
-
-
-
+import os
 
 # Define cal_KB_pairwise_new function
 # input parameters are the scene number, change in s and c for each of the two scenes in the pair, the file directory, 
@@ -38,7 +38,7 @@ def cal_KB_pairwise_new(scene1, scene2, deltaS1, deltaC1, deltaS2, deltaC2, dire
     
     # Load and read data from .mat file
     # Samples and lines are calculated from the shape of the images
-    selffile_data = sio.loadmat(directory + "output/" + file_str + ".mat")
+    selffile_data = sio.loadmat(os.path.join(directory, "output", file_str + ".mat"))
     image1 = selffile_data['I1']
     image2 = selffile_data['I2']
     lines = int(image1.shape[0])
