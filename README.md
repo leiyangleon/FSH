@@ -6,6 +6,10 @@
 <img src="preview.jpg" width="100%">
 
 # Forest Stand Height (FSH) Python Scripts
+- Windows (Anaconda Prompt)
+- Linux
+- OSX
+
 Produced by the University of Massachusetts Microwave Remote Sensing Laboratory. 
 
 113 Knowles Engineering Building, University of Massachusetts at Amherst, Amherst, MA, USA 01003.
