@@ -1,6 +1,8 @@
 # write_deltaSC.py
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # December 8, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script is the python version of write_deltaSC.m, which stores the delta S and C values for each scene.
 #!/usr/bin/python
@@ -10,6 +12,7 @@ import json
 import time
 import flag_scene_file as fsf
 import argparse
+import os
 
 # Define write_deltaSC function
 # Input parameters are the number of scenes, number of iterations, flag-scene name list, and file directory
@@ -18,7 +21,7 @@ def write_deltaSC(scenes, N, flagfile, directory):
     # Load dp data from final iteration .json file
     filename = "SC_%d_iter.json" % N
 ##    filename = "SC_%d_iter.json" % 6
-    selffile = open(directory + "output/" + filename)
+    selffile = open(os.path.join(directory, "output", filename))
     selffile_data = json.load(selffile)
     dp = array(selffile_data[0])
 
@@ -35,7 +38,7 @@ def write_deltaSC(scenes, N, flagfile, directory):
         DC = dp[(2 * i) + 1]
 
         # Save DS and DC to output .json file
-        outfile = open(directory + image_folder + filename + '_tempD.json', "w")
+        outfile = open(os.path.join(directory, image_folder, filename + '_tempD.json'), "w")
         json.dump([DS, DC], outfile)
         outfile.close()
 

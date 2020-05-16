@@ -3,7 +3,8 @@
 # November 16, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
-
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script is the python version of intermediate.m, which calculates the overlap areas, running intermediate_self
 # and intermediate_pairwise for each each edge.
@@ -15,6 +16,7 @@ import time
 import intermediate_pairwise as inp
 import intermediate_self as ins
 import argparse
+import os
 
 
 # Define intermediate function

@@ -4,6 +4,8 @@
 # December 8, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script writes the forest diff_height map over the lidar-covered area. The pixelwise value in this map is the absolute differece between the 
 # lidar height and the InSAR inverted height. 
@@ -20,7 +22,7 @@ import arc_sinc as arc
 import write_file_type as wft
 import scipy.io as sio
 import pdb
-
+import os
 
 # Define write_diff_height_map function
 # Input parameters are the start_scene, flag-scene name list, non-forest maskfile, file directory, and list of output file types
@@ -38,7 +40,7 @@ def write_diff_height_map(start_scene, ref_file, flagfile, maskfile, directory, 
 
         # Load and read data from .mat file
         # Samples and lines are calculated from the shape of the images
-        file_data = sio.loadmat(directory + "output/" + "self.mat")
+        file_data = sio.loadmat(os.path.join(directory, "output", "self.mat"))
         lidar = file_data['I1']
         corr_vs = file_data['I2']
         
@@ -47,7 +49,7 @@ def write_diff_height_map(start_scene, ref_file, flagfile, maskfile, directory, 
         scene_data = fsf.flag_scene_file(flagfile, start_scene, directory) # 0 vs 1 indexing
         filename = scene_data[1]
         image_folder = "f" + scene_data[4] + "_o" + scene_data[5] + "/"
-        file_tempD = open(directory + image_folder + filename + "_tempD.json")
+        file_tempD = open(os.path.join(directory, image_folder, filename + "_tempD.json"))
         B = json.load(file_tempD)
         
         # Set S and C paramters based on the default and data from B
@@ -77,7 +79,7 @@ def write_diff_height_map(start_scene, ref_file, flagfile, maskfile, directory, 
 #        filename = filename + "_DIST" -> this is taken care of in write_file_type
         for filetype in output_files:
 #            wftd.write_file_type_diff_height(diff_height, ref_file, filename, directory, filetype)
-            wft.write_file_type(diff_height, "diff_height", filename, directory + image_folder, filetype, 0, ref_file)
+            wft.write_file_type(diff_height, "diff_height", filename, os.path.join(directory, image_folder), filetype, 0, ref_file)
             
     print ("all diff_height output files written at " + (time.strftime("%H:%M:%S")))
     

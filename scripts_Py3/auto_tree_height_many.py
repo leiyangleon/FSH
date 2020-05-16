@@ -3,6 +3,8 @@
 # December 8, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script runs auto_tree_height_single.py for each scene, and saves the output to two files.
 # A .mat file stores the correlation map, kz value, and corner coordinates.
@@ -13,7 +15,7 @@
 from numpy import *
 import json
 import scipy.io as sio
-import time
+import time, os
 import argparse
 import flag_scene_file as fsf
 import auto_tree_height_single_ROIPAC as athsR
@@ -27,17 +29,18 @@ def auto_tree_height_many(scenes, flagfile, directory, numLooks, noiselevel, fla
     for i in range(scenes):
 
         # Get the scene data and set the file name and image folder name (f#_o# where # is the frame and orbit numbers, respectively)
-        scene_data = fsf.flag_scene_file(flagfile, i + 1, directory) # 0 vs 1 indexing
+        scene_data = fsf.flag_scene_file(os.path.join(directory, flagfile), i + 1, directory) # 0 vs 1 indexing
         filename = scene_data[1]
-        image_folder = "f" + scene_data[4] + "_o" + scene_data[5] + "/"
+        image_folder = "f" + scene_data[4] + "_o" + scene_data[5]
+        impth = os.path.join(directory, image_folder)
 
         # Run auto_tree_height_single
         if flag_proc == 0:
             ######## ROI_PAC results
-            file_data = athsR.auto_tree_height_single_ROIPAC(directory + image_folder, scene_data[2], scene_data[3], numLooks, noiselevel, flag_grad)
+            file_data = athsR.auto_tree_height_single_ROIPAC(impth, scene_data[2], scene_data[3], numLooks, noiselevel, flag_grad)
         elif flag_proc == 1:
             ######## ISCE results
-            file_data = athsI.auto_tree_height_single_ISCE(directory + image_folder, scene_data[2], scene_data[3], numLooks, noiselevel, flag_grad)
+            file_data = athsI.auto_tree_height_single_ISCE(impth, scene_data[2], scene_data[3], numLooks, noiselevel, flag_grad)
         else:
             print ("Invalid processor provided!!!")
 
@@ -50,11 +53,11 @@ def auto_tree_height_many(scenes, flagfile, directory, numLooks, noiselevel, fla
         ##        json.dump([file_data[0].tolist(), file_data[1], file_data[2]], outfile)
         ##        outfile.close()
 
-        linkfile = directory + image_folder + filename + '_orig.mat'
+        linkfile = os.path.join(directory,image_folder,filename + '_orig.mat')
         sio.savemat(linkfile,{'corr_vs':file_data[0],'kz':file_data[1],'coords':file_data[2]})
 
         # Write geodata to a text file (4th - 9th values in file_data) -> this gets stored in the scene specific folder
-        geofile = open(directory + image_folder + filename + "_geo.txt", "w")
+        geofile = open(os.path.join(directory,image_folder,filename + "_geo.txt"), "w")
         geofile.write("width: %d \n" % file_data[3])
         geofile.write("nlines: %d \n" % file_data[4])
         geofile.write("corner_lat: %f \n" % file_data[5])

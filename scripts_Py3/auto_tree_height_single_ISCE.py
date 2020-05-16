@@ -1,6 +1,8 @@
 # auto_tree_height_single_ISCE.py
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script extracts the correlation values, kz value, corner coordinates, and geodata from the ISCE output files.
 
@@ -9,7 +11,7 @@ import numpy as np
 import math as mt
 import read_rsc_data as rrd
 import remove_corr_bias as rcb
-import subprocess
+import subprocess, os
 import string
 import xml.etree.ElementTree as ET
 import pdb
@@ -22,7 +24,9 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
 
 
     # Extract ISCE parameters
-    xmlfile = subprocess.getoutput('find '+directory+'int_'+date1+'_'+date2+'/ -name *Proc.xml')
+    print(date1, date2)
+    xmlfilet = [f for f in os.listdir(os.path.join(directory, 'int_'+date1+'_'+date2)) if f.endswith('Proc.xml')][0]
+    xmlfile = os.path.join(directory, 'int_'+date1+'_'+date2, xmlfilet)
     tree = ET.parse(xmlfile)
     root = tree.getroot()
     root_tag = root.tag
@@ -48,7 +52,9 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     baseline = (baseline_bottom+baseline_top)/2
     
 
-    xmlfile = directory+"int_"+date1+"_"+date2+"/topophase.cor.geo.xml"
+    xmlfilet = [f for f in os.listdir(os.path.join(directory, 'int_'+date1+'_'+date2)) if f.endswith('topophase.cor.geo.xml')][0]
+    xmlfile = os.path.join(directory, 'int_'+date1+'_'+date2, xmlfilet)
+    #xmlfile = directory+"int_"+date1+"_"+date2+"/topophase.cor.geo.xml"
     tree = ET.parse(xmlfile)
     root = tree.getroot()
     delta_array = np.array([])
@@ -75,11 +81,14 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     corner_lon = west
     step_lat = delta_array[1]
     step_lon = delta_array[0]
-
-    xmlfile = directory+"int_"+date1+"_"+date2+"/resampOnlyImage.amp.geo.xml"
+    
+    xmlfilet = [f for f in os.listdir(os.path.join(directory, 'int_'+date1+'_'+date2)) if f.endswith('resampOnlyImage.amp.geo.xml')][0]
+    xmlfile = os.path.join(directory, 'int_'+date1+'_'+date2, xmlfilet)
+    #xmlfile = directory+"int_"+date1+"_"+date2+"/resampOnlyImage.amp.geo.xml"
     tree = ET.parse(xmlfile)
     root = tree.getroot()
-    delta_array = np.array([])
+    delta_array = np.array([])# Simon Kraatz, UMass Amherst
+# April 28, 2020
     start_array = np.array([])
     size_array = np.array([], dtype=np.int32)
     for size in root.iter('property'):
@@ -107,15 +116,18 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
 
 
     # Read geolocated amp and cor files
-
-    fid_cor = open(directory + "int_"+date1+"_"+date2+"/topophase.cor.geo", "rb")
+    finnn = os.path.join(directory, "int_" + date1 + "_" + date2, "topophase.cor.geo")
+    fid_cor = open(finnn, "rb")
+    #fid_cor = open(directory + "int_"+date1+"_"+date2+"/topophase.cor.geo", "rb")
     cor_file = np.fromfile(fid_cor, dtype=np.dtype('<f'))
 ##    pdb.set_trace()
     corr = cor_file.reshape(2*geo_width, -1, order='F')
     corr = corr[:,0:geo_nlines]
     corr_mag = corr[geo_width:2*geo_width,:]
 
-    fid_amp = open(directory + "int_"+date1+"_"+date2+"/resampOnlyImage.amp.geo", "rb")
+    finnn = os.path.join(directory, "int_" + date1 + "_" + date2, "resampOnlyImage.amp.geo")
+    fid_amp = open(finnn, "rb")
+    #fid_amp = open(directory + "int_"+date1+"_"+date2+"/resampOnlyImage.amp.geo", "rb")
     amp_file = np.fromfile(fid_amp, dtype=np.dtype('<f'))
     inty = amp_file.reshape(2*geo_width, -1, order='F')
     inty = inty[:,0:geo_nlines]

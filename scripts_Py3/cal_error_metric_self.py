@@ -2,6 +2,8 @@
 # Yang Lei, Microwave Remote Sensing Lab, University of Massachusetts
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # December 8, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This calculates R measure and RMSE between the central image and LiDAR strip.
 
@@ -14,6 +16,7 @@ import mean_wo_nan as mwn
 import remove_outlier as rout
 import pdb
 import scipy.io as sio
+import os
 
 # Define cal_error_metric_self function
 # input parameters are the change in s and c, the file directory, the averaging number in lat and lon, flag for sparse data cloud filtering
@@ -32,7 +35,7 @@ def cal_error_metric_self(deltaS2, deltaC2, directory, N_self):
 
     # Load and read data from .mat file
     # Samples and lines are calculated from the shape of the images
-    selffile_data = sio.loadmat(directory + "output/" + "self.mat")
+    selffile_data = sio.loadmat(os.path.join(directory, "output", "self.mat"))
     image1 = selffile_data['I1']
     image2 = selffile_data['I2']
     lines = int(image1.shape[0])
@@ -113,7 +116,7 @@ def cal_error_metric_self(deltaS2, deltaC2, directory, N_self):
     
     #Export the pair of heights for future scatter plot
     filename = "self_I1andI2.json"
-    R_RSME_file = open(directory + "output/" + filename, 'w')
+    R_RSME_file = open(os.path.join(directory, "output", filename), 'w')
     json.dump([I1m_trunc.tolist(), I2m_trunc.tolist()], R_RSME_file)
     R_RSME_file.close()
     

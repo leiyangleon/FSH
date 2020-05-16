@@ -4,6 +4,8 @@
 # December 8, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script calls all the processing steps needed to take ROI_PAC/ISCE output and create a map of tree heights.
 
@@ -23,6 +25,7 @@ import cal_error_metric as cem
 import json
 import argparse
 import subprocess
+import os
 
 # Define forest_stand_height function
 # Input parameters are scenes, edges, start scene, iterations, link file, flag file, reference data file, file directory,
@@ -40,8 +43,9 @@ def forest_stand_height(scenes, edges, start_scene, iterations, linkfilename, fl
 
     if flag_sparse == 1:
         Nd_self = 1
-
-    subprocess.getoutput('mkdir '+file_directory+'output')
+    
+    if not os.path.exists(os.path.join(file_directory, 'output')):
+        os.mkdir(os.path.join(file_directory, 'output'))
 
     # Extract the correlation map, kz, and corner coordinates for each scene
     athm.auto_tree_height_many(scenes, flagfile, file_directory, numLooks, noiselevel, flag_proc, flag_grad)
@@ -60,7 +64,7 @@ def forest_stand_height(scenes, edges, start_scene, iterations, linkfilename, fl
     # Mosaic the interferograms
     amn.auto_mosaicking_new(scenes, edges, start_scene, iterations, edge_array, file_directory, Nd_pairwise, Nd_self, bin_size, flag_sparse)
 
-    # Store the delta S and C values for each scene
+   # Store the delta S and C values for each scene
     wSC.write_deltaSC(scenes, iterations, flagfile, file_directory)
 
     # Create the tree height map
@@ -76,13 +80,13 @@ def forest_stand_height(scenes, edges, start_scene, iterations, linkfilename, fl
         # Load the dp vector from the final iteration
         filename = "SC_%d_iter.json" % iterations
         ##        filename = "SC_%d_iter.json" % 6
-        iter_file = open(file_directory + "output/" + filename)
+        iter_file = open(os.path.join(file_directory, "output", filename))
         file_data = json.load(iter_file)
         iter_file.close()
         dp = array(file_data[0])
         # Run cal_error_metric() and create a json file containing all of the "pairwise" and "self" R & RMSE error measures
         Y = cem.cal_error_metric(dp, edges, start_scene, edge_array, file_directory, N_pairwise, N_self)
-        output_file = open(file_directory + "output/" + "error_metric.json", 'w')
+        output_file = open(os.path.join(file_directory, "output", "error_metric.json"), 'w')
         json.dump([Y.tolist()], output_file)
         output_file.close()
         print ("cal_error_metric file written at " + (time.strftime("%H:%M:%S"))) 
@@ -113,6 +117,7 @@ parser.add_argument('--flag_proc', type=int, help='optional flag for InSAR proce
 parser.add_argument('--flag_grad', type=int, help='optional flag for correction of large-scale temporal change gradient', choices=[0, 1], nargs='?', default=0)
 
 args = parser.parse_args()
+args.file_directory = os.path.normpath(args.file_directory)
 
 print ("\n")
 print (args)

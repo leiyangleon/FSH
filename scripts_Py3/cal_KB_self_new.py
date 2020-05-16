@@ -2,6 +2,8 @@
 # Tracy Whelen, Microwave Remote Sensing Lab, University of Massachusetts
 # Yang Lei, Microwave Remote Sensing Lab, University of Massachusetts
 # December 8, 2015
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This is the python version of cal_KB_self_new.m, which calculates k and b between the central image and LiDAR strip.
 
@@ -15,6 +17,7 @@ import mean_wo_nan as mwn
 import remove_outlier as rout
 import extract_scatterplot_density as espd
 import pdb
+import os
 
 # Define cal_KB_self_new function
 # input parameters are the change in s and c, the file directory, averaging number in lat/lon for fitting (Nd_self), 
@@ -34,7 +37,7 @@ def cal_KB_self_new(deltaS2, deltaC2, directory, Nd_self, bin_size, sparse_lidar
     
     # Load and read data from .mat file
     # Samples and lines are calculated from the shape of the images
-    selffile_data = sio.loadmat(directory + "output/" + "self.mat")
+    selffile_data = sio.loadmat(os.path.join(directory, "output", "self.mat"))
     image1 = selffile_data['I1']
     image2 = selffile_data['I2']
     lines = int(image1.shape[0])

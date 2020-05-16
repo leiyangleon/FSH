@@ -3,9 +3,8 @@
 # December 8, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
-
-
-
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script is the python version of intermediate_pairwise.m, which calculates the overlap
 # between each pair of scenes. The python verion reads the data directly from auto_tree_height_single, 
@@ -19,6 +18,7 @@ import json
 from scipy.interpolate import griddata
 import flag_scene_file as fsf
 import remove_nonforest as rnf
+import os
 
 # Define intermediate_pairwise function
 # Input parameters are the flags for each image for that edge, scene data file, non-forest maskfile, and the file directory
@@ -33,8 +33,8 @@ def intermediate_pairwise(flag1, flag2, flagfile, maskfile, directory):
     filename2 = scene2_data[1]
     
     # Set the image folder names
-    image1_folder = "f" + scene1_data[4] + "_o" + scene1_data[5] + "/"
-    image2_folder = "f" + scene2_data[4] + "_o" + scene2_data[5] + "/"
+    image1_folder = "f" + scene1_data[4] + "_o" + scene1_data[5] 
+    image2_folder = "f" + scene2_data[4] + "_o" + scene2_data[5]
 
 #    # Read in .mat/Gamma version of input data
 #    # Load first image file and associated parameters
@@ -57,7 +57,8 @@ def intermediate_pairwise(flag1, flag2, flagfile, maskfile, directory):
 ##    file1_data = json.load(file1)
 ##    file1.close()
 
-    file1 = sio.loadmat(directory + image1_folder + filename1 + "_orig.mat")
+    innf1 = os.path.join(directory, image1_folder, filename1 + "_orig.mat")
+    file1 = sio.loadmat(innf1)
     corr1 = file1['corr_vs']
     kz1 = file1['kz'][0][0]
     coords1 = file1['coords'][0]
@@ -68,7 +69,8 @@ def intermediate_pairwise(flag1, flag2, flagfile, maskfile, directory):
 ##    file2_data = json.load(file2)
 ##    file2.close()
 
-    file2 = sio.loadmat(directory + image2_folder + filename2 + "_orig.mat")
+    innf2 = os.path.join(directory, image2_folder, filename2 + "_orig.mat")
+    file2 = sio.loadmat(innf2)
     corr2 = file2['corr_vs']
     kz2 = file2['kz'][0][0]
     coords2 = file2['coords'][0]
@@ -161,7 +163,7 @@ def intermediate_pairwise(flag1, flag2, flagfile, maskfile, directory):
     
     # Save link file using MAT
     linkfilename = "%s_%s.mat" % (int(flag1), int(flag2))
-    linkfile = directory + "output/" + linkfilename
+    linkfile = os.path.join(directory, "output", linkfilename)
     sio.savemat(linkfile,{'I1':I1,'I2':I2})
     
         

@@ -3,7 +3,8 @@
 # December 8, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
-
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script is the python version of intermediate_self.m, which calculates the overlap area
 # between the LiDAR and the central scene.
@@ -17,6 +18,7 @@ from scipy.interpolate import griddata
 from osgeo import gdal
 import flag_scene_file as fsf
 import remove_nonforest as rnf
+import os
 
 # Define intermediate_self function
 # Input parameters are the central scene, the flag-scene data file, non-forest maskfile, reference data file, and the file directory
@@ -25,7 +27,7 @@ def intermediate_self(start_scene, flagfile, ref_file, maskfile, directory):
     # Set scene data, file name, and image folder name
     scene2_data = fsf.flag_scene_file(flagfile, start_scene, directory)
     filename2 = scene2_data[1]
-    image_folder = "f" + scene2_data[4] + "_o" + scene2_data[5] + "/"
+    image_folder = "f" + scene2_data[4] + "_o" + scene2_data[5] 
 
     # Set D constant --- D = 1 arc second, this parameter is based on the use of ALOS data
     #D = 8.3333333 * (10**-4)
@@ -39,8 +41,8 @@ def intermediate_self(start_scene, flagfile, ref_file, maskfile, directory):
 #    coords2 = file2['coords'][0]
     
     # Load central image file and associated parameters
-
-    file2 = sio.loadmat(directory + image_folder + filename2 + "_orig.mat")
+    inf2 = os.path.join(directory, image_folder, filename2+"_orig.mat")
+    file2 = sio.loadmat(inf2)
     corr2 = file2['corr_vs']
     kz2 = file2['kz'][0][0]
     coords2 = file2['coords'][0]
@@ -60,7 +62,7 @@ def intermediate_self(start_scene, flagfile, ref_file, maskfile, directory):
     # Load LiDAR files and associated parameters - .tif
     driver = gdal.GetDriverByName('GTiff')
     driver.Register()
-    img = gdal.Open(directory + ref_file)
+    img = gdal.Open(os.path.join(directory,ref_file))
     ref_data = array(img.ReadAsArray())
     refgeotrans = img.GetGeoTransform()
     corner_lon = refgeotrans[0]
@@ -142,7 +144,7 @@ def intermediate_self(start_scene, flagfile, ref_file, maskfile, directory):
     
     # Save link file using JSON
     linkfilename = "self.mat"
-    linkfile = directory + "output/" + linkfilename
+    linkfile = os.path.join(directory, "output", linkfilename)
     sio.savemat(linkfile,{'I1':I1,'I2':I2})
     
     

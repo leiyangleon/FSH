@@ -3,7 +3,8 @@
 # November 17, 2015
 # Yang Lei, Jet Propulsion Labortary, California Institute of Technology
 # May 18, 2017
-
+# Simon Kraatz, UMass Amherst
+# April 28, 2020
 
 # This script writes the input array (the tree height map or diff_height map) to a file, with the file type depending on input parameters.
 # Current output types are: .gif, .json, .kml, .mat, .tif (input without the "." so that ".kml" becomes "kml")
@@ -18,6 +19,7 @@ from PIL import Image
 import os.path
 import read_geo_data as rgd
 import pdb
+import os
 
 # Define write_file_type function
 # Input parameters are the array, output type (ex. stand height, diff_height, etc), output filename, output directory, and file type (inputted as a string of the file extension)
@@ -42,8 +44,8 @@ def write_file_type(data, outtype, filename, directory, filetype, coords, ref_fi
     # Create .gif output
     if(filetype == "gif"):
         # Check if a 0-255 .tif with the same filename already exists, and if not create it.
-        if (os.path.isfile(directory + outfilename + "_255.tif") == True):
-            gif_img = Image.open(directory + outfilename + "_255.tif")
+        if (os.path.isfile(os.path.join(directory, outfilename + "_255.tif")) == True):
+            gif_img = Image.open(os.path.join(directory, outfilename + "_255.tif"))
         else:
             # Set array in a 0-255 range for gif/kml
             # Get dimensions of array and then flatten for use with nonzero()
@@ -62,14 +64,14 @@ def write_file_type(data, outtype, filename, directory, filetype, coords, ref_fi
 
             # Write 0-255 .tif
             write_file_type(data255, outtype, outfilename + "_255", directory, "tif", coords, ref_file)
-            gif_img = Image.open(directory + outfilename + "_255.tif")
+            gif_img = Image.open(os.path.join(directory, outfilename + "_255.tif"))
 
         # Create the .gif
-        gif_img.save(directory + outfilename + "_255.gif", "GIF", transparency=0)
+        gif_img.save(os.path.join(directory, outfilename + "_255.gif"), "GIF", transparency=0)
 
     # Create .json output
     elif(filetype == "json"):
-        jsonfile = open(directory + outfilename + '.json', 'w')
+        jsonfile = open(os.path.join(directory, outfilename + '.json'), 'w')
         json.dump([data.tolist()], jsonfile)
         jsonfile.close()
 
@@ -102,22 +104,22 @@ def write_file_type(data, outtype, filename, directory, filetype, coords, ref_fi
 
 
         # Check if a .gif with the same filename does not already exist then create it.
-        if (os.path.isfile(directory + outfilename + "_255.gif") == False):
+        if (os.path.isfile(os.path.join(directory, outfilename + "_255.gif")) == False):
             write_file_type(data, outtype, outfilename, directory, "gif", coords, ref_file)
 
         # Create the .kml
         kml = simplekml.Kml()
         arraykml = kml.newgroundoverlay(name=outfilename)
-        arraykml.icon.href = directory + outfilename + "_255.gif"
+        arraykml.icon.href = os.path.join(directory, outfilename + "_255.gif")
         arraykml.latlonbox.north = north
         arraykml.latlonbox.south = south
         arraykml.latlonbox.east = east
         arraykml.latlonbox.west = west
-        kml.save(directory + outfilename + "_255.kml")
+        kml.save(os.path.join(directory, outfilename + "_255.kml"))
 
     # Create .mat output
     elif(filetype == "mat"):
-        sio.savemat(directory + outfilename + '.mat', {'data':data})
+        sio.savemat(os.path.join(directory, outfilename + '.mat'), {'data':data})
 
     # Create .tif output
     elif(filetype == "tif"):
@@ -148,7 +150,7 @@ def write_file_type(data, outtype, filename, directory, filetype, coords, ref_fi
 
         # Create the GeoTiff
         driver = gdal.GetDriverByName('GTiff')
-        outRaster = driver.Create(directory + outfilename + ".tif", cols, rows)
+        outRaster = driver.Create(os.path.join(directory, outfilename + ".tif"), cols, rows)
 #        outRaster = driver.Create(directory + outfilename + ".tif", cols, rows, 1, gdal.GDT_Float32)
         outRaster.SetGeoTransform([corner_long, long_step, 0, corner_lat, 0, lat_step])
         outband = outRaster.GetRasterBand(1)
