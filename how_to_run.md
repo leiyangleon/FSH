@@ -14,7 +14,15 @@ Please see this [page](./isce_preprocessing.md) for help.
 
 The scripts are organized so that they can be run at the command line by a single command, shown here:
 
-	python forest_stand_height.py scenes edges start_scene iterations link_file flag_file ref_file mask_file file_directory output_file_types [--Nd_pairwise] [--Nd_self] [--N_pairwise] [--N_self] [--bin_size] [--flag_sparse] [--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad]
+	python forest_stand_height.py scenes edges start_scene iterations \
+	link_file \
+	flag_file \
+	ref_file \
+	mask_file \
+	file_directory \
+	output_file_types \
+	[--Nd_pairwise] [--Nd_self] [--N_pairwise] [--N_self] [--bin_size] [--flag_sparse] \
+	[--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad]
 	
 The parameters listed in square brackets are optional. All other paramters require input.
 
@@ -22,46 +30,39 @@ Exact parameter definitions and full descriptions can be found in the File Descr
 
 The input files that need to be in file_directory are:
 
-  - flag_file - a text file that lists all the flags and corresponding full file names and associated file information (dates, scene location (frame#, orbit#), polarization), e.g. 
+  - `flag_file` - a text file that lists all the flags and corresponding full file names and associated file information (dates, scene location (frame#, orbit#), polarization), e.g. 
   
-      001 890_120_20070727_HV_20070911_HV 070727 070911 890 120 HV
+        001 890_120_20070727_HV_20070911_HV 070727 070911 890 120 HV
+        002 890_119_20070710_HV_20071010_HV 070710 071010 890 119 HV
+        003 890_118_20070708_HV_20070923_HV 070708 070923 890 118 HV
   
-      002 890_119_20070710_HV_20071010_HV 070710 071010 890 119 HV
-  
-      003 890_118_20070708_HV_20070923_HV 070708 070923 890 118 HV
-  
-  - ref_file - reference tree height data (Lidar or field inventory) in raster format. Currently the code is set up to use a GeoTIFF file, but other reference data in raster format could potentially be used with some code adjustments. Margin/NoData values should be sent to NaN or some number less than zero. 	
+  - `ref_file` - reference tree height data (Lidar or field inventory) in raster format. Currently the code is set up to use a GeoTIFF file, but other reference data in raster format could potentially be used with some code adjustments. Margin/NoData values should be sent to NaN or some number less than zero. 	
 	
-  - mask_file - landcover mask that excludes all water areas and areas of human disturbance (urban, agriculture). Currently set up to be a GeoTIFF file. Other reference data in raster format could potentially be used with some code adjustments. File must be in degrees (i.e., EPSG 4326). This file is optional (although recommended to use). If unused input "-" in place of the file name for the command line arguments. Both the lidar data and the forest/non_forest mask are better to be resampled to the comparable (preferably the same) resolution as the InSAR image.
+  - `mask_file` - landcover mask that excludes all water areas and areas of human disturbance (urban, agriculture). Currently set up to be a GeoTIFF file. Other reference data in raster format could potentially be used with some code adjustments. File must be in degrees (i.e., EPSG 4326). This file is optional (although recommended to use). If unused input "`-`" in place of the file name for the command line arguments. Both the lidar data and the forest/non_forest mask are better to be resampled to the comparable (preferably the same) resolution as the InSAR image.
 	
-  - link_file - a text file that lists all the edge scene pairs. Each line consists of the two numbers that correspond to the flag numbers for those two scenes. (e.g. "2 1" would be the line for the edge of the above scenes 001 and 002). If using a single ALOS scene this file is unneeded, and input "-" instead of the file name for the command line arguments.	
+  - `link_file` - a text file that lists all the edge scene pairs. Each line consists of the two numbers that correspond to the flag numbers for those two scenes. (e.g. "`2 1`" would be the line for the edge of the above scenes 001 and 002). If using a single ALOS scene this file is unneeded, and input "`-`" instead of the file name for the command line arguments.	
 	
-  - file_directory - the root directory that consists of the individual scenes-directories. Each scene should have a directory named "f$frame_o$orbit" (e.g. “f890_o120” for the above scene 001). This directory will both contain the input ROI_PAC/ISCE files, as well be the output location for all files that are associated with only that scene.
+  - `file_directory` - the root directory that consists of the individual scenes-directories. Each scene should have a directory named "`f$frame_o$orbit`" (e.g. “f890_o120” for the above scene 001). This directory will both contain the input ROI_PAC/ISCE files, as well be the output location for all files that are associated with only that scene.
 
 ---------------------------------------------------------------------------------------------------
 
-For each ISCE-processed scene, the following files should be located in a directory with the format “f$frame_o$orbit/int_$date1_$date2":
+For each ISCE-processed scene, the following files should be located in a directory with the format “`f$frame_o$orbit/int_$date1_$date2`":
 		
-    *Proc.xml (insarProc.xml for insarApp and stripmapProc.xml for stripmapApp)
-		
-    resampOnlyImage.amp.geo
-		
-    resampOnlyImage.amp.geo.xml
-		
-    topophase.cor.geo	
-		
+    *Proc.xml (insarProc.xml for insarApp and stripmapProc.xml for stripmapApp)	
+    resampOnlyImage.amp.geo	
+    resampOnlyImage.amp.geo.xml	
+    topophase.cor.geo		
     topophase.cor.geo.xml
 		
 ***Note: ISCE’s insarApp.py or stripmapApp.py should be run with 2 range looks and 10 azimuth looks in both coherence estimation and multi-looking (equivalent to a 30m-by-30m area for JAXA’s ALOS), with the following lines added to the process file:***
 		
     <property name="range looks">1</property>
-		
     <property name="azimuth looks">5</property>
 
-***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder ISCE_processing_scripts (Step 1). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
+***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder [ISCE_processing_scripts](./ISCE_processing_scripts). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
 
 
-The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (file_directory). The scene specific outputs will be stored with the other scene data as described earlier.
+The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (`file_directory`). The scene specific outputs will be stored with the other scene data as described earlier.
 
 ---------------------------------------------------------------------------------------------------
 
