@@ -1,6 +1,6 @@
 # 2. How to use
 
-## 2.1 Generation interferograms
+## 2.1 Generate interferograms
 
 Please see this [page](./isce_preprocessing.md) for help. 
 
