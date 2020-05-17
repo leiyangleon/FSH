@@ -15,18 +15,18 @@ This software performs the automated forest height inversion and mosaicking from
 
 Produced by the University of Massachusetts Microwave Remote Sensing Laboratory. 
 
-Yang Lei, (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@umass.edu).
+Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@umass.edu).
 
 ***Besides contacting the authors via email for technical questions, it is also recommended to [refer to the closed issues or open a new issue on GitHub](https://github.com/leiyangleon/FSH/issues).***
 
 
 ===================================================================================
 
+## Documentation
 
+### 1. [Installation](./installation.md)
 
-## 1. [Installation](./installation.md)
-
-## 2. [How to use](./how_to_run.md)
+### 2. [How to use](./how_to_run.md)
 
 ***Please note that users will have to be able to generate their own interferograms using JPL's ROIPAC or ISCE (insarApp.py workflow up to v2.2; stripmapApp.py workflow for v2.2+) software in order to use the FSH software. Information and tutorials regarding ISCE and interferogram processing can be found at [here](http://earthdef.caltech.edu/projects/isce_forum/boards). To those interested in pursuing their own interferogram processing, we used modified ISCE scripts which are provided with the FSH software, and described [here](./isce_preprocessing.md).*** 
 
@@ -37,9 +37,9 @@ Yang Lei, (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@
 - [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md)
 - [test_example_ROIPAC](./test_example_ROIPAC.md)
 
-## 3. [List of Python files and corresponding descriptions](./reference.md)
+### 3. [List of Python files and corresponding descriptions](./reference.md)
 
-## 4. [Update notes](./update.md)
+### 4. [Update notes](./update.md)
 
 
 
@@ -49,23 +49,15 @@ Yang Lei, (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@
 
 
   
-## License:
-
-Forest Stand Height (FSH) Python Scripts. This software performs the automated forest height inversion and mosaicking from spaceborne repeat-pass L-band HV-pol InSAR correlation magnitude data (e.g. JAXA’s ALOS-1/2, and the future NASA-ISRO’s NISAR) that have been pre-processed by JPL’s ROI_PAC and/or ISCE programs.
-
-Copyright (C) 2017  Yang Lei, Paul Siqueira, Tracy Whelen.
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. 
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
-
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## [License](./license_note.md)
 
 
-## Citation:
+
+
+## Citation
 Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. [Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar](https://ieeexplore.ieee.org/document/8439086). IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
 
-## Related publications and book chapters:
+## Related publications and book chapters
 1. Lei, Y. and Siqueira, P., 2014. [Estimation of forest height using spaceborne repeat-pass L-Band InSAR correlation magnitude over the US State of Maine](https://www.mdpi.com/2072-4292/6/11/10252). Remote Sensing, 6(11), pp.10252-10285.
 
 2. Lei, Y. and Siqueira, P., 2015. [An automatic mosaicking algorithm for the generation of a large-scale forest height map using spaceborne repeat-pass InSAR correlation magnitude](https://www.mdpi.com/2072-4292/7/5/5639). Remote Sensing, 7(5), pp.5639-5659.
