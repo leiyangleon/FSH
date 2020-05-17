@@ -1,6 +1,6 @@
 # 1. Installation
 
-## Required software packages
+## 1.1 Required software packages
 
 To run these Python scripts the following software packages are needed:
 
@@ -17,7 +17,7 @@ along with the following Python modules
 - simplekml
 - mpmath
 
-## Recommendations for installing on OSX, Linux, Windows systems
+## 1.2 Recommendations for installing on OSX, Linux, Windows systems
 
 - For Windows: We recommend using Anaconda (https://www.anaconda.com/). Anaconda can be used to install all packages except for simplekml. Anaconda also comes with pip, which can be run from the Anaconda Prompt to install simplekml. 
 - For Linux: all libraries can be installed with pip. 
