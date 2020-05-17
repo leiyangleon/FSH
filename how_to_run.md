@@ -1,11 +1,16 @@
-# II. How to run FSH:
+# 2. How to use
 
-## Step 1: Generate the interferograms, see https://github.com/sgk0/FSH/edit/master/isce_preprocessing.md for help. 
-### - To run the software using the example interferograms we provide (see https://github.com/sgk0/FSH/blob/master/test_example_ISCE_stripmapApp/NOTES_ISCE_stripmapApp.txt), please skip ahead to Step 2a.
+## 2.1: Interferogram generation
 
-## Step 2a: Run the Forest Stand Height model. We recommend to use the Python 3 scripts.
+Please see this [page](./isce_preprocessing.md) for help. 
 
-### For the examples, we provide an exact command is provided in the text file ("NOTES_") placed in the respective example folder (i.e. "test_example_ISCE_stripmapApp")
+***To run the software using the example interferograms we provide (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md)), please skip ahead to 2.2.***
+
+## 2.2 Run the Forest Stand Height model
+
+***We recommend to use the Python 3 scripts.***
+
+***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md))***
 
 The scripts are organized so that they can be run at the command line by a single command, shown here:
 
