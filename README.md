@@ -6,9 +6,12 @@
 <img src="preview.jpg" width="100%">
 
 # Forest Stand Height (FSH) Python Scripts
+
 - Windows (Anaconda Prompt)
 - Linux
 - OSX
+
+This software performs the automated forest height inversion and mosaicking from spaceborne repeat-pass L-band HV-pol InSAR correlation magnitude data (e.g. JAXA’s ALOS-1/2, and the future NASA-ISRO’s NISAR) that have been pre-processed by JPL’s ROI_PAC and/or ISCE programs.
 
 Produced by the University of Massachusetts Microwave Remote Sensing Laboratory. 
 
@@ -64,9 +67,8 @@ Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019
 
 3. (**RECENT**) Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. [Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar](https://ieeexplore.ieee.org/document/8439086). IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
 
-4. The scripts have been updated to Python 3 as part of a workshop supporting [Chapter 4](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4.pdf) (with [tutorial](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4_appendixC.pdf)) of the [SAR Handbook](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation). 
-
-Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. [SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation) (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.
+4. **The scripts have been updated to Python 3 as part of a workshop supporting [Chapter 4](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4.pdf) (with [tutorial](https://gis1.servirglobal.net/TrainingMaterials/SAR/Chp4_appendixC.pdf)) of the [SAR Handbook](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation).**
+Flores-Anderson, Africa Ixmucane, Herndon, Kelsey E., Thapa, Rajesh Bahadur, and Cherrington, Emil, eds. [SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation](https://servirglobal.net/Global/Articles/Article/2674/sar-handbook-comprehensive-methodologies-for-forest-monitoring-and-biomass-estimation) (Huntsville, AL: SERVIR GLobal Science Coordination Office, 2019). DOI: 10.25966/nr2c-s697.*
 
 ## Contributors
 - Yang Lei
