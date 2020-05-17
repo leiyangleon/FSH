@@ -1,6 +1,6 @@
 # 2. How to use
 
-## 2.1 Interferogram generation
+## 2.1 Generation interferograms
 
 Please see this [page](./isce_preprocessing.md) for help. 
 
@@ -72,23 +72,35 @@ A sample run is given below by referring to the directory containing all the pyt
 
 - To run with ISCE-processed files as input:
 
-		python <full_path_to_directory_of_scripts>forest_stand_height.py 3 2 2 5 “linkfile.txt” “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “<full_path_to_directory_of_test_example>” “gif json kml mat tif” --flag_proc=1
+      python <full_path_to_directory_of_scripts>forest_stand_height.py 3 2 2 5 \
+      “linkfile.txt” \
+      “flagfile.txt” \
+      “Howland_LVIS_NaN.tif” \
+      “Maine_NLCD2011_nonwildland.tif” \
+      “<full_path_to_directory_of_test_example>” \
+      “gif json kml mat tif” \
+      --flag_proc=1
 
 The scripts are also able to be run with a single radar scene. To do this use “-“ instead of a link_file name, and in the input have 0 edges. 
 
 - Example: 
 
-		python <full_path_to_directory_of_scripts>forest_stand_height.py 1 0 1 5 - “flagfile.txt” “Howland_LVIS_NaN.tif” “Maine_NLCD2011_nonwildland.tif” “<full_path_to_directory_of_test_example>” “gif json kml mat tif” --flag_proc=1
+      python <full_path_to_directory_of_scripts>forest_stand_height.py 1 0 1 5 \
+      - \
+      “flagfile.txt” \
+      “Howland_LVIS_NaN.tif” \
+      “Maine_NLCD2011_nonwildland.tif” \
+      “<full_path_to_directory_of_test_example>” \
+      “gif json kml mat tif” \
+      --flag_proc=1
 
 ***Note: We use <> symbol as representation of a directory, don't type it as input***
 
-***Note: If the interferograms were produced using ROI_PAC, change the below to use --flag_proc=0 instead. Also see details on ROI_PAC processing here https://github.com/sgk0/FSH/blob/master/roi_pac_note.md***
+***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](./roi_pac_note.md)***
 
 ---------------------------------------------------------------------------------------------------
 
-### Runtimes
-
-***Note: Runtime does not increase linearly with each additional scene. Runtime for most of the steps are linear in the number of scenes, however, the core part of the inversion & mosaicking depends on the number of edges, which increases a bit faster as the number of scenes increases.***
+***Runtimes***
 
 This main script in turn calls seven other scripts with the total runtime around 23 minutes 22 secs for the test example of mosaicking three ALOS InSAR scenes:
 
@@ -106,14 +118,21 @@ This main script in turn calls seven other scripts with the total runtime around
 
 - Use of --flag_error calls cal_error_metric() to produce the error metric file that can be used for plotting figures (5 secs).
 
-## Step 2b: Generate the mosaicked forest height maps as described in this document.
+***Note: Runtime does not increase linearly with each additional scene. Runtime for most of the steps are linear in the number of scenes, however, the core part of the inversion & mosaicking depends on the number of edges, which increases a bit faster as the number of scenes increases.***
 
-### For the examples, we provide an exact command is provided in the text file ("NOTES_") placed in the respective example folder (i.e. "test_example_ISCE_stripmapApp")
+
+
+## 2.3 Generate the forest height mosaic map
+
+***We recommend to use the Python 3 scripts.***
+
+***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md))***
 
 Run the following command to create the final mosaic map of FSH as a single GeoTiff file
 
-	python directory_of_scripts/create_mosaic.py directory mosaicfile 
+    python directory_of_scripts/create_mosaic.py directory mosaicfile 
 	
-	directory	-	the same root directory as forest_stand_height.py executes
-	mosaicfile	-	file name of the final mosaic file
+    directory	-	the same root directory as forest_stand_height.py executes
+    mosaicfile	-	file name of the final mosaic file
+    
 ***Please note that create_mosaic.py was edited to make data processing more convenient using the example data. It will (1) search the working directory for folders starting with 'f' (i.e. as thosed used in the example). It will then iterate through those folders and pick out any files ending in 'fsh.tif' and mosaick them together. Adjust as needed.***
