@@ -13,7 +13,7 @@ from numpy import *
 def mean_wo_nan(A):
 
     # Copy and flatten A
-    B = A.copy().flatten(1)
+    B = A.copy().flatten('F')
     
     # Remove NaN values from B
     B = B[~isnan(B)]
