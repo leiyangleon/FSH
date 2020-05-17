@@ -52,13 +52,16 @@ Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@u
 ## [License](./license_note.md)
 
 
-
+===================================================================================
 
 ## Citation
 Lei, Y., Siqueira, P., Torbick, N., Ducey, M., Chowdhury, D. and Salas, W., 2019. [Generation of Large-Scale Moderate-Resolution Forest Height Mosaic With Spaceborne Repeat-Pass SAR Interferometry and Lidar](https://ieeexplore.ieee.org/document/8439086). IEEE Transactions on Geoscience and Remote Sensing, 57(2), pp.770-787.
 
-## [Related publications and book chapters](./reference.md)
+===================================================================================
 
+## [Related publications and book chapters](./reference_list.md)
+
+===================================================================================
 
 ## Contributors
 - Yang Lei
