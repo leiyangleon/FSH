@@ -6,19 +6,19 @@
 
 3. Run the 1-command FSH auto-inversion (Step 4 of the general workflow in Section II on the GitHub webpage, i.e. "README.md" file)
               
-    python .../forest_stand_height.py 3 2 2 5 \
-    "linkfile.txt" \
-    "flagfile.txt" \
-    "Howland_LVIS_NaN.tif" \
-    "Maine_NLCD2011_nonwildland.tif" \
-    ".../test_example_ISCE_insarApp/" \
-    "gif json kml mat tif" \
-    --flag_diff=1 --flag_error=1  --flag_proc=1
+       python .../forest_stand_height.py 3 2 2 5 \
+       "linkfile.txt" \
+       "flagfile.txt" \
+       "Howland_LVIS_NaN.tif" \
+       "Maine_NLCD2011_nonwildland.tif" \
+       ".../test_example_ISCE_insarApp/" \
+       "gif json kml mat tif" \
+       --flag_diff=1 --flag_error=1  --flag_proc=1
 
 
 
 4. Run the 1-command FSH mosaicking (Step 5 of the general workflow in Section II on the GitHub webpage, i.e. "README.md" file)
 
-    python .../create_mosaic.py ".../test_example_ISCE_insarApp/" "3sc_mosaic.tif" 
+       python .../create_mosaic.py ".../test_example_ISCE_insarApp/" "3sc_mosaic.tif" 
 
 5. Open the final output `3sc_mosaic.tif` in QGIS.
