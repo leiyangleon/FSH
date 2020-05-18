@@ -11,7 +11,7 @@
        "flagfile.txt" \
        "Howland_LVIS_NaN.tif" \
        "Maine_NLCD2011_nonwildland.tif" \
-       ".../test_example_ISCE_insarApp/" \
+       "<full_path_to_directory_of_test_example>test_example_ISCE_insarApp/" \
        "gif json kml mat tif" \
        --flag_diff=1 --flag_error=1  --flag_proc=1
 
@@ -19,6 +19,7 @@
 
 4. Run the 1-command FSH mosaicking (Step 5 of the general workflow in Section II on the GitHub webpage, i.e. "README.md" file)
 
-       python <full_path_to_directory_of_scripts>create_mosaic.py "<full_path_to_directory_of_test_example>test_example_ISCE_insarApp/" "3sc_mosaic.tif" 
+       python <full_path_to_directory_of_scripts>create_mosaic.py \
+       "<full_path_to_directory_of_test_example>" "3sc_mosaic.tif" 
 
 5. Open the final output `3sc_mosaic.tif` in QGIS.
