@@ -11,7 +11,7 @@
        "flagfile.txt" \
        "Howland_LVIS_NaN.tif" \
        "Maine_NLCD2011_nonwildland.tif" \
-       "<full_path_to_directory_of_test_example>test_example_ISCE_insarApp/" \
+       "<full_path_to_directory_of_test_example>" \
        "gif json kml mat tif" \
        --flag_diff=1 --flag_error=1  --flag_proc=1
 
