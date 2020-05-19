@@ -23,4 +23,4 @@
 5. Open the final output `3sc_mosaic.tif` in QGIS.
 
 
-***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, they can be omitted.***
+***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, it can be omitted.***
