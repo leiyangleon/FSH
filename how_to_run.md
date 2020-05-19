@@ -139,5 +139,7 @@ Run the following command to create the final mosaic map of FSH as a single GeoT
 
       python <full_path_to_directory_of_scripts>create_mosaic.py \
       <full_path_to_directory_of_test_example> 3sc_mosaic.tif
-      
+
+***Note: We use <> symbol as representation of a directory, don't type it as input***
+
 ***Please note that create_mosaic.py was edited to make data processing more convenient using the example data. It will search the working directory for folders starting with 'f' (i.e. as thosed used in the example). It will then iterate through those folders and pick out any files ending in 'fsh.tif' and mosaick them together. Adjust as needed.***
