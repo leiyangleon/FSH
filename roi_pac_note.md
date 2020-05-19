@@ -24,4 +24,4 @@ For each ROI_PAC-processed scene, the following files should be located in a dir
 		
     pixel_ratio = 5
 
-***A 5-point triangle window is hardcoded in ROI_PAC, which is equivalent to a 2-point rectangle window. For further details on running ROI_PAC see the ROI_PAC manual.***
+***Note: a 5-point triangle window is hardcoded in ROI_PAC, which is equivalent to a 2-point rectangle window. For further details on running ROI_PAC see the ROI_PAC manual.***
