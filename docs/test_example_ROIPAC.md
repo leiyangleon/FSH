@@ -3,7 +3,7 @@
 
 2. Under test_example_ROIPAC/test_example_ROIPAC, you will find the flag_file (`flagfile.txt`), link_file (`linkfile.txt`), ref_file (`Howland_LVIS_NaN.tif`), mask_file (`Maine_NLCD2011_nonwildland.tif`). All of the associated files for three ALOS PALSAR HV-pol InSAR coherence scenes are grouped by their ALOS (`f$frame_o$orbit`) and their acquisition dates (under the subfolder `int_$date1_$date2`). For each scene, there are seven associated files outputted by ROI_PAC: `$date1_$date2_baseline.rsc`, `$date1-$date2_2rlks.amp.rsc`, `$date1-$date2-sim_SIM_2rlks.int.rsc`, `$date1-$date2.amp.rsc`, `geo_$date1-$date2_2rlks.amp`, `geo_$date1-$date2_2rlks.cor`, `geo_$date1-$date2_2rlks.cor.rsc`. This page serves as the instructions for running the FSH software over this test example directory. Finally, a image `ROI_PAC.jpeg` shows the final output of 3-scene mosaic map (GeoTiff format) overlaid on Google Earth in a QGIS window.
 
-***Note: all of the ALOS images files have already been margin-cropped and geocoded in the pre-processing by ROI_PAC as descried [here](./isce_preprocessing.md).***
+***Note: all of the ALOS images files have already been margin-cropped and geocoded in the pre-processing by ROI_PAC as descried [here](./docs/isce_preprocessing.md).***
 
 3. Run the 1-command FSH auto-inversion (Step 4 of the general workflow in Section II on the GitHub webpage, i.e. "README.md" file)
 
