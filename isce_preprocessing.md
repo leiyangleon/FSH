@@ -3,9 +3,9 @@
 The preprocessing [scripts](./ISCE_processing_scripts) first need to be set up properly, which is done once and for all. After setting up these scripts, there are three steps for the preprocessing. 
 
 ## 2.1.1 Preparation
-## 2.1.2 Run ROI_PAC/ISCE (Step 1)
-## 2.1.3 Crop the image margin of ROI_PAC/ISCE output (Step 2)
-## 2.1.4 Geocode the ROI_PAC/ISCE output (Step 3)
+## 2.1.2 Run ROI_PAC/ISCE (Step I)
+## 2.1.3 Crop the image margin of ROI_PAC/ISCE output (Step II)
+## 2.1.4 Geocode the ROI_PAC/ISCE output (Step III)
 
 =====================================================================================
 
@@ -46,17 +46,17 @@ Below are the steps we set up the updated ISCE applications (that requires repla
 
 
 
-## Step 1: Run ROI_PAC or ISCE
+## 2.1.2 Run ROI_PAC/ISCE (Step I)
 
 To run the scripts for actual processing (with ALOS-1 data as an example), we need to put two unzipped ALOS-1 data folders (with the folder name formatted as "ALPSRP*-L1.0") in the same directory, e.g. test_data. For running insarApp, one only needs to type the following command line:
 	
-	single_scene_insarApp.py -f test_data
+    single_scene_insarApp.py -f test_data
 
 and for running stripmapApp, one can type:
 
-	single_scene_stripmapApp.py -f test_data
+    single_scene_stripmapApp.py -f test_data
 
-***Note: some of the parameters in the 7 scripts of 0) are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
+***Note: some of the parameters in the 7 scripts are hardcoded for the ALOS data as an example of using the scripts, and needs to be adjusted for ALOS-2 and the future NISAR data.***
 
 ***Note: for better use of updated functions and also to be compatible with future ISCE releases, it is thus recommended not to simply replace those ISCE original files in 1-5) but to directly add the newly added lines into the ISCE original files. Those newly added lines start and end with the pattern shown below:***
 
@@ -64,20 +64,24 @@ and for running stripmapApp, one can type:
     	...
     # NEW COMMANDS added by YL --end
 
+***Note: there is only 1 command line involved for the actual processing using ISCE's insarApp or stripmapApp after the above preparation, which is done once and for all.***
+
 ---------------------------------------------------------------------------------------------------
 
-## Steps 2 and 3, if using ROI_PAC:
+## 2.1.3 Crop the image margin of ROI_PAC/ISCE output (Step II)
+## 2.1.4 Geocode the ROI_PAC/ISCE output (Step III)
 
-In step 2 and step 3, for ROI_PAC-processed results, run the following command line:
+If using ISCE, these steps had already been incorporated in the workflow of Step I.
 
-	python directory_of_scripts/CROP_ROIPAC.py dirname date1 date2
+While using ROI_PAC, the image margin of the ROI_PAC-processed results can be cropped by running the following command line:
+
+	python CROP_ROIPAC.py dirname date1 date2
 
 	dirname	-	the directory where the ROI_PAC amp/cor files are located
 	date1	-	date for 1st SAR acquisition
 	date2	-	date for 2nd SAR acquisition
 
-for cropping the image margin and refer to online ROI_PAC guidance for the geocoding command "geocode.pl" (not included here). 
+and refer to online ROI_PAC guidance for the geocoding command "geocode.pl" (not included here). 
 
-## Steps 2 and 3, if using ISCE: these steps had already been incorporated in the workflow.
 
 ***Note: the amount of margin to be cropped are hardcoded based on the ALOS SAR image dimension, and needs to be adjusted for ALOS-2 and the future NISAR image.***
