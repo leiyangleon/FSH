@@ -1,35 +1,49 @@
-# Generating interferograms to be used as input to FSH:
+# 2.1 Generate interferograms
 
-## There are three steps: 
+The preprocessing [scripts](./ISCE_processing_scripts) first need to be set up properly, which is done once and for all. After setting up these scripts, there are three steps for the preprocessing. 
 
-### 1. Run ROI_PAC or ISCE (see parameter notes below)
-### 2. Crop the ROI_PAC/ISCE output to eliminate the image margins (run standalone CROP_ROIPAC.py or CROP_ISCE.py)
-### 3. Geocode the ROI_PAC/ISCE output
+## 2.1.1 Preparation
+## 2.1.2 Run ROI_PAC/ISCE (Step 1)
+## 2.1.3 Crop the ROI_PAC/ISCE output to eliminate the image margins (Step 2)
+## 2.1.4 Geocode the ROI_PAC/ISCE output (Step 3)
+
+=====================================================================================
+
+
+## 2.1.1 Preparation
 
 In step 1, users may find online support and guidance running ROI_PAC (the command "process_2pass.pl"). Since it only supports ALOS-1 data and has been deprecated, we do not cover the details for running it. Instead, we provide the details along with the scripts for running ISCE, with the precursor being ROI_PAC. ISCE supports JAXA's ALOS-1 and ALOS-2 data and also NASA's future NISAR mission. ISCE's application "insarApp.py" is valid for ISCE v2.0, v2.1 and v2.2, while deprecated for v2.3. "insarApp.py" uses the amplitude cross-correlation (ampcor) to coregister the two radar images. In contrast, starting from v2.2, ISCE started to replace the role of "insarApp.py" with "stripmapApp.py", which uses the radar observing geometry along with dense ampcor + rubbersheeting (to apply the ampcor-determined offsets) for image coregistration. As each method has its own merit, and so far neither is absolutely better than the other, we include both options and leave the quality assessment to the users. Since ISCE v2.2 is the only version of ISCE that supports both "insarApp.py" and "stripmapApp.py", we tested the following scripts with this version only. However, the scripts are meant to work with all versions of ISCE v2+.
 
-- ### All the ISCE preprocessing scripts can be found under the folder "ISCE_processing_scripts/".
+All the ISCE preprocessing scripts can be found under the [folder](./ISCE_processing_scripts).
+Below are the steps we set up the updated ISCE applications (that requires replacing existing ISCE scripts) "insarApp" and "stripmapApp" to process radar (e.g. ALOS PALSAR in the test examples) data for FSH.
 
-- ### Below are the steps for using the ISCE applications "insarApp" and "stripmapApp" to process radar data for FSH.
 
-## Setting up ISCE for generating PALSAR interferograms (requires replacing existing ISCE scripts):
+- Copy updated applications scripts,
 
-### Copy updated applications scripts,
-	0) Copy the 7 scripts (CROP_ISCE_insarApp.py, CROP_ISCE_stripmapApp.py, format_insarApp_xml.py, format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, single_scene_stripmapApp.py) under "ISCE_processing_scripts" to any local folder that is on the environmental variables PATH and PYTHONPATH
+      0) Copy the 7 scripts (CROP_ISCE_insarApp.py, CROP_ISCE_stripmapApp.py, format_insarApp_xml.py, \
+      format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, single_scene_stripmapApp.py) \
+      under "ISCE_processing_scripts" to any local folder that is on the environmental variables PATH and PYTHONPATH
 
-### For using ISCE's insarApp, 
+- For using ISCE's insarApp, 
 
-	1) Replace ISCE/isce/components/isceobj/InsarProc/runCoherence.py with ISCE_processing_scripts/insarApp_substitute/runCoherence.py
+      1) Replace ISCE/isce/components/isceobj/InsarProc/runCoherence.py with \
+      ISCE_processing_scripts/insarApp_substitute/runCoherence.py
 	
-### For using ISCE's stripmapApp,
+- For using ISCE's stripmapApp,
 
-	2) Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with ISCE_processing_scripts/stripmapApp_substitute/runCoherence.py
+      2) Replace ISCE/isce/components/isceobj/StripmapProc/runCoherence.py with \
+      ISCE_processing_scripts/stripmapApp_substitute/runCoherence.py
 
-	3) Replace ISCE/isce/components/isceobj/StripmapProc/runGeocode.py with ISCE_processing_scripts/stripmapApp_substitute/runGeocode.py
+      3) Replace ISCE/isce/components/isceobj/StripmapProc/runGeocode.py with \
+      ISCE_processing_scripts/stripmapApp_substitute/runGeocode.py
 
-	4) Replace ISCE/isce/components/isceobj/StripmapProc/runPreprocessor.py with ISCE_processing_scripts/stripmapApp_substitute/runPreprocessor.py
+      4) Replace ISCE/isce/components/isceobj/StripmapProc/runPreprocessor.py with \
+      ISCE_processing_scripts/stripmapApp_substitute/runPreprocessor.py
 
-	5) Replace ISCE/isce/applications/stripmapApp.py with ISCE_processing_scripts/stripmapApp_substitute/stripmapApp.py
+      5) Replace ISCE/isce/applications/stripmapApp.py with \
+      ISCE_processing_scripts/stripmapApp_substitute/stripmapApp.py
+
+
 
 ## Step 1: Run ROI_PAC or ISCE
 
