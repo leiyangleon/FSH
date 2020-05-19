@@ -1,6 +1,6 @@
 # 2.1 Generate interferograms
 
-The preprocessing [scripts](./ISCE_processing_scripts) first need to be set up properly, which is done once and for all. After setting up these scripts, there are three steps for the preprocessing, which has been simplified as easy as 1 command line only for using ISCE. 
+The preprocessing [scripts](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts) first need to be set up properly, which is done once and for all. After setting up these scripts, there are three steps for the preprocessing, which has been simplified as easy as 1 command line only for using ISCE. 
 
 ## 2.1.1 Preparation
 ## 2.1.2 Run ROI_PAC/ISCE (Step I)
@@ -14,7 +14,7 @@ The preprocessing [scripts](./ISCE_processing_scripts) first need to be set up p
 
 Users may find online support and guidance running ROI_PAC (the command "process_2pass.pl"). Since it only supports ALOS-1 data and has been deprecated, we do not cover the details for running it. Instead, we provide the details along with the scripts for running ISCE, with the precursor being ROI_PAC. ISCE supports JAXA's ALOS-1 and ALOS-2 data and also NASA's future NISAR mission. ISCE's application "insarApp.py" is valid for ISCE v2.0, v2.1 and v2.2, while deprecated for v2.3. "insarApp.py" uses the amplitude cross-correlation (ampcor) to coregister the two radar images. In contrast, starting from v2.2, ISCE started to replace the role of "insarApp.py" with "stripmapApp.py", which uses the radar observing geometry along with dense ampcor + rubbersheeting (to apply the ampcor-determined offsets) for image coregistration. As each method has its own merit, and so far neither is absolutely better than the other, we include both options and leave the quality assessment to the users. Since ISCE v2.2 is the only version of ISCE that supports both "insarApp.py" and "stripmapApp.py", we tested the following scripts with this version only. However, the scripts are meant to work with all versions of ISCE v2+.
 
-All the ISCE preprocessing scripts can be found under the [folder](./ISCE_processing_scripts).
+All the ISCE preprocessing scripts can be found under the [folder](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts).
 Below are the steps we set up the updated ISCE applications (that requires replacing existing ISCE scripts) "insarApp" and "stripmapApp" to process radar (e.g. ALOS PALSAR in the test examples) data for FSH.
 
 
