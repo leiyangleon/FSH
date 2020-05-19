@@ -4,7 +4,7 @@ The preprocessing [scripts](./ISCE_processing_scripts) first need to be set up p
 
 ## 2.1.1 Preparation
 ## 2.1.2 Run ROI_PAC/ISCE (Step 1)
-## 2.1.3 Crop the ROI_PAC/ISCE output to eliminate the image margins (Step 2)
+## 2.1.3 Crop the image margin of ROI_PAC/ISCE output (Step 2)
 ## 2.1.4 Geocode the ROI_PAC/ISCE output (Step 3)
 
 =====================================================================================
