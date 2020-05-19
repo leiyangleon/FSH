@@ -96,7 +96,7 @@ The scripts are also able to be run with a single radar scene. To do this use â€
 
 ***Note: We use <> symbol as representation of a directory, don't type it as input***
 
-***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](./roi_pac_note.md)***
+***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](./roi_pac_note.md).***
 
 ---------------------------------------------------------------------------------------------------
 
@@ -135,4 +135,4 @@ Run the following command to create the final mosaic map of FSH as a single GeoT
     directory	-	the same root directory as forest_stand_height.py executes
     mosaicfile	-	file name of the final mosaic file
     
-***Please note that create_mosaic.py was edited to make data processing more convenient using the example data. It will (1) search the working directory for folders starting with 'f' (i.e. as thosed used in the example). It will then iterate through those folders and pick out any files ending in 'fsh.tif' and mosaick them together. Adjust as needed.***
+***Please note that create_mosaic.py was edited to make data processing more convenient using the example data. It will search the working directory for folders starting with 'f' (i.e. as thosed used in the example). It will then iterate through those folders and pick out any files ending in 'fsh.tif' and mosaick them together. Adjust as needed.***
