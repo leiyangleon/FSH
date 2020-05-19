@@ -19,8 +19,8 @@ along with the following Python modules
 
 ## 1.2 Recommendations for installing on OSX, Linux, Windows systems
 
-- For Windows: We recommend using Anaconda (https://www.anaconda.com/). Anaconda can be used to install all packages except for simplekml. Anaconda also comes with pip, which can be run from the Anaconda Prompt to install simplekml. 
+- For Windows: We recommend using [Anaconda](https://www.anaconda.com/). Anaconda can be used to install all packages except for simplekml. Anaconda also comes with pip, which can be run from the Anaconda Prompt to install simplekml. 
 - For Linux: all libraries can be installed with pip. 
-- For Mac OSX: it is strongly recommended to use MacPorts (https://www.macports.org/) to install Python along with the above Python modules, since it is very easy (no more then 3 command lines for each module) and organized.
+- For Mac OSX: it is strongly recommended to use [MacPorts](https://www.macports.org/) to install Python along with the above Python modules, since it is very easy (no more then 3 command lines for each module) and organized.
 
 ***Note: This software was originally developed and tested on a Windows machine. Python code was tested on Macintosh computers running various OS X (e.g. 10.9-10.14) as well as Linux operating system.***
