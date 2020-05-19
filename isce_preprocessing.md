@@ -1,6 +1,6 @@
 # 2.1 Generate interferograms
 
-The preprocessing [scripts](./ISCE_processing_scripts) first need to be set up properly, which is done once and for all. After setting up these scripts, there are three steps for the preprocessing, which has been simplified as 1 command line only for using ISCE. 
+The preprocessing [scripts](./ISCE_processing_scripts) first need to be set up properly, which is done once and for all. After setting up these scripts, there are three steps for the preprocessing, which has been simplified as easy as 1 command line only for using ISCE. 
 
 ## 2.1.1 Preparation
 ## 2.1.2 Run ROI_PAC/ISCE (Step I)
