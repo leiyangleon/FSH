@@ -21,8 +21,9 @@ Below are the steps we set up the updated ISCE applications (that requires repla
 - Copy updated applications scripts,
 
       0) Copy the 7 scripts (CROP_ISCE_insarApp.py, CROP_ISCE_stripmapApp.py, format_insarApp_xml.py, \
-      format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, single_scene_stripmapApp.py) \
-      under "ISCE_processing_scripts" to any local folder that is on the environmental variables PATH and PYTHONPATH
+      format_stripmapApp_xml.py, MULTILOOK_FILTER_ISCE.py, single_scene_insarApp.py, \
+      single_scene_stripmapApp.py) under "ISCE_processing_scripts" to any local folder that is \
+      on the environmental variables PATH and PYTHONPATH
 
 - For using ISCE's insarApp, 
 
