@@ -4,7 +4,7 @@
 
 Please see this [page](./isce_preprocessing.md) for help. 
 
-***To run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md)), please skip ahead to 2.2.***
+***Note: to run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md)), please skip ahead to 2.2.***
 
 ## 2.2 Run the Forest Stand Height model
 
@@ -59,7 +59,7 @@ For each ISCE-processed scene, the following files should be located in a direct
     <property name="range looks">1</property>
     <property name="azimuth looks">5</property>
 
-***A 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder [ISCE_processing_scripts](./ISCE_processing_scripts). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
+***Note: a 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder [ISCE_processing_scripts](./ISCE_processing_scripts). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
 
 
 The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (`file_directory`). The scene specific outputs will be stored with the other scene data as described earlier.
