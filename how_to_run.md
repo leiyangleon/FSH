@@ -2,15 +2,15 @@
 
 ## 2.1 Generate interferograms
 
-Please see this [page](./isce_preprocessing.md) for help. 
+Please see this [page](./docs/isce_preprocessing.md) for help. 
 
-***Note: to run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md)), please skip ahead to 2.2.***
+***Note: to run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](./docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./docs/test_example_ROIPAC.md)), please skip ahead to 2.2.***
 
 ## 2.2 Run the Forest Stand Height model
 
 ***We recommend to use the Python 3 scripts.***
 
-***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md))***
+***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./docs/test_example_ROIPAC.md))***
 
 The scripts are organized so that they can be run at the command line by a single command, shown here:
 
@@ -96,7 +96,7 @@ The scripts are also able to be run with a single radar scene. To do this use â€
 
 ***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, they can be omitted.***
 
-***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](./roi_pac_note.md).***
+***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](./docs/roi_pac_note.md).***
 
 ---------------------------------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ This main script in turn calls seven other scripts with the total runtime around
 
 ***We recommend to use the Python 3 scripts.***
 
-***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md))***
+***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./docs/test_example_ROIPAC.md))***
 
 Run the following command to create the final mosaic map of FSH as a single GeoTiff file
 
