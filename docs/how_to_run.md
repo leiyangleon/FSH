@@ -46,7 +46,7 @@ The input files that need to be in file_directory are:
 
 ---------------------------------------------------------------------------------------------------
 
-For each ISCE-processed scene, the following files should be located in a directory with the format “`f$frame_o$orbit/int_$date1_$date2`":
+For each ISCE-processed scene, the following files should be located in a directory with the format "`f$frame_o$orbit/int_$date1_$date2`":
 		
     *Proc.xml (insarProc.xml for insarApp and stripmapProc.xml for stripmapApp)	
     resampOnlyImage.amp.geo	
@@ -66,32 +66,32 @@ The location of the output files depends on whether they are related to the over
 
 ---------------------------------------------------------------------------------------------------
 
-Here is an an example run of the model using a three scene dataset (in the test example folders), consisting of a central scene with overlapping NASA’s LVIS LiDAR data and two adjacent scenes. All five possible final output data types are produced. Runtimes are based off of running the model on a Macintosh 64-bit machine with 16GB RAM, and an Intel Core i7 @ 2.8 GHz processor.
+Here is an an example run of the model using a three scene dataset (in the test example folders), consisting of a central scene with overlapping NASA's LVIS LiDAR data and two adjacent scenes. All five possible final output data types are produced. Runtimes are based off of running the model on a Macintosh 64-bit machine with 16GB RAM, and an Intel Core i7 @ 2.8 GHz processor.
 
 A sample run is given below by referring to the directory containing all the python scripts:
 
 - To run with ISCE-processed files as input:
 
       python <full_path_to_directory_of_scripts>forest_stand_height.py 3 2 2 5 \
-      “linkfile.txt” \
-      “flagfile.txt” \
-      “Howland_LVIS_NaN.tif” \
-      “Maine_NLCD2011_nonwildland.tif” \
-      “<full_path_to_directory_of_test_example>” \
-      “gif json kml mat tif” \
+      "linkfile.txt" \
+      "flagfile.txt" \
+      "Howland_LVIS_NaN.tif" \
+      "Maine_NLCD2011_nonwildland.tif" \
+      "<full_path_to_directory_of_test_example>" \
+      "gif json kml mat tif" \
       --flag_proc=1
 
-The scripts are also able to be run with a single radar scene. To do this use “-“ instead of a link_file name, and in the input have 0 edges. 
+The scripts are also able to be run with a single radar scene. To do this use "`-`" instead of a link_file name, and in the input have 0 edges. 
 
 - Example: 
 
       python <full_path_to_directory_of_scripts>forest_stand_height.py 1 0 1 5 \
       - \
-      “flagfile.txt” \
-      “Howland_LVIS_NaN.tif” \
-      “Maine_NLCD2011_nonwildland.tif” \
-      “<full_path_to_directory_of_test_example>” \
-      “gif json kml mat tif” \
+      "flagfile.txt" \
+      "Howland_LVIS_NaN.tif" \
+      "Maine_NLCD2011_nonwildland.tif" \
+      "<full_path_to_directory_of_test_example>" \
+      "gif json kml mat tif" \
       --flag_proc=1
 
 ***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, they can be omitted.***
@@ -138,7 +138,7 @@ Run the following command to create the final mosaic map of FSH as a single GeoT
 - Example: 
 
       python <full_path_to_directory_of_scripts>create_mosaic.py \
-      <full_path_to_directory_of_test_example> 3sc_mosaic.tif
+      "<full_path_to_directory_of_test_example>" "3sc_mosaic.tif"
 
 ***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, they can be omitted.***
 
