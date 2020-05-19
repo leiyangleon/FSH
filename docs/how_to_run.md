@@ -94,7 +94,7 @@ The scripts are also able to be run with a single radar scene. To do this use "`
       "gif json kml mat tif" \
       --flag_proc=1
 
-***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, they can be omitted.***
+***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, it can be omitted.***
 
 ***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](https://github.com/leiyangleon/FSH/blob/dev/docs/roi_pac_note.md).***
 
@@ -140,6 +140,6 @@ Run the following command to create the final mosaic map of FSH as a single GeoT
       python <full_path_to_directory_of_scripts>create_mosaic.py \
       "<full_path_to_directory_of_test_example>" "3sc_mosaic.tif"
 
-***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, they can be omitted.***
+***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, it can be omitted.***
 
 ***Note: create_mosaic.py was edited to make data processing more convenient using the example data. It will search the working directory for folders starting with 'f' (i.e. as thosed used in the example). It will then iterate through those folders and pick out any files ending in 'fsh.tif' and mosaick them together. Adjust as needed.***
