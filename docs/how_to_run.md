@@ -2,15 +2,15 @@
 
 ## 2.1 Generate interferograms
 
-Please see this [page](./isce_preprocessing.md) for help. 
+Please see this [page](https://github.com/leiyangleon/FSH/blob/dev/docs/isce_preprocessing.md) for help. 
 
-***Note: to run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md)), please skip ahead to 2.2.***
+***Note: to run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ROIPAC.md)), please skip ahead to 2.2.***
 
 ## 2.2 Run the Forest Stand Height model
 
 ***We recommend to use the Python 3 scripts.***
 
-***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md))***
+***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ROIPAC.md))***
 
 The scripts are organized so that they can be run at the command line by a single command, shown here:
 
@@ -59,7 +59,7 @@ For each ISCE-processed scene, the following files should be located in a direct
     <property name="range looks">1</property>
     <property name="azimuth looks">5</property>
 
-***Note: a 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder [ISCE_processing_scripts](./ISCE_processing_scripts). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
+***Note: a 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder [ISCE_processing_scripts](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
 
 
 The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (`file_directory`). The scene specific outputs will be stored with the other scene data as described earlier.
@@ -96,7 +96,7 @@ The scripts are also able to be run with a single radar scene. To do this use "`
 
 ***Note: We use <> symbol as representation of a directory, don't type it as input. If the directory of scripts are added to the path and Python path environmental variables, they can be omitted.***
 
-***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](./roi_pac_note.md).***
+***Note: If the interferograms were produced using ROI_PAC, use --flag_proc=0 instead. Also see details on ROI_PAC processing [here](https://github.com/leiyangleon/FSH/blob/dev/docs/roi_pac_note.md).***
 
 ---------------------------------------------------------------------------------------------------
 
@@ -126,7 +126,7 @@ This main script in turn calls seven other scripts with the total runtime around
 
 ***We recommend to use the Python 3 scripts.***
 
-***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md))***
+***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ROIPAC.md))***
 
 Run the following command to create the final mosaic map of FSH as a single GeoTiff file
 
