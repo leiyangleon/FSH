@@ -4,7 +4,7 @@
 
 Please see this [page](./isce_preprocessing.md) for help. 
 
-***To run the software using the example interferograms we provide (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md)), please skip ahead to 2.2.***
+***To run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](./test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](./test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](./test_example_ROIPAC.md)), please skip ahead to 2.2.***
 
 ## 2.2 Run the Forest Stand Height model
 
