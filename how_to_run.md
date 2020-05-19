@@ -130,9 +130,14 @@ This main script in turn calls seven other scripts with the total runtime around
 
 Run the following command to create the final mosaic map of FSH as a single GeoTiff file
 
-    python directory_of_scripts/create_mosaic.py directory mosaicfile 
+    python create_mosaic.py directory mosaicfile 
 	
     directory	-	the same root directory as forest_stand_height.py executes
     mosaicfile	-	file name of the final mosaic file
     
+- Example: 
+
+      python <full_path_to_directory_of_scripts>create_mosaic.py \
+      <full_path_to_directory_of_test_example> 3sc_mosaic.tif
+      
 ***Please note that create_mosaic.py was edited to make data processing more convenient using the example data. It will search the working directory for folders starting with 'f' (i.e. as thosed used in the example). It will then iterate through those folders and pick out any files ending in 'fsh.tif' and mosaick them together. Adjust as needed.***
