@@ -2,7 +2,7 @@
 
 ## 2.1 Generate interferograms
 
-Please see this [page](/docs/isce_preprocessing.md) for help. 
+Please see this [page](https://github.com/leiyangleon/FSH/blob/dev/docs/isce_preprocessing.md) for help. 
 
 ***Note: to run the FSH software using the example interferograms we provide (see [test_example_ISCE_insarApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ROIPAC.md)), please skip ahead to 2.2.***
 
