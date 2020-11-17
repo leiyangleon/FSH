@@ -20,7 +20,7 @@ from scipy import signal
 
 # Define auto_tree_height_single function
 # Input parameters are the file directory, and the names of the two image files
-def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, flag_grad):
+def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, flag_grad, latshift, longshift):
 
 
     # Extract ISCE parameters
@@ -31,8 +31,14 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     root = tree.getroot()
     root_tag = root.tag
     
-    range_pixel_res = float(root.findall("./master/instrument/range_pixel_size")[0].text)
-    llambda = float(root.findall("./master/instrument/radar_wavelength")[0].text)
+    try:
+        range_pixel_res = float(root.findall("./master/instrument/range_pixel_size")[0].text)
+    except:
+        range_pixel_res = float(root.findall("./reference/instrument/range_pixel_size")[0].text)
+    try:
+        llambda = float(root.findall("./master/instrument/radar_wavelength")[0].text)
+    except:
+        llambda = float(root.findall("./reference/instrument/radar_wavelength")[0].text)
     try:
         first_range = float(root.findall("./runTopo/inputs/range_first_sample")[0].text)
     except:
@@ -46,11 +52,24 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
     except:
         num_range_looks = int(root.findall("./runTopo/inputs/NUMBER_RANGE_LOOKS")[0].text)
     center_range = first_range + (num_range_bin/2-1)*range_pixel_res*num_range_looks
-    incid_angle = float(root.findall("./master/instrument/incidence_angle")[0].text)
+    try:
+        incid_angle = float(root.findall("./master/instrument/incidence_angle")[0].text)
+    except:
+        incid_angle = float(root.findall("./reference/instrument/incidence_angle")[0].text)
     baseline_top = float(root.findall("./baseline/perp_baseline_top")[0].text)
     baseline_bottom = float(root.findall("./baseline/perp_baseline_bottom")[0].text)
     baseline = (baseline_bottom+baseline_top)/2
+    try:
+        sensor = root.findall("./master/platform/mission")[0].text
+    except:
+        sensor = root.findall("./reference/platform/mission")[0].text
     
+    if sensor == 'ALOS':
+        numLooks = 20
+    elif sensor == 'ALOS2':
+        numLooks = 30
+    else:
+        raise Exception("invalid sensor: supported sensors include ALOS and ALOS-2 only")
 
     xmlfilet = [f for f in os.listdir(os.path.join(directory, 'int_'+date1+'_'+date2)) if f.endswith('topophase.cor.geo.xml')][0]
     xmlfile = os.path.join(directory, 'int_'+date1+'_'+date2, xmlfilet)
@@ -145,16 +164,30 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
 
 ################### Noise level for ISCE-processed SAR backscatter power output
     if noiselevel == 0.0:
-        if root_tag[0] == 'i':
-            ####### ALOS thermal noise level (insarApp)
-            N1 = 55.5**2
-            N2 = 55.5**2
-        elif root_tag[0] == 's':
-            ####### ALOS thermal noise level (stripmapApp)
-            N1 = (55.5/81)**2
-            N2 = (55.5/81)**2
+        if sensor == 'ALOS':
+            if root_tag == 'insarProc':
+                ####### ALOS thermal noise level (insarApp)
+                N1 = 55.5**2
+                N2 = 55.5**2
+            elif root_tag == 'stripmapProc':
+                ####### ALOS thermal noise level (stripmapApp)
+                N1 = (55.5/81)**2
+                N2 = (55.5/81)**2
+            else:
+                raise Exception("invalid *Proc.xml file!!!")
+        elif sensor == 'ALOS2':
+            if root_tag == 'insarProc':
+                ####### ALOS-2 thermal noise level (insarApp)
+                N1 = 25848**2
+                N2 = 25848**2
+            elif root_tag == 'stripmapProc':
+                ####### ALOS-2 thermal noise level (stripmapApp)
+                N1 = 18114**2
+                N2 = 18114**2
+            else:
+                raise Exception("invalid *Proc.xml file!!!")
         else:
-            raise Exception("invalid *Proc.xml file!!!")
+            raise Exception("invalid sensor: supported sensors include ALOS and ALOS-2 only")
     else:
         N1 = noiselevel
         N2 = noiselevel
@@ -193,6 +226,14 @@ def auto_tree_height_single_ISCE(directory, date1, date2, numLooks, noiselevel, 
 
     # set constants
     pi=mt.pi
+    
+    # correct for geocoding shift error
+    latshift = mt.fabs(step_lat) * latshift
+    longshift = mt.fabs(step_lon) * longshift
+    coords = np.array(coords)
+    coords[0:2] = coords[0:2] - latshift
+    coords[2:4] = coords[2:4] - longshift
+    coords = coords.tolist()
 
     # correcting geometric decorrelation related to value compensation of ROI result compared to GAMMA. Caused by baseline/other decorrelation
     gamma_base = 1 - (2 * mt.fabs(baseline) * mt.cos(incid_angle / 180 * pi) * range_pixel_res / mt.sin(incid_angle / 180 * pi) / llambda / center_range)

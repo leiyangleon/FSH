@@ -31,7 +31,7 @@ import commands
 # flag for sparse data cloud filtering, flag for exporting the diff_height maps, flag for exporting the json error metric files (for all flags 0 is no output, 1 is output)
 # number of looks, thermal noise level, flag for processor selection, flag for temporal change gradient correction
 
-def forest_stand_height(scenes, edges, start_scene, iterations, linkfilename, flagfile, ref_file, maskfile, file_directory, filetypes=['gif', 'json', 'kml', 'mat', 'tif'], Nd_pairwise=20, Nd_self=20, N_pairwise=20, N_self=20, bin_size=100, flag_sparse=0, flag_diff=0, flag_error=0, numLooks=20, noiselevel=0.0, flag_proc=0, flag_grad=0):
+def forest_stand_height(scenes, edges, start_scene, iterations, linkfilename, flagfile, ref_file, maskfile, file_directory, filetypes=['gif', 'json', 'kml', 'mat', 'tif'], Nd_pairwise=20, Nd_self=20, N_pairwise=20, N_self=20, bin_size=100, flag_sparse=0, flag_diff=0, flag_error=0, numLooks=20, noiselevel=0.0, flag_proc=0, flag_grad=0, lat_shift=0, lon_shift=0):
     
     print (time.strftime("%H:%M:%S"))
     
@@ -44,7 +44,7 @@ def forest_stand_height(scenes, edges, start_scene, iterations, linkfilename, fl
     commands.getoutput('mkdir '+file_directory+'output')
     
     # Extract the correlation map, kz, and corner coordinates for each scene
-    athm.auto_tree_height_many(scenes, flagfile, file_directory, numLooks, noiselevel, flag_proc, flag_grad)
+    athm.auto_tree_height_many(scenes, flagfile, file_directory, numLooks, noiselevel, flag_proc, flag_grad, lat_shift, lon_shift)
 
     if linkfilename == '-':
         # Run intermediate_self() (Central scene and LiDAR overlap)
@@ -111,6 +111,8 @@ parser.add_argument('--numLooks', type=int, help='number of looks in the correla
 parser.add_argument('--noiselevel', type=float, help='sensor thermal noise level (ALOS value hardcoded as default if no value provided)', nargs='?', default=0.0)
 parser.add_argument('--flag_proc', type=int, help='optional flag for InSAR processor selection', choices=[0, 1], nargs='?', default=0)
 parser.add_argument('--flag_grad', type=int, help='optional flag for correction of large-scale temporal change gradient', choices=[0, 1], nargs='?', default=0)
+parser.add_argument('--lat_shift', type=int, help='optional latitude shift in pixels given geocoding error', nargs='?', default=0)
+parser.add_argument('--lon_shift', type=int, help='optional longitude shift in pixels given geocoding error', nargs='?', default=0)
 
 args = parser.parse_args()
 
@@ -118,4 +120,4 @@ print "\n"
 print args
 print "\n"
 
-forest_stand_height(args.scenes, args.edges, args.start_scene, args.iterations, args.linkfilename, args.flagfile, args.ref_file, args.maskfile, args.file_directory, args.filetypes.strip().split(" "), args.Nd_pairwise, args.Nd_self, args.N_pairwise, args.N_self, args.bin_size, args.flag_sparse, args.flag_diff, args.flag_error, args.numLooks, args.noiselevel, args.flag_proc, args.flag_grad)
+forest_stand_height(args.scenes, args.edges, args.start_scene, args.iterations, args.linkfilename, args.flagfile, args.ref_file, args.maskfile, args.file_directory, args.filetypes.strip().split(" "), args.Nd_pairwise, args.Nd_self, args.N_pairwise, args.N_self, args.bin_size, args.flag_sparse, args.flag_diff, args.flag_error, args.numLooks, args.noiselevel, args.flag_proc, args.flag_grad, args.lat_shift, args.lon_shift)

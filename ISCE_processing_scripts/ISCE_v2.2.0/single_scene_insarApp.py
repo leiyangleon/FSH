@@ -48,21 +48,36 @@ if __name__ == '__main__':
         
         date_array = array([])
         os.chdir(inps.foldername)
-#        filepath = str.split(runCmd('find `pwd` -name "summary.txt"'))
-        filepath = str.split(runCmd('find `pwd` -name "workreport"'))
+        
+        try:
+            filepath = str.split(runCmd('find `pwd` -name "summary.txt"'))
+            sensor = 'ALOS2'
+        except:
+            filepath = str.split(runCmd('find `pwd` -name "workreport"'))
+            sensor = 'ALOS'
         i = 0
         for path in filepath:
-#            line = runCmd('fgrep Lbi_ObservationDate '+path)
-            line = runCmd('fgrep Img_SceneCenterDateTime '+path)
-#            name = path[0:-12]
-#            date = line[-9:-1]
-            name = path[0:-11]
-            date = str.split(line)[2][1:]
+            if sensor == 'ALOS2':
+                line = runCmd('fgrep Lbi_ObservationDate '+path)
+                name = path[0:-12]
+                date = line[-9:-1]
+            elif sensor == 'ALOS':
+                line = runCmd('fgrep Img_SceneCenterDateTime '+path)
+                name = path[0:-11]
+                date = str.split(line)[2][1:]
+            else:
+                raise Exception('Unknown sensor; Supported sensors include ALOS and ALOS-2 only')
 #            pdb.set_trace()
             date_array = append(date_array, date)
             imagepath = str.split(runCmd('find '+name+' -name "IMG-HV*"'))[0]
             leadpath = str.split(runCmd('find '+name+' -name "LED*"'))[0]
             outpath = date+'.raw'
+            if sensor == 'ALOS2':
+                outpath = date+'.slc'
+            elif sensor == 'ALOS':
+                outpath = date+'.raw'
+            else:
+                raise Exception('Unknown sensor; Supported sensors include ALOS and ALOS-2 only')
             component = ET.Element("component")
             IMG = ET.SubElement(component, "property", name="IMAGEFILE")
             ET.SubElement(IMG, "value").text = imagepath
@@ -88,7 +103,7 @@ if __name__ == '__main__':
         
         ##########################      topsApp.xml generation      ######################
 
-        cmd = 'format_insarApp_xml.py | tee insarAppxml.txt'
+        cmd = 'format_insarApp_xml.py -s {0} | tee insarAppxml.txt'.format(sensor)
 
         runCmd(cmd)
 

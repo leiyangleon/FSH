@@ -7,7 +7,8 @@ def cmdLineParse():
     import argparse
 
     parser = argparse.ArgumentParser(description='construct xml file for ISCE stripmapApp run')
-
+    parser.add_argument('-s', '--sensor', dest='sensor', type=str, required=True,
+                        help='Sensor type, e.g. ALOS, ALOS2')
 
     return parser.parse_args()
 
@@ -21,12 +22,23 @@ if __name__ == '__main__':
 
     inps = cmdLineParse()
     
+    sensor = inps.sensor
+
+    if sensor == 'ALOS':
+        rlks = 1
+        alks = 5
+    elif sensor == 'ALOS2':
+        rlks = 2
+        alks = 4
+    else:
+        raise Exception('Unknown sensor; Supported sensors include ALOS and ALOS2 only')
+    
     stripmapApp_xml = '''<?xml version="1.0" encoding="UTF-8"?>
 <insarApp>
     <component name="insar">
-        <property name="sensor name">ALOS</property>
-        <property name="range looks">1</property>
-        <property name="azimuth looks">5</property>
+        <property name="sensor name">{0}</property>
+        <property name="range looks">{1}</property>
+        <property name="azimuth looks">{2}</property>
         <component name="master">
             <catalog>master.xml</catalog>
         </component>
@@ -51,7 +63,7 @@ if __name__ == '__main__':
 <!--        <property name="dispersive filter coherence threshold">0.6</property>-->
     </component>
 </insarApp>
-'''
+'''.format(sensor,rlks,alks)
 
     fid=open('stripmapApp.xml','w')
 
