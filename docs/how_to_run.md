@@ -10,6 +10,8 @@ Please see this [page](https://github.com/leiyangleon/FSH/blob/dev/docs/isce_pre
 
 ***We recommend to use the Python 3 scripts.***
 
+***Note we have also provided the ALOS-2 support in the current release. Users would only need to follow the same instructions below for either ALOS-1 or ALOS-2 data. The scripts are wise enough to determine which sensor the data were acquired from and then do the FSH inversion and mosaicking.***
+
 ***For the examples, we provide an exact command on the respective page (see [test_example_ISCE_insarApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_insarApp.md), [test_example_ISCE_stripmapApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_stripmapApp.md), [test_example_ROIPAC](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ROIPAC.md))***
 
 The scripts are organized so that they can be run at the command line by a single command, shown here:
