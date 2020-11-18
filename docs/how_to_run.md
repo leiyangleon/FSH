@@ -22,11 +22,11 @@ The scripts are organized so that they can be run at the command line by a singl
 	file_directory \
 	output_file_types \
 	[--Nd_pairwise] [--Nd_self] [--N_pairwise] [--N_self] [--bin_size] [--flag_sparse] \
-	[--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad]
+	[--flag_diff] [--flag_error] [—numLooks] [—noiselevel] [--flag_proc] [--flag_grad] [--lat_shift] [--lon_shift]
 	
 The parameters listed in square brackets are optional. All other paramters require input.
 
-Exact parameter definitions and full descriptions can be found in the File Description section below.
+Exact parameter definitions and full descriptions can be found in the [File Description](https://github.com/leiyangleon/FSH/blob/v1.3/docs/reference.md) section below.
 
 The input files that need to be in file_directory are:
 
@@ -35,7 +35,9 @@ The input files that need to be in file_directory are:
         001 890_120_20070727_HV_20070911_HV 070727 070911 890 120 HV
         002 890_119_20070710_HV_20071010_HV 070710 071010 890 119 HV
         003 890_118_20070708_HV_20070923_HV 070708 070923 890 118 HV
-  
+
+	where frame# and orbit# need to be 3-digit interger for the current release.	
+
   - `ref_file` - reference tree height data (Lidar or field inventory) in raster format. Currently the code is set up to use a GeoTIFF file, but other reference data in raster format could potentially be used with some code adjustments. Margin/NoData values should be sent to NaN or some number less than zero. 	
 	
   - `mask_file` - landcover mask that excludes all water areas and areas of human disturbance (urban, agriculture). Currently set up to be a GeoTIFF file. Other reference data in raster format could potentially be used with some code adjustments. File must be in degrees (i.e., EPSG 4326). This file is optional (although recommended to use). If unused input "`-`" in place of the file name for the command line arguments. Both the lidar data and the forest/non_forest mask are better to be resampled to the comparable (preferably the same) resolution as the InSAR image.
@@ -54,12 +56,17 @@ For each ISCE-processed scene, the following files should be located in a direct
     topophase.cor.geo		
     topophase.cor.geo.xml
 		
-***Note: ISCE’s insarApp.py or stripmapApp.py should be run with 2 range looks and 10 azimuth looks in both coherence estimation and multi-looking (equivalent to a 30m-by-30m area for JAXA’s ALOS), with the following lines added to the process file:***
+***Note: In the [ISCE_preprocessing_scripts](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts), ISCE's insarApp.py or stripmapApp.py is set up to run with multiple looks in both coherence estimation and the final multi-looking of the products so that the multi-looked pixel is equivalent to a 30m-by-30m area on the ground (that is the SRTM DEM resolution). This corresponds to 2 range looks and 10 azimuth looks for ALOS, e.g. with the following lines added to the * Proc.xml file:***
 		
     <property name="range looks">1</property>
     <property name="azimuth looks">5</property>
+    
+***and 4 range looks and 8 azimuth looks for ALOS-2, e.g. with the following lines added to the * Proc.xml file:***
+		
+    <property name="range looks">2</property>
+    <property name="azimuth looks">4</property>
 
-***Note: a 5-point triangle window is hardcoded in ISCE, which is equivalent to a 2-point rectangle window. The .amp/.cor images then need to be multilooked by a factor of two. All of the above parameter setup along with margin cropping, multilooking and geocoding have already been included in the folder [ISCE_processing_scripts](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
+***Note: For coherence estimation, a 5-point triangle window is hardcoded in the [ISCE_preprocessing_scripts](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts), which is equivalent to a 2-point rectangle window. That is why the number of looks in the above parameter setup is only half of the desired values. For final multi-looking of the products, the .amp/.cor images then still need to be multi-looked by a factor of 2 to match the desired number of looks that give the SRTM resolution. For users' convenience, all of the above parameter setup along with margin cropping, multi-looking and geocoding have already been included in the [ISCE_processing_scripts](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts). For further details on running ISCE see the [ISCE manual](https://github.com/isce-framework/isce2).***
 
 
 The location of the output files depends on whether they are related to the overall processing of the entire data set, or are directly associated with a single scene. Examples of each would be the SC iteration files as a general output, and a single forest stand height image as a scene-specific output. The general outputs will be stored in a directory named "output" located within the main file directory (`file_directory`). The scene specific outputs will be stored with the other scene data as described earlier.
