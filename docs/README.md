@@ -6,11 +6,10 @@
 <img src="https://github.com/leiyangleon/FSH/blob/dev/preview.jpg" width="100%">
 
 # Forest Stand Height (FSH) Python Scripts
-
-***1 command for InSAR preprocessing, 1 command for forest height inversion, and 1 command for forest height mosaicking***
-
-***Newly-added support for JAXA's ALOS and ALOS-2 data, and different ISCE versions (v2.2.0 and v2.4.1)***
-
+```diff
++ 1 command for InSAR preprocessing, 1 command for forest height inversion, and 1 command for forest height mosaicking
++ Newly-added support for JAXA's ALOS and ALOS-2 data, and different ISCE versions (v2.2.0 and v2.4.1)
+```
 - Windows (Anaconda Prompt)
 - Linux
 - OSX
