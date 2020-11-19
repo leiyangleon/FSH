@@ -1,12 +1,15 @@
 [![Language](https://img.shields.io/badge/python-2.7/3.6%2B-blue.svg)](https://www.python.org/)
-![Latest version](https://img.shields.io/badge/latest%20version-v1.2-yellowgreen.svg)
+![Latest version](https://img.shields.io/badge/latest%20version-v1.3-yellowgreen.svg)
 [![License](https://img.shields.io/badge/License-GNU%203.0-blue.svg)](https://github.com/leiyangleon/FSH/blob/master/LICENSE)
 [![Citation](https://img.shields.io/badge/DOI-10.1109/TGRS.2018.2860590-blue)](https://doi.org/10.1109/TGRS.2018.2860590)
 
 <img src="https://github.com/leiyangleon/FSH/blob/dev/preview.jpg" width="100%">
 
 # Forest Stand Height (FSH) Python Scripts
-
+```diff
++ 1 command for InSAR preprocessing, 1 command for forest height inversion, and 1 command for forest height mosaicking
++ Newly-added support for JAXA's ALOS and ALOS-2 data, and different ISCE versions (v2.2.0 and v2.4.1)
+```
 - Windows (Anaconda Prompt)
 - Linux
 - OSX
@@ -24,9 +27,11 @@ Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@u
 
 ## Documentation
 
-### 1. [Installation](https://github.com/leiyangleon/FSH/blob/dev/docs/installation.md)
+### 1. [Release News](https://github.com/leiyangleon/FSH/blob/dev/docs/update.md)
 
-### 2. [How to use](https://github.com/leiyangleon/FSH/blob/dev/docs/how_to_run.md)
+### 2. [Installation](https://github.com/leiyangleon/FSH/blob/dev/docs/installation.md)
+
+### 3. [How to use](https://github.com/leiyangleon/FSH/blob/dev/docs/how_to_run.md)
 
 ***Please note that users will have to be able to generate their own interferograms using JPL's ROI_PAC or ISCE (insarApp.py workflow up to v2.2; stripmapApp.py workflow for v2.2+) software in order to use the FSH software. Information and tutorials regarding ISCE and interferogram processing can be found at [here](http://earthdef.caltech.edu/projects/isce_forum/boards). To those interested in pursuing their own interferogram processing, we used modified ISCE [scripts](https://github.com/leiyangleon/FSH/blob/dev/ISCE_processing_scripts) which are provided with the FSH software, and described [here](https://github.com/leiyangleon/FSH/blob/dev/docs/isce_preprocessing.md).*** 
 
@@ -37,9 +42,9 @@ Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@u
 - [test_example_ISCE_stripmapApp](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ISCE_stripmapApp.md)
 - [test_example_ROIPAC](https://github.com/leiyangleon/FSH/blob/dev/docs/test_example_ROIPAC.md)
 
-### 3. [List of Python files and corresponding descriptions](https://github.com/leiyangleon/FSH/blob/dev/docs/reference.md)
+### 4. [List of Python files and corresponding descriptions](https://github.com/leiyangleon/FSH/blob/dev/docs/reference.md)
 
-### 4. [Update notes](https://github.com/leiyangleon/FSH/blob/dev/docs/update.md)
+
 
 
 

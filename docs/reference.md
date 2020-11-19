@@ -127,10 +127,16 @@ Input:
 	directory (string) - directory path of where the input and output files are located
   
 	[--numLooks] (int) - number of looks in the correlation estimation (default=20)
+	
+	[--noiselevel] (float) - sensor thermal noise level (ALOS-1/-2’s values hardcoded as default if no other value provided)
   
 	[--flag_proc] (int) - flag for InSAR processor selection (input 0 for ROI_PAC or 1 for ISCE, default=0)
   
 	[--flag_grad] (int) - flag for correction of large-scale temporal change gradient (input 0 or 1, default=0)
+	
+	[--lat_shift] (int) - optional latitude shift in pixels given geocoding error
+	
+	[--lon_shift] (int) - optional latitude shift in pixels given geocoding error
   
 Output:
 
@@ -197,9 +203,13 @@ Input:
 	
 	numLooks (int) - number of looks in the correlation estimation
 	
-	noiselevel (float) - sensor thermal noise level (ALOS’s value hardcoded as default if no value provided)
+	noiselevel (float) - sensor thermal noise level (ALOS-1/-2’s values hardcoded as default if no other value provided)
 	
 	flag_grad (int) - flag for correction of large-scale temporal change gradient (input 0 or 1)
+	
+	latshift (int) - optional latitude shift in pixels given geocoding error
+	
+	lonshift (int) - optional latitude shift in pixels given geocoding error
 
 Output:
 	
@@ -486,11 +496,15 @@ Input:
 	
   	[--numLooks] (int) - number of looks in the correlation estimation (default=20)
 	
-  	[--noiselevel] (float) - sensor thermal noise level (ALOS’s value hardcoded as default if no value provided)
+  	[--noiselevel] (float) - sensor thermal noise level (ALOS-1/-2’s values hardcoded as default if no other value provided)
 	
   	[--flag_proc] (int) - flag for InSAR processor selection (choose 0 for ROI_PAC or 1 for ISCE, default=0)
 	
   	[--flag_grad] (int) - flag for correction of large-scale temporal change gradient (choose 0 or 1, default=0)
+	
+	[--lat_shift] (int) - optional latitude shift in pixels given geocoding error
+	
+	[--lon_shift] (int) - optional latitude shift in pixels given geocoding error
 
 Output: no direct output (all file output created in subprocesses)
 

@@ -23,7 +23,7 @@ import auto_tree_height_single_ISCE as athsI
 
 # Define auto_tree_height_many function
 # Input parameters are the central scene, the flag-scene data file, and the file directory, number of looks, noise level, flag for processor selection, flag for correction of temporal change gradient
-def auto_tree_height_many(scenes, flagfile, directory, numLooks, noiselevel, flag_proc, flag_grad):
+def auto_tree_height_many(scenes, flagfile, directory, numLooks, noiselevel, flag_proc, flag_grad, lat_shift, lon_shift):
 
     # For each scene name the file, run auto_tree_height_single and save the output to a .json file
     for i in range(scenes):
@@ -40,7 +40,7 @@ def auto_tree_height_many(scenes, flagfile, directory, numLooks, noiselevel, fla
             file_data = athsR.auto_tree_height_single_ROIPAC(impth, scene_data[2], scene_data[3], numLooks, noiselevel, flag_grad)
         elif flag_proc == 1:
             ######## ISCE results
-            file_data = athsI.auto_tree_height_single_ISCE(impth, scene_data[2], scene_data[3], numLooks, noiselevel, flag_grad)
+            file_data = athsI.auto_tree_height_single_ISCE(impth, scene_data[2], scene_data[3], numLooks, noiselevel, flag_grad, lat_shift, lon_shift)
         else:
             print ("Invalid processor provided!!!")
 
@@ -80,11 +80,13 @@ def main():
     parser.add_argument('--noiselevel', type=float, help='sensor thermal noise level (ALOS value hardcoded as default if no value provided)', nargs='?', default=0.0)
     parser.add_argument('--flag_proc', type=int, help='optional flag for InSAR processor selection', choices=[0, 1], nargs='?', default=0)
     parser.add_argument('--flag_grad', type=int, help='optional flag for correction of large-scale temporal change gradient', choices=[0, 1], nargs='?', default=0)
+    parser.add_argument('--lat_shift', type=int, help='optional latitude shift in pixels given geocoding error', nargs='?', default=0)
+    parser.add_argument('--lon_shift', type=int, help='optional longitude shift in pixels given geocoding error', nargs='?', default=0)
 
 
     args = parser.parse_args()
 
-    auto_tree_height_many(args.scenes, args.flagfile, args.file_directory, args.numLooks, args.noiselevel, args.flag_proc, args.flag_grad)
+    auto_tree_height_many(args.scenes, args.flagfile, args.file_directory, args.numLooks, args.noiselevel, args.flag_proc, args.flag_grad, args.lat_shift, args.lon_shift)
 
 
 if __name__ == "__main__":

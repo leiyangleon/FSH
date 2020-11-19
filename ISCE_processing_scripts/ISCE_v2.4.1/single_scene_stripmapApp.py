@@ -48,16 +48,25 @@ if __name__ == '__main__':
         
         date_array = array([])
         os.chdir(inps.foldername)
-#        filepath = str.split(runCmd('find `pwd` -name "summary.txt"'))
-        filepath = str.split(runCmd('find `pwd` -name "workreport"'))
+        
+        try:
+            filepath = str.split(runCmd('find `pwd` -name "summary.txt"'))
+            sensor = 'ALOS2'
+        except:
+            filepath = str.split(runCmd('find `pwd` -name "workreport"'))
+            sensor = 'ALOS'
         i = 0
         for path in filepath:
-#            line = runCmd('fgrep Lbi_ObservationDate '+path)
-            line = runCmd('fgrep Img_SceneCenterDateTime '+path)
-#            name = path[0:-12]
-#            date = line[-9:-1]
-            name = path[0:-11]
-            date = str.split(line)[2][1:]
+            if sensor == 'ALOS2':
+                line = runCmd('fgrep Lbi_ObservationDate '+path)
+                name = path[0:-12]
+                date = line[-9:-1]
+            elif sensor == 'ALOS':
+                line = runCmd('fgrep Img_SceneCenterDateTime '+path)
+                name = path[0:-11]
+                date = str.split(line)[2][1:]
+            else:
+                raise Exception('Unknown sensor; Supported sensors include ALOS and ALOS-2 only')
 #            pdb.set_trace()
             date_array = append(date_array, date)
             imagepath = str.split(runCmd('find '+name+' -name "IMG-HV*"'))[0]
@@ -73,23 +82,23 @@ if __name__ == '__main__':
             tree = ET.ElementTree(component)
 #            pdb.set_trace()
             if i == 0:
-                tree.write("master.xml")
+                tree.write("reference.xml")
             else:
-                tree.write("slave.xml")
+                tree.write("secondary.xml")
             i = i + 1
         
         if float(date_array[0]) > float(date_array[1]):
-            runCmd("mv master.xml temp.xml")
-            runCmd("mv slave.xml master.xml")
-            runCmd("mv temp.xml slave.xml")
+            runCmd("mv reference.xml temp.xml")
+            runCmd("mv secondary.xml reference.xml")
+            runCmd("mv temp.xml secondary.xml")
         
         
         print("Preprocessing Done!")
         print (time.strftime("%H:%M:%S"))
         
         ##########################      topsApp.xml generation      ######################
-        
-        cmd = 'format_stripmapApp_xml.py | tee stripmapAppxml.txt'
+
+        cmd = 'format_stripmapApp_xml.py -s {0} | tee stripmapAppxml.txt'.format(sensor)
         
         runCmd(cmd)
         
