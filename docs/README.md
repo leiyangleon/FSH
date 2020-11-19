@@ -30,7 +30,7 @@ Yang Lei (ylei@caltech.edu, leiyangfrancis@gmail.com), Paul Siqueira (siqueira@u
 
 ## Documentation
 
-### 1. [Release News](https://github.com/leiyangleon/FSH/blob/dev/docs/update.md)
+### 1. [Release news](https://github.com/leiyangleon/FSH/blob/dev/docs/update.md)
 
 ### 2. [Installation](https://github.com/leiyangleon/FSH/blob/dev/docs/installation.md)
 
